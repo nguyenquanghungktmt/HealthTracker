@@ -7,15 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class IntroViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnCreateAccount: UIButton!
     @IBOutlet weak var collectionViewIntro: UICollectionView!
     @IBOutlet weak var pageControlIntro: UIPageControl!
     @IBOutlet weak var viewBackgroundIntro: UIView!
     
-    let introSlides: [String] = ["1", "2", "3"]
+    let introSlides = Constants.introSlides
     
+    let gradient = CAGradientLayer()
     var currentSlide = 0
     
     override func viewDidLoad() {
@@ -26,28 +27,34 @@ class ViewController: UIViewController {
         collectionViewIntro.delegate = self
         collectionViewIntro.dataSource = self
         self.collectionViewIntro.register(UINib(nibName: "SlideCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SlideCollectionViewCell")
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        gradient.frame = viewBackgroundIntro.bounds
     }
     
     public func setupView(){
         self.view.backgroundColor = UIColor(rgb: 0xF3F5FB)
-        self.viewBackgroundIntro.backgroundColor = UIColor(rgb: 0xA6F1F7)
         
-        let gradient = CAGradientLayer()
-        gradient.frame = self.viewBackgroundIntro.bounds
-        gradient.colors = [UIColor(rgb: 0xA6F1F7), UIColor(rgb: 0xF3F5FB)]
-        gradient.locations = [NSNumber(floatLiteral: 0.0), NSNumber(floatLiteral: 1.0)]
-        self.viewBackgroundIntro.layer.insertSublayer(gradient, at: 0)
+        // set gradient for Intro background
+        gradient.startPoint = CGPoint(x: 0.5, y: 0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1)
+        gradient.colors = [UIColor(rgb: 0xA6F1F7).cgColor, UIColor(rgb: 0xF3F5FB).cgColor]
+        gradient.locations = [0, 1.0]
+        viewBackgroundIntro.layer.addSublayer(gradient)
         
-        
+        // set color for page control
         pageControlIntro.currentPageIndicatorTintColor = UIColor(rgb: 0x2C8667)
         pageControlIntro.pageIndicatorTintColor = UIColor(rgb: 0x2C8667, alpha: 0.3)
         
+        
+        // setup button
         btnLogin.setTitle("Đăng nhập", for: .normal)
         btnLogin.setTitleColor(.white, for: .normal)
         btnLogin.layer.cornerRadius = 20
         btnLogin.backgroundColor = UIColor(rgb: 0x2C8667)
-        
+
         btnCreateAccount.setTitle("Tạo tài khoản", for: .normal)
         btnCreateAccount.setTitleColor(.black, for: .normal)
         btnCreateAccount.layer.cornerRadius = 20
@@ -57,7 +64,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func handleBtnLogin(_ sender: UIButton) {
-        
+        let vc = UIViewController.fromStoryboard(LoginViewController.self)
+        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
     }
     
 
@@ -66,7 +74,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension IntroViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return introSlides.count
     }
@@ -75,12 +83,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         guard let introCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SlideCollectionViewCell", for: indexPath) as? SlideCollectionViewCell else {
             return UICollectionViewCell()
         }
-        introCell.setupIntroCell()
+        introCell.setupIntroCell(intro: introSlides[indexPath.item])
         return introCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        return collectionViewIntro.bounds.size
     }
     
     // s
