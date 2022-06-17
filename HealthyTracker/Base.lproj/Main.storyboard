@@ -8,11 +8,16 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Bold.ttf">
+            <string>NunitoSans-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Title-->
+        <!--IntroViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="IntroViewController" customClass="IntroViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +29,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Geq-xG-pyN">
-                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="790" width="414" height="106"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWY-Sj-XCk">
@@ -32,6 +37,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="G6R-XD-1p9"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
                                 <state key="normal" title="Dang nhap"/>
                                 <connections>
                                     <action selector="handleBtnLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Taq-gF-QIq"/>
@@ -42,14 +48,18 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7dd-Dr-nDJ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
                                 <state key="normal" title="Tao tai khoan"/>
                                 <connections>
                                     <action selector="handleBtnCreateAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ike-wt-dfS"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dqg-dB-Ij2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="582.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="574"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dqg-dB-Ij2" secondAttribute="height" multiplier="1:1" constant="-160" id="LOz-oQ-vKJ"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="597-wX-gfW">
                                     <size key="itemSize" width="414" height="595"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -58,18 +68,19 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IntroCollectionViewCell" id="hge-yx-zAg" customClass="IntroCollectionViewCell" customModule="HealthyTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-6.5" width="414" height="595"/>
+                                        <rect key="frame" x="0.0" y="-10.5" width="414" height="595"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IBf-3d-lU9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="595"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="414" height="595"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="37l-MB-inD">
-                                <rect key="frame" x="146.5" y="612.5" width="121.5" height="28"/>
+                                <rect key="frame" x="146.5" y="594" width="121.5" height="28"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="linkColor"/>
                             </pageControl>
                         </subviews>
@@ -83,13 +94,12 @@
                             <constraint firstItem="foW-t5-e5o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PBO-sd-hU3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2rv-AL-aiF" secondAttribute="trailing" constant="16" id="PTq-Nu-SPK"/>
                             <constraint firstItem="dqg-dB-Ij2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RPG-Wl-XQ4"/>
-                            <constraint firstItem="dqg-dB-Ij2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.65" id="TuA-Yi-al0"/>
                             <constraint firstItem="37l-MB-inD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XBa-8A-QCb"/>
-                            <constraint firstItem="37l-MB-inD" firstAttribute="top" secondItem="dqg-dB-Ij2" secondAttribute="bottom" constant="30" id="XYa-YG-rjP"/>
+                            <constraint firstItem="37l-MB-inD" firstAttribute="top" secondItem="dqg-dB-Ij2" secondAttribute="bottom" constant="20" id="XYa-YG-rjP"/>
                             <constraint firstItem="foW-t5-e5o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="firstBaseline" id="aRX-o1-sTE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WWY-Sj-XCk" secondAttribute="bottom" constant="16" id="ecW-gj-2Yv"/>
                             <constraint firstItem="WWY-Sj-XCk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gfb-HN-s3j"/>
-                            <constraint firstItem="Geq-xG-pyN" firstAttribute="top" secondItem="WWY-Sj-XCk" secondAttribute="bottom" constant="16" id="jjS-Xc-Kg0"/>
+                            <constraint firstItem="Geq-xG-pyN" firstAttribute="top" secondItem="WWY-Sj-XCk" secondAttribute="top" constant="-16" id="jjS-Xc-Kg0"/>
                             <constraint firstItem="2rv-AL-aiF" firstAttribute="width" secondItem="WWY-Sj-XCk" secondAttribute="width" multiplier="177:150" id="lnx-tD-sa8"/>
                             <constraint firstItem="dqg-dB-Ij2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mWv-fs-c0h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="foW-t5-e5o" secondAttribute="trailing" id="rZ8-Mc-l3x"/>
@@ -108,12 +118,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="88.392857142857139"/>
+            <point key="canvasLocation" x="938.39999999999998" y="87.706146926536732"/>
+        </scene>
+        <!--LoginViewController-->
+        <scene sceneID="qnX-74-2Y5">
+            <objects>
+                <viewController id="fdB-4J-Ylc" userLabel="LoginViewController" customClass="LoginViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u8u-1j-Wip" customClass="Login">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="T4w-9h-0Tb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRU-hN-ejB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="88"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yuU-cC-b56">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7ZK-nF-MdZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainStoryboard" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7ZK-nF-MdZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iqg-Ab-9FA">
                         <autoresizingMask key="autoresizingMask"/>

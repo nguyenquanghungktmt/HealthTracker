@@ -17,7 +17,6 @@ class IntroViewController: UIViewController {
     let introSlides = Constants.introSlides
     
     let gradient = CAGradientLayer()
-    var currentSlide = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,25 +34,25 @@ class IntroViewController: UIViewController {
     }
     
     public func setupView(){
-        self.view.backgroundColor = UIColor(rgb: 0xF3F5FB)
+        self.view.backgroundColor = Constants.Color.background
         
         // set gradient for Intro background
         gradient.startPoint = CGPoint(x: 0.5, y: 0)
         gradient.endPoint = CGPoint(x: 0.5, y: 1)
-        gradient.colors = [UIColor(rgb: 0xA6F1F7).cgColor, UIColor(rgb: 0xF3F5FB).cgColor]
+        gradient.colors = [Constants.Color.startGradientIntro.cgColor, Constants.Color.endGradientIntro.cgColor]
         gradient.locations = [0, 1.0]
         viewBackgroundIntro.layer.addSublayer(gradient)
         
         // set color for page control
-        pageControlIntro.currentPageIndicatorTintColor = UIColor(rgb: 0x2C8667)
-        pageControlIntro.pageIndicatorTintColor = UIColor(rgb: 0x2C8667, alpha: 0.3)
+        pageControlIntro.currentPageIndicatorTintColor = Constants.Color.greenBold
+        pageControlIntro.pageIndicatorTintColor = Constants.Color.greenLight
         
         
         // setup button
         btnLogin.setTitle("Đăng nhập", for: .normal)
         btnLogin.setTitleColor(.white, for: .normal)
         btnLogin.layer.cornerRadius = 20
-        btnLogin.backgroundColor = UIColor(rgb: 0x2C8667)
+        btnLogin.backgroundColor = Constants.Color.greenBold
 
         btnCreateAccount.setTitle("Tạo tài khoản", for: .normal)
         btnCreateAccount.setTitleColor(.black, for: .normal)
@@ -64,13 +63,14 @@ class IntroViewController: UIViewController {
     
     
     @IBAction func handleBtnLogin(_ sender: UIButton) {
-        let vc = UIViewController.fromStoryboard(LoginViewController.self)
-        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+//        let loginVC = LoginViewController()
+//        self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
 
     @IBAction func handleBtnCreateAccount(_ sender: UIButton) {
-        
+        //        let loginVC = LoginViewController()
+        //        self.navigationController?.pushViewController(loginVC, animated: true)
     }
 }
 
@@ -91,25 +91,8 @@ extension IntroViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return collectionViewIntro.bounds.size
     }
     
-    // s
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControlIntro.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
 
-}
-
-extension UIColor {
-
-    convenience init(rgb: UInt) {
-        self.init(rgb: rgb, alpha: 1.0)
-    }
-
-    convenience init(rgb: UInt, alpha: CGFloat) {
-        self.init(
-            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgb & 0x0000FF) / 255.0,
-            alpha: CGFloat(alpha)
-        )
-    }
 }

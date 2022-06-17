@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+struct IntroModel {
+    var image: UIImage?
+    var title: String? = ""
+    var subtitle: String? = ""
+}
