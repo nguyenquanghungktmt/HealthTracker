@@ -130,15 +130,9 @@
 				7368E03E285C360600B0C3CA /* ViewControllers */,
 				7368E039285C31D700B0C3CA /* Models */,
 				7368E034285C311D00B0C3CA /* Helpers */,
-				7368DFF7285C264400B0C3CA /* Fonts */,
-				737DDD3F285AC75400200AC1 /* IntroCell */,
-				7340C80128584570008CC1B4 /* AppDelegate.swift */,
-				7340C80328584570008CC1B4 /* SceneDelegate.swift */,
+				738C7164285D6A0300143782 /* Cells */,
 				7368E03F285C361C00B0C3CA /* App */,
-				7340C80728584570008CC1B4 /* Main.storyboard */,
-				7340C80A28584571008CC1B4 /* Assets.xcassets */,
-				7340C80C28584571008CC1B4 /* LaunchScreen.storyboard */,
-				7340C80F28584571008CC1B4 /* Info.plist */,
+				738C7165285D6A2600143782 /* Resources */,
 			);
 			path = HealthyTracker;
 			sourceTree = "<group>";
@@ -199,6 +193,8 @@
 		7368E03F285C361C00B0C3CA /* App */ = {
 			isa = PBXGroup;
 			children = (
+				7340C80128584570008CC1B4 /* AppDelegate.swift */,
+				7340C80328584570008CC1B4 /* SceneDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -218,6 +214,26 @@
 				737DDD47285AE5C900200AC1 /* SlideCollectionViewCell.xib */,
 			);
 			path = IntroCell;
+			sourceTree = "<group>";
+		};
+		738C7164285D6A0300143782 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				737DDD3F285AC75400200AC1 /* IntroCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		738C7165285D6A2600143782 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7368DFF7285C264400B0C3CA /* Fonts */,
+				7340C80728584570008CC1B4 /* Main.storyboard */,
+				7340C80A28584571008CC1B4 /* Assets.xcassets */,
+				7340C80C28584571008CC1B4 /* LaunchScreen.storyboard */,
+				7340C80F28584571008CC1B4 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,7 +566,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RDFG6WTHF7;
-				INFOPLIST_FILE = HealthyTracker/Info.plist;
+				INFOPLIST_FILE = HealthyTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -569,7 +585,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RDFG6WTHF7;
-				INFOPLIST_FILE = HealthyTracker/Info.plist;
+				INFOPLIST_FILE = HealthyTracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

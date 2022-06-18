@@ -51,26 +51,26 @@ class IntroViewController: UIViewController {
         // setup button
         btnLogin.setTitle("Đăng nhập", for: .normal)
         btnLogin.setTitleColor(.white, for: .normal)
-        btnLogin.layer.cornerRadius = 20
+        btnLogin.layer.cornerRadius = 24
         btnLogin.backgroundColor = Constants.Color.greenBold
 
         btnCreateAccount.setTitle("Tạo tài khoản", for: .normal)
         btnCreateAccount.setTitleColor(.black, for: .normal)
-        btnCreateAccount.layer.cornerRadius = 20
+        btnCreateAccount.layer.cornerRadius = 24
         btnCreateAccount.layer.borderWidth = 1
         btnCreateAccount.backgroundColor = .white
     }
     
     
     @IBAction func handleBtnLogin(_ sender: UIButton) {
-//        let loginVC = LoginViewController()
-//        self.navigationController?.pushViewController(loginVC, animated: true)
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
 
     @IBAction func handleBtnCreateAccount(_ sender: UIButton) {
-        //        let loginVC = LoginViewController()
-        //        self.navigationController?.pushViewController(loginVC, animated: true)
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
 }
 
