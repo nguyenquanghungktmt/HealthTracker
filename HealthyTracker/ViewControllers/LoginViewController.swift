@@ -24,17 +24,6 @@ class LoginViewController: UIViewController {
     
     func setupView(){
         txtEnterPhoneNumber.delegate = self
-        
-//        btnBack.backgroundColor = Constants.Color.grayLight
-//        btnLanguage.backgroundColor = Constants.Color.grayLight
-//
-//        vEnterPhoneNumber.layer.borderColor = Constants.Color.borderGray.cgColor
-//
-//        btnNext.backgroundColor = Constants.Color.greenLight
-//
-//        vHotline.backgroundColor = Constants.Color.greenExtraLight
-//        txtHotlineNumber.textColor = Constants.Color.greenBold
-        
         txtEnterPhoneNumber.addTarget(self, action: #selector(textFieldEditChanged(_:)), for: .editingChanged)
     }
     
