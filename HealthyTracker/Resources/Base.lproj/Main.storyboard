@@ -37,11 +37,14 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWY-Sj-XCk">
                                 <rect key="frame" x="16" y="798" width="168" height="48"/>
+                                <color key="backgroundColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="G6R-XD-1p9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
-                                <state key="normal" title="Dang nhap"/>
+                                <state key="normal" title="Dang nhap">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="handleBtnLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Taq-gF-QIq"/>
                                 </connections>
@@ -52,7 +55,9 @@
                                     <constraint firstAttribute="height" constant="48" id="7dd-Dr-nDJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
-                                <state key="normal" title="Tao tai khoan"/>
+                                <state key="normal" title="Tao tai khoan">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="handleBtnCreateAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ike-wt-dfS"/>
                                 </connections>
@@ -84,7 +89,8 @@
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="37l-MB-inD">
                                 <rect key="frame" x="146.5" y="590" width="121.5" height="28"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="linkColor"/>
+                                <color key="pageIndicatorTintColor" red="0.17254901960784313" green="0.52549019607843139" blue="0.40392156862745099" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -139,6 +145,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwK-Ks-9c2">
                                 <rect key="frame" x="328" y="60" width="70" height="32"/>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.3803921569" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="EAG-vk-b3l"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="ETH-EB-qCQ"/>
@@ -147,18 +154,29 @@
                                 <state key="normal" title="EN / VI">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="handleBtnLanguageAction:" destination="fdB-4J-Ylc" eventType="touchUpInside" id="M4E-md-b1c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wld-uJ-6M3">
                                 <rect key="frame" x="16" y="60" width="32" height="32"/>
+                                <color key="backgroundColor" red="0.14117647058823529" green="0.16470588235294117" blue="0.38039215686274508" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="CFj-WB-iTw"/>
                                     <constraint firstAttribute="height" constant="32" id="cQ3-0b-ebr"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="icon_arrow_left"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="handleBtnBackAction:" destination="fdB-4J-Ylc" eventType="touchUpInside" id="G9n-Ad-oQ5"/>
                                 </connections>
@@ -183,13 +201,21 @@
                                             <constraint firstAttribute="width" constant="1" id="elr-vU-piQ"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nhập số điện thoại" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WI8-qa-hwF" userLabel="Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nhập số điện thoại" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WI8-qa-hwF" userLabel="Text Field">
                                         <rect key="frame" x="81" y="12" width="269" height="32"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="uqk-5H-bv1" firstAttribute="centerY" secondItem="UVo-YT-K1k" secondAttribute="centerY" id="1AT-Y1-ENa"/>
                                     <constraint firstItem="WI8-qa-hwF" firstAttribute="top" secondItem="UVo-YT-K1k" secondAttribute="top" constant="12" id="4gM-D7-6Bd"/>
@@ -202,13 +228,45 @@
                                     <constraint firstItem="WI8-qa-hwF" firstAttribute="leading" secondItem="uqk-5H-bv1" secondAttribute="trailing" constant="16" id="pbK-oh-ShH"/>
                                     <constraint firstAttribute="height" constant="56" id="uKr-FJ-0JX"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.93333333333333335" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbn-fn-R2B">
-                                <rect key="frame" x="24" y="331" width="366" height="48"/>
+                                <rect key="frame" x="24" y="339" width="366" height="48"/>
+                                <color key="backgroundColor" red="0.17254901960784313" green="0.52549019607843139" blue="0.40392156862745099" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="qXs-fm-rT1"/>
                                 </constraints>
-                                <state key="normal" title="Tiếp tục"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="17"/>
+                                <state key="normal" title="Tiếp tục">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="handleBtnNextAction:" destination="fdB-4J-Ylc" eventType="touchUpInside" id="r2z-Z1-YyG"/>
                                 </connections>
@@ -237,7 +295,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1900 6036 893" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHR-Is-4m0" userLabel="Number">
                                                         <rect key="frame" x="61" y="0.0" width="139" height="20"/>
                                                         <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -257,13 +315,18 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.054901960784313725" green="0.67843137254901964" blue="0.41176470588235292" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="60D-TM-1gu" secondAttribute="bottom" constant="14" id="6mA-hf-9Ty"/>
                                     <constraint firstItem="60D-TM-1gu" firstAttribute="top" secondItem="BmY-mX-ocx" secondAttribute="top" constant="14" id="RAE-iM-v5J"/>
                                     <constraint firstAttribute="height" constant="48" id="VLC-PK-sfp"/>
                                     <constraint firstItem="60D-TM-1gu" firstAttribute="centerX" secondItem="BmY-mX-ocx" secondAttribute="centerX" id="h6Y-Hc-WXG"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T4w-9h-0Tb"/>
@@ -282,7 +345,7 @@
                             <constraint firstItem="UVo-YT-K1k" firstAttribute="top" secondItem="tV2-hV-gJS" secondAttribute="bottom" constant="56" id="lB9-EA-GIF"/>
                             <constraint firstItem="Mbn-fn-R2B" firstAttribute="leading" secondItem="T4w-9h-0Tb" secondAttribute="leading" constant="24" id="puG-uc-G5w"/>
                             <constraint firstItem="mwK-Ks-9c2" firstAttribute="top" secondItem="T4w-9h-0Tb" secondAttribute="top" constant="16" id="rH9-uq-APM"/>
-                            <constraint firstItem="Mbn-fn-R2B" firstAttribute="top" secondItem="UVo-YT-K1k" secondAttribute="bottom" constant="12" id="vOt-rj-WY0"/>
+                            <constraint firstItem="Mbn-fn-R2B" firstAttribute="top" secondItem="UVo-YT-K1k" secondAttribute="bottom" constant="20" id="vOt-rj-WY0"/>
                             <constraint firstItem="T4w-9h-0Tb" firstAttribute="bottom" secondItem="BmY-mX-ocx" secondAttribute="bottom" constant="24" id="wnS-ur-AL7"/>
                             <constraint firstItem="UVo-YT-K1k" firstAttribute="leading" secondItem="T4w-9h-0Tb" secondAttribute="leading" constant="24" id="zWE-cQ-XZq"/>
                         </constraints>
@@ -300,6 +363,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRU-hN-ejB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1837.68115942029" y="87.723214285714278"/>
+        </scene>
+        <!--OTP Verify View Controller-->
+        <scene sceneID="113-b7-R5C">
+            <objects>
+                <viewController storyboardIdentifier="OTPVerifyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IyL-Mx-MhS" userLabel="OTP Verify View Controller" customClass="OTPVerifyViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mrM-B7-7w5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aQE-v3-Nta"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jEB-hc-64a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2726" y="87"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yuU-cC-b56">
@@ -323,9 +401,6 @@
         <image name="icon_arrow_left" width="17" height="18"/>
         <image name="icon_phone" width="22" height="22"/>
         <image name="img_login" width="375" height="188"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

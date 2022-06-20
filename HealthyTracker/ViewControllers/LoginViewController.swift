@@ -19,30 +19,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("Login")
         setupView()
     }
     
     func setupView(){
-        btnBack.layer.cornerRadius = 16
-        btnBack.backgroundColor = Constants.Color.grayLight
-        btnLanguage.layer.cornerRadius = 16
-        btnLanguage.backgroundColor = Constants.Color.grayLight
-        
-        vEnterPhoneNumber.layer.cornerRadius = 28
-        vEnterPhoneNumber.layer.borderWidth = 1
-        vEnterPhoneNumber.layer.borderColor = Constants.Color.greenBold.cgColor
-        vEnterPhoneNumber.layer.shadowRadius = 8
-        vEnterPhoneNumber.layer.shadowOpacity = 0.1
-        
-        btnNext.setTitleColor(.white, for: .normal)
-        btnNext.layer.cornerRadius = 24
-        btnNext.backgroundColor = Constants.Color.greenLight
-        
-        vHotline.layer.cornerRadius = 24
-        vHotline.backgroundColor = Constants.Color.greenExtraLight
-        txtHotlineNumber.textColor = Constants.Color.greenBold
-        
+        txtEnterPhoneNumber.delegate = self
         txtEnterPhoneNumber.addTarget(self, action: #selector(textFieldEditChanged(_:)), for: .editingChanged)
     }
     
@@ -54,19 +35,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func handleBtnNextAction(_ sender: UIButton) {
+        let verifyVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPVerifyViewController") as! OTPVerifyViewController
+        self.navigationController?.pushViewController(verifyVC, animated: true)
     }
-    
-    func isValidPhone(phone: String) -> Bool {
-        let phone9NumberRegex = "^[1-9]{1}+[0-9]{8}$"
-        let phone10NumberRegex = "^[0]+[0-9]{9}$"
-        let phone9NumberTest = NSPredicate(format: "SELF MATCHES %@", phone9NumberRegex)
-        let phone10NumberTest = NSPredicate(format: "SELF MATCHES %@", phone10NumberRegex)
-        return phone9NumberTest.evaluate(with: phone) || phone10NumberTest.evaluate(with: phone)
+
+    /// Check valid phone number using regex
+    func isValidPhoneNumber(phone: String) -> Bool {
+        let phoneRegex = "^(0?)[1-9]{1}+[0-9]{8}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: phone)
     }
         
     @objc func textFieldEditChanged(_ textField: UITextField) {
         let phoneNumber = txtEnterPhoneNumber.text ?? ""
-        updateBtnNext(isEnable: isValidPhone(phone: phoneNumber))
+        updateBtnNext(isEnable: isValidPhoneNumber(phone: phoneNumber))
     }
     
     func updateBtnNext(isEnable: Bool) {
@@ -76,13 +58,11 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate{
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         vEnterPhoneNumber.layer.borderColor = Constants.Color.greenBold.cgColor
-        return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         vEnterPhoneNumber.layer.borderColor = Constants.Color.greenExtraLight.cgColor
-        return true
     }
 }
