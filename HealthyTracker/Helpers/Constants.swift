@@ -27,9 +27,12 @@ struct Constants {
         static let greenExtraLight = UIColor(rgb: 0x0EAD69, alpha: 0.05)
         static let borderGray = UIColor(rgb: 0xEEEFF4)
         static let grayLight = UIColor(rgb: 0x242A61, alpha: 0.3)
+        static let grayBold = UIColor(rgb: 0xD9DBE1)
         
         static let startGradientIntro = UIColor(rgb: 0xA6F1F7)
         static let endGradientIntro = UIColor(rgb: 0xF3F5FB)
+        
+        static let fontBlack = UIColor(rgb: 0x242A61)
     }
     
     struct Font {

@@ -102,4 +102,13 @@ extension UIView{
         }
     }
     
+    func setColorCornerRadius(color: UIColor, radius: CGFloat){
+        self.backgroundColor = color
+        self.layer.cornerRadius = radius
+    }
+    
+    func setBorder(color: CGColor, width: CGFloat){
+        self.layer.borderColor = color
+        self.layer.borderWidth = width
+    }
 }

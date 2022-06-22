@@ -11,6 +11,6 @@ import UIKit
 extension UILabel {
     func setFontSizeColor(font: String, size: CGFloat, color: UIColor){
         self.font = UIFont(name: font, size: size)
-        self.textColor = .black
+        self.textColor = color
     }
 }
