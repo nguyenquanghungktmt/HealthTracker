@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnLanguage: UIButton!
+    @IBOutlet weak var btnNationPhoneCode: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func handleBtnNextAction(_ sender: UIButton) {
+        let nationCode = self.btnNationPhoneCode.currentTitle ?? ""
+        let phoneNumber = self.txtEnterPhoneNumber.text ?? ""
+        let numberEditted = "\(nationCode) \(phoneNumber)"
+        
         let verifyVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPVerifyViewController") as! OTPVerifyViewController
+        verifyVC.phoneNumber = numberEditted
         self.navigationController?.pushViewController(verifyVC, animated: true)
     }
 
