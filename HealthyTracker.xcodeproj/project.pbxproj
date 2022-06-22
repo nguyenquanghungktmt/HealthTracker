@@ -17,6 +17,11 @@
 		7340C82428584571008CC1B4 /* HealthyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C82328584571008CC1B4 /* HealthyTrackerUITests.swift */; };
 		7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */; };
 		7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */; };
+		7361EC502860709F0071E6BF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */; };
+		7367AED52862B429004A6F89 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */; };
+		7367AED82862B7B7004A6F89 /* OneTimeCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AED72862B7B7004A6F89 /* OneTimeCodeTextField.swift */; };
+		7367AEDA2862B8A3004A6F89 /* OneTimeCodeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AED92862B8A3004A6F89 /* OneTimeCodeTextFieldDelegate.swift */; };
+		7367AEDC2862BCEF004A6F89 /* OTPStackViiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AEDB2862BCEF004A6F89 /* OTPStackViiew.swift */; };
 		7368E019285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */; };
 		7368E01A285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */; };
 		7368E01B285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */; };
@@ -73,6 +78,11 @@
 		7340C82528584571008CC1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewController.swift; sourceTree = "<group>"; };
+		7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		7367AED72862B7B7004A6F89 /* OneTimeCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextField.swift; sourceTree = "<group>"; };
+		7367AED92862B8A3004A6F89 /* OneTimeCodeTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		7367AEDB2862BCEF004A6F89 /* OTPStackViiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackViiew.swift; sourceTree = "<group>"; };
 		7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
 		7368E002285C264400B0C3CA /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
 		7368E035285C314900B0C3CA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -159,6 +169,16 @@
 			path = HealthyTrackerUITests;
 			sourceTree = "<group>";
 		};
+		7367AED62862B76E004A6F89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7367AED72862B7B7004A6F89 /* OneTimeCodeTextField.swift */,
+				7367AED92862B8A3004A6F89 /* OneTimeCodeTextFieldDelegate.swift */,
+				7367AEDB2862BCEF004A6F89 /* OTPStackViiew.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7368DFF7285C264400B0C3CA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +208,7 @@
 		7368E03E285C360600B0C3CA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7367AED62862B76E004A6F89 /* Views */,
 				7340C80528584570008CC1B4 /* IntroViewController.swift */,
 				7368E045285C36B900B0C3CA /* LoginViewController.swift */,
 				7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */,
@@ -209,6 +230,8 @@
 			children = (
 				7368E04A285C389B00B0C3CA /* UIColor+Extensions.swift */,
 				7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */,
+				7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */,
+				7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -379,12 +402,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7361EC502860709F0071E6BF /* UILabel+Extension.swift in Sources */,
 				7368E046285C36B900B0C3CA /* LoginViewController.swift in Sources */,
 				7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */,
 				7340C80628584570008CC1B4 /* IntroViewController.swift in Sources */,
+				7367AED82862B7B7004A6F89 /* OneTimeCodeTextField.swift in Sources */,
+				7367AED52862B429004A6F89 /* UIViewController+Extensions.swift in Sources */,
+				7367AEDC2862BCEF004A6F89 /* OTPStackViiew.swift in Sources */,
 				7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */,
 				7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */,
 				7340C80428584570008CC1B4 /* SceneDelegate.swift in Sources */,
+				7367AEDA2862B8A3004A6F89 /* OneTimeCodeTextFieldDelegate.swift in Sources */,
 				7368E03B285C31E400B0C3CA /* IntroModel.swift in Sources */,
 				737DDD48285AE5C900200AC1 /* SlideCollectionViewCell.swift in Sources */,
 				7368E036285C314900B0C3CA /* Constants.swift in Sources */,
