@@ -144,10 +144,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwK-Ks-9c2">
-                                <rect key="frame" x="328" y="60" width="70" height="32"/>
+                                <rect key="frame" x="328" y="60" width="70" height="28"/>
                                 <color key="backgroundColor" red="0.14117647059999999" green="0.1647058824" blue="0.3803921569" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="EAG-vk-b3l"/>
+                                    <constraint firstAttribute="height" constant="28" id="EAG-vk-b3l"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="ETH-EB-qCQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
@@ -156,7 +156,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
+                                        <real key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -403,7 +403,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title bar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQi-aa-lbv">
-                                        <rect key="frame" x="171.5" y="14.5" width="71" height="25"/>
+                                        <rect key="frame" x="171.5" y="19.5" width="71" height="25"/>
                                         <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -423,8 +423,9 @@
                                     <constraint firstItem="hkF-Xp-aWU" firstAttribute="top" secondItem="KG2-QB-JFx" secondAttribute="top" constant="16" id="TIA-jz-VCl"/>
                                     <constraint firstAttribute="bottom" secondItem="SRK-nL-JWx" secondAttribute="bottom" id="XZv-L8-zAH"/>
                                     <constraint firstItem="SRK-nL-JWx" firstAttribute="leading" secondItem="KG2-QB-JFx" secondAttribute="leading" id="XrG-ja-eV4"/>
+                                    <constraint firstAttribute="height" constant="54" id="YXy-5M-xiL"/>
                                     <constraint firstAttribute="trailing" secondItem="SRK-nL-JWx" secondAttribute="trailing" id="qwW-iF-lyW"/>
-                                    <constraint firstItem="AQi-aa-lbv" firstAttribute="centerY" secondItem="KG2-QB-JFx" secondAttribute="centerY" id="soi-PL-Ku1"/>
+                                    <constraint firstItem="AQi-aa-lbv" firstAttribute="centerY" secondItem="hkF-Xp-aWU" secondAttribute="centerY" id="soi-PL-Ku1"/>
                                     <constraint firstItem="hkF-Xp-aWU" firstAttribute="leading" secondItem="KG2-QB-JFx" secondAttribute="leading" constant="16" id="xDl-4y-6Nq"/>
                                 </constraints>
                             </view>
@@ -457,10 +458,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekz-Mj-L0l">
                                         <rect key="frame" x="0.0" y="52" width="180" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJI-Lf-O93">
-                                                <rect key="frame" x="30.5" y="2" width="119" height="32"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Gửi lại mã sau 60s" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXi-DA-Coz">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="36"/>
+                                                <color key="textColor" red="0.85098039219999999" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJI-Lf-O93">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="36"/>
                                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
-                                                <state key="normal" title="Gui lai ma sau 60s">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.85098039219999999" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -470,9 +477,15 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="1Zg-Rx-xlq"/>
-                                            <constraint firstItem="UJI-Lf-O93" firstAttribute="centerX" secondItem="ekz-Mj-L0l" secondAttribute="centerX" id="9VW-77-i6N"/>
-                                            <constraint firstItem="UJI-Lf-O93" firstAttribute="centerY" secondItem="ekz-Mj-L0l" secondAttribute="centerY" id="I5X-yu-XMV"/>
+                                            <constraint firstAttribute="trailing" secondItem="UJI-Lf-O93" secondAttribute="trailing" id="2tm-Nm-Tkj"/>
+                                            <constraint firstItem="CXi-DA-Coz" firstAttribute="leading" secondItem="ekz-Mj-L0l" secondAttribute="leading" id="InE-Po-5rg"/>
+                                            <constraint firstAttribute="bottom" secondItem="UJI-Lf-O93" secondAttribute="bottom" id="Szg-g2-wWV"/>
+                                            <constraint firstAttribute="trailing" secondItem="CXi-DA-Coz" secondAttribute="trailing" id="lbt-nT-P5v"/>
+                                            <constraint firstItem="UJI-Lf-O93" firstAttribute="top" secondItem="ekz-Mj-L0l" secondAttribute="top" id="oLG-vd-SdT"/>
+                                            <constraint firstItem="UJI-Lf-O93" firstAttribute="leading" secondItem="ekz-Mj-L0l" secondAttribute="leading" id="siG-pb-57t"/>
+                                            <constraint firstAttribute="bottom" secondItem="CXi-DA-Coz" secondAttribute="bottom" id="uJE-GL-7ve"/>
                                             <constraint firstAttribute="height" constant="36" id="vYV-Je-gEd"/>
+                                            <constraint firstItem="CXi-DA-Coz" firstAttribute="top" secondItem="ekz-Mj-L0l" secondAttribute="top" id="xDx-1Q-UQF"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -534,12 +547,28 @@
                         <outlet property="lbTypeOTPCode" destination="CkL-6e-uDd" id="yX6-6G-LwI"/>
                         <outlet property="lbTypeWrongOTP" destination="AYA-T1-urJ" id="Lhq-YU-Pd4"/>
                         <outlet property="stackOTPCode" destination="NDG-4B-6eb" id="R02-ym-lXW"/>
+                        <outlet property="txtResendOTP" destination="CXi-DA-Coz" id="6VX-zW-8up"/>
                         <outlet property="viewResendOTP" destination="ekz-Mj-L0l" id="1eY-JC-PHQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEB-hc-64a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2726" y="87"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="fxb-bg-kup">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NlK-cR-Viv" customClass="HomeViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="08b-i0-MW1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sxY-yN-iqn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B7G-tO-Ago" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="819"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yuU-cC-b56">

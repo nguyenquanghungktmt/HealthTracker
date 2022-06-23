@@ -40,6 +40,7 @@
 		7368E04D285C389B00B0C3CA /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368E04A285C389B00B0C3CA /* UIColor+Extensions.swift */; };
 		737DDD48285AE5C900200AC1 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737DDD46285AE5C900200AC1 /* SlideCollectionViewCell.swift */; };
 		737DDD49285AE5C900200AC1 /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737DDD47285AE5C900200AC1 /* SlideCollectionViewCell.xib */; };
+		73934A2728641F71005F972D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73934A2628641F71005F972D /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		7368E04A285C389B00B0C3CA /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		737DDD46285AE5C900200AC1 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		737DDD47285AE5C900200AC1 /* SlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCollectionViewCell.xib; sourceTree = "<group>"; };
+		73934A2628641F71005F972D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				7340C80528584570008CC1B4 /* IntroViewController.swift */,
 				7368E045285C36B900B0C3CA /* LoginViewController.swift */,
 				7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */,
+				73934A2628641F71005F972D /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */,
 				7340C80628584570008CC1B4 /* IntroViewController.swift in Sources */,
 				7367AED52862B429004A6F89 /* UIViewController+Extensions.swift in Sources */,
+				73934A2728641F71005F972D /* HomeViewController.swift in Sources */,
 				7367AEDC2862BCEF004A6F89 /* OTPStackView.swift in Sources */,
 				7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */,
 				7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */,

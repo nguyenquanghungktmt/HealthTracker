@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
     @IBAction func handleBtnNextAction(_ sender: UIButton) {
         let nationCode = self.btnNationPhoneCode.currentTitle ?? ""
         let phoneNumber = self.txtEnterPhoneNumber.text ?? ""
-        let numberEditted = "\(nationCode) \(phoneNumber)"
+        let numberEditted = "\(nationCode) \(splitPhoneNumber(number: phoneNumber))"
         
         let verifyVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPVerifyViewController") as! OTPVerifyViewController
         verifyVC.phoneNumber = numberEditted
@@ -61,6 +61,16 @@ class LoginViewController: UIViewController {
         self.btnNext.isEnabled = isEnable
         self.btnNext.backgroundColor = isEnable ? Constants.Color.greenBold : Constants.Color.greenLight
     }
+    
+    func splitPhoneNumber(number:String) -> String {
+        var numberString = number.trimmingCharacters(in: .whitespacesAndNewlines)
+        if numberString.first == "0", numberString.count > 9 {
+            numberString.removeFirst()
+        }
+        
+        let numberArray = numberString.components(withMaxLength: 3)
+        return numberArray.joined(separator:" ")
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate{
@@ -69,6 +79,15 @@ extension LoginViewController: UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        vEnterPhoneNumber.layer.borderColor = Constants.Color.greenExtraLight.cgColor
+        vEnterPhoneNumber.layer.borderColor = Constants.Color.grayLight.cgColor
+    }
+}
+extension String {
+    func components(withMaxLength length: Int) -> [String] {
+        return stride(from: 0, to: self.count, by: length).map {
+            let start = self.index(self.startIndex, offsetBy: $0)
+            let end = self.index(start, offsetBy: length, limitedBy: self.endIndex) ?? self.endIndex
+            return String(self[start..<end])
+        }
     }
 }

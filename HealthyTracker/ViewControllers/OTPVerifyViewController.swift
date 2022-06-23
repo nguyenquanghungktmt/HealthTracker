@@ -18,12 +18,14 @@ class OTPVerifyViewController: UIViewController {
     @IBOutlet weak var viewResendOTP: UIView!
     
     @IBOutlet weak var stackOTPCode: OTPStackView!
+    @IBOutlet weak var txtResendOTP: UITextView!
     
     // MARK: UI Components
     private(set) var digitCodes = [UITextField]()
     
     var phoneNumber: String?
     let OTPCount = 6
+    var countdownTime: Int = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,9 @@ class OTPVerifyViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+        startCountdown()
     }
     
     deinit {
@@ -40,10 +45,10 @@ class OTPVerifyViewController: UIViewController {
     
     func setupView(){
         btnNext.setTitle("Tiếp Tục", for: .normal)
-        btnResendOTP.setTitle("Gửi lại mã sau 60s", for: .normal)
         updateBtnNext(isEnable: false)
         
         lbTitleBar.text = "Xác minh số điện thoại"
+        txtResendOTP.text = "Gửi lại mã sau 10s"
         
         let attributedString = NSMutableAttributedString(string: "Vui lòng nhập mã gồm \(OTPCount) chữ số đã được gửi đến bạn vào số điện thoại ")
         let boldString = NSMutableAttributedString(string: phoneNumber ?? "",
@@ -69,6 +74,8 @@ class OTPVerifyViewController: UIViewController {
         if self.stackOTPCode.getOTPString() == "111111" {
             /// Enter right OTP Code
             /// Move to Home VC
+            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            self.navigationController?.pushViewController(homeVC, animated: true)
         }
         else {
             /// Display error notice
@@ -78,7 +85,9 @@ class OTPVerifyViewController: UIViewController {
     }
 
     @IBAction func handleBtnResendOTP(_ sender: UIButton) {
-        print("Touch on Button")
+        print("Touch on Button Resend OTP")
+        lbTypeWrongOTP.isHidden = true
+        startCountdown()
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -99,8 +108,33 @@ class OTPVerifyViewController: UIViewController {
         }
     }
     
+    func startCountdown() {
+        countdownTime = 10
+        updateViewSendOTP(isEnable: false)
+    }
+    
+    @objc
+    func updateCountdown() {
+        if(countdownTime > 0) {
+            countdownTime-=1
+            txtResendOTP.text = "Gửi lại mã sau \(String(format: "%02d", countdownTime))s"
+        }
+        else {
+            // endable btn Resend
+            txtResendOTP.text = "Gửi lại mã xác thực"
+            updateViewSendOTP(isEnable: true)
+        }
+    }
+    
     func updateBtnNext(isEnable: Bool) {
         self.btnNext.isEnabled = isEnable
         self.btnNext.backgroundColor = isEnable ? Constants.Color.greenBold : Constants.Color.greenLight
+    }
+    
+    func updateViewSendOTP(isEnable: Bool) {
+        let color = isEnable ? Constants.Color.greenBold : Constants.Color.grayLight
+        viewResendOTP.setBorder(color: color.cgColor, width: 1)
+        txtResendOTP.textColor = color
+        btnResendOTP.isEnabled = isEnable
     }
 }
