@@ -44,8 +44,9 @@ class OTPStackView: UIStackView {
     @objc
     func tapOnTextField(otpTextField: OTPTextField){
         if otpTextField.text?.isEmpty == true {return}
-        let index = digitCodes.firstIndex(of: otpTextField) as Any
-        for i in (index as! Int)..<digitCodes.count{ digitCodes[i].text = "" }
+        let index = digitCodes.firstIndex(of: otpTextField) ?? 0
+        if index == 0 { digitCodes[0].text = ""}
+        for i in index+1..<digitCodes.count{ digitCodes[i].text = "" }
     }
 
     func isValidOTP(otp: String) -> Bool{
