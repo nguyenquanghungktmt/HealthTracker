@@ -10,11 +10,11 @@ import UIKit
 class OTPVerifyViewController: UIViewController {
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var btnResendOTP: UIButton!
     
     @IBOutlet weak var lbTitleBar: UILabel!
     @IBOutlet weak var lbTypeOTPCode: UILabel!
     @IBOutlet weak var lbTypeWrongOTP: UILabel!
-    @IBOutlet weak var lbResendOTP: UILabel!
     @IBOutlet weak var viewResendOTP: UIView!
     
     @IBOutlet weak var stackOTPCode: OTPStackView!
@@ -40,11 +40,10 @@ class OTPVerifyViewController: UIViewController {
     
     func setupView(){
         btnNext.setTitle("Tiếp Tục", for: .normal)
+        btnResendOTP.setTitle("Gửi lại mã sau 60s", for: .normal)
         updateBtnNext(isEnable: false)
         
         lbTitleBar.text = "Xác minh số điện thoại"
-        lbTypeWrongOTP.text = "Nhập sai mã xác thực"
-        lbResendOTP.text = "Gửi lại mã sau 60s"
         
         let attributedString = NSMutableAttributedString(string: "Vui lòng nhập mã gồm \(OTPCount) chữ số đã được gửi đến bạn vào số điện thoại ")
         let boldString = NSMutableAttributedString(string: phoneNumber ?? "",
@@ -52,11 +51,14 @@ class OTPVerifyViewController: UIViewController {
         attributedString.append(boldString)
         lbTypeOTPCode.attributedText = attributedString
         
+        lbTypeWrongOTP.isHidden = true		
+        
         // add text box OTP to stack
         stackOTPCode.configuretionOTPStackView(count: 6)
-//        stackOTPCode.digitCodes[0].becomeFirstResponder()
+        stackOTPCode.otpValueDidChanged = {[weak self] (result) in
+            self?.updateBtnNext(isEnable: result)
+        }
         
-        lbTypeWrongOTP.isHidden = true
     }
 
     @IBAction func handleBtnBackAction(_ sender: UIButton) {
@@ -64,9 +66,20 @@ class OTPVerifyViewController: UIViewController {
     }
     
     @IBAction func handleBtnNextAction(_ sender: UIButton) {
-        
+        if self.stackOTPCode.getOTPString() == "111111" {
+            /// Enter right OTP Code
+            /// Move to Home VC
+        }
+        else {
+            /// Display error notice
+            lbTypeWrongOTP.text = "Nhập sai mã xác thực"
+            lbTypeWrongOTP.isHidden = false
+        }
     }
 
+    @IBAction func handleBtnResendOTP(_ sender: UIButton) {
+        print("Touch on Button")
+    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }

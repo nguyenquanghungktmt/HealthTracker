@@ -12,6 +12,7 @@ class OTPStackView: UIStackView {
     private(set) var digitCodes = [OTPTextField]()
     
 //    var isValidOTP: (() -> (Bool))? = nil
+    var otpValueDidChanged: ((Bool) -> ())? = nil
     
     private lazy var tapGestureRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
@@ -46,12 +47,12 @@ class OTPStackView: UIStackView {
         let index = digitCodes.firstIndex(of: otpTextField) as Any
         for i in (index as! Int)..<digitCodes.count{ digitCodes[i].text = "" }
     }
-    
-//    @objc
-//    func isValidOTP() -> Bool{
-//        let otpCode = getOTPString()
-//        return otpCode.count == 6
-//    }
+
+    func isValidOTP(otp: String) -> Bool{
+        let otpRegex = "^[0-9]{6}$"
+        let otpTest = NSPredicate(format: "SELF MATCHES %@", otpRegex)
+        return otpTest.evaluate(with: otp)
+    }
 }
 
 extension OTPStackView: UITextFieldDelegate{
@@ -73,6 +74,9 @@ extension OTPStackView: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = Constants.Color.greenExtraLight.cgColor
+    }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        otpValueDidChanged?(isValidOTP(otp: getOTPString()))
     }
 }
 

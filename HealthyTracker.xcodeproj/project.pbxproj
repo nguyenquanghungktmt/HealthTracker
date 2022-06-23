@@ -19,7 +19,7 @@
 		7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */; };
 		7361EC502860709F0071E6BF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */; };
 		7367AED52862B429004A6F89 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */; };
-		7367AEDC2862BCEF004A6F89 /* OTPStackViiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AEDB2862BCEF004A6F89 /* OTPStackViiew.swift */; };
+		7367AEDC2862BCEF004A6F89 /* OTPStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AEDB2862BCEF004A6F89 /* OTPStackView.swift */; };
 		7368E019285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */; };
 		7368E01A285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */; };
 		7368E01B285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */; };
@@ -78,7 +78,7 @@
 		7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewController.swift; sourceTree = "<group>"; };
 		7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		7367AEDB2862BCEF004A6F89 /* OTPStackViiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackViiew.swift; sourceTree = "<group>"; };
+		7367AEDB2862BCEF004A6F89 /* OTPStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackView.swift; sourceTree = "<group>"; };
 		7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
 		7368E002285C264400B0C3CA /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
 		7368E035285C314900B0C3CA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		7367AED62862B76E004A6F89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7367AEDB2862BCEF004A6F89 /* OTPStackViiew.swift */,
+				7367AEDB2862BCEF004A6F89 /* OTPStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */,
 				7340C80628584570008CC1B4 /* IntroViewController.swift in Sources */,
 				7367AED52862B429004A6F89 /* UIViewController+Extensions.swift in Sources */,
-				7367AEDC2862BCEF004A6F89 /* OTPStackViiew.swift in Sources */,
+				7367AEDC2862BCEF004A6F89 /* OTPStackView.swift in Sources */,
 				7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */,
 				7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */,
 				7340C80428584570008CC1B4 /* SceneDelegate.swift in Sources */,

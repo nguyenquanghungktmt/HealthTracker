@@ -457,17 +457,21 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekz-Mj-L0l">
                                         <rect key="frame" x="0.0" y="52" width="180" height="36"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gui lai ma" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPZ-4C-jSc" userLabel="lbResendOTP">
-                                                <rect key="frame" x="57.5" y="8.5" width="65.5" height="19.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJI-Lf-O93">
+                                                <rect key="frame" x="30.5" y="2" width="119" height="32"/>
                                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
-                                                <color key="textColor" red="0.85098039219999999" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="Gui lai ma sau 60s">
+                                                    <color key="titleColor" red="0.85098039219999999" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleBtnResendOTP:" destination="IyL-Mx-MhS" eventType="touchUpInside" id="aIb-Ky-kE3"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="1Zg-Rx-xlq"/>
-                                            <constraint firstItem="qPZ-4C-jSc" firstAttribute="centerY" secondItem="ekz-Mj-L0l" secondAttribute="centerY" id="Smz-Cc-tJk"/>
-                                            <constraint firstItem="qPZ-4C-jSc" firstAttribute="centerX" secondItem="ekz-Mj-L0l" secondAttribute="centerX" id="hbG-OT-ksg"/>
+                                            <constraint firstItem="UJI-Lf-O93" firstAttribute="centerX" secondItem="ekz-Mj-L0l" secondAttribute="centerX" id="9VW-77-i6N"/>
+                                            <constraint firstItem="UJI-Lf-O93" firstAttribute="centerY" secondItem="ekz-Mj-L0l" secondAttribute="centerY" id="I5X-yu-XMV"/>
                                             <constraint firstAttribute="height" constant="36" id="vYV-Je-gEd"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -525,7 +529,7 @@
                     <connections>
                         <outlet property="btnBack" destination="hkF-Xp-aWU" id="ESn-Nh-rax"/>
                         <outlet property="btnNext" destination="nwG-Oe-4IB" id="Mzf-bZ-N48"/>
-                        <outlet property="lbResendOTP" destination="qPZ-4C-jSc" id="sWD-rh-OaM"/>
+                        <outlet property="btnResendOTP" destination="UJI-Lf-O93" id="VyA-OR-AYn"/>
                         <outlet property="lbTitleBar" destination="AQi-aa-lbv" id="geA-fB-Pyt"/>
                         <outlet property="lbTypeOTPCode" destination="CkL-6e-uDd" id="yX6-6G-LwI"/>
                         <outlet property="lbTypeWrongOTP" destination="AYA-T1-urJ" id="Lhq-YU-Pd4"/>
