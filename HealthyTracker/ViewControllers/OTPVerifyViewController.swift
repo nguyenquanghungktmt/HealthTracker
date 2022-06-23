@@ -25,7 +25,7 @@ class OTPVerifyViewController: UIViewController {
     
     var phoneNumber: String?
     let OTPCount = 6
-    var countdownTime: Int = 10
+    var countdownTime: Int = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class OTPVerifyViewController: UIViewController {
         updateBtnNext(isEnable: false)
         
         lbTitleBar.text = "Xác minh số điện thoại"
-        txtResendOTP.text = "Gửi lại mã sau 10s"
+        txtResendOTP.text = "Gửi lại mã sau 60s"
         
         let attributedString = NSMutableAttributedString(string: "Vui lòng nhập mã gồm \(OTPCount) chữ số đã được gửi đến bạn vào số điện thoại ")
         let boldString = NSMutableAttributedString(string: phoneNumber ?? "",
@@ -74,10 +74,11 @@ class OTPVerifyViewController: UIViewController {
         if self.stackOTPCode.getOTPString() == "111111" {
             /// Enter right OTP Code
             /// Move to Home VC
-            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            self.navigationController?.pushViewController(homeVC, animated: true)
+//            let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//            self.navigationController?.pushViewController(homeVC, animated: true)
         }
         else {
+            /// Enter wrong OTP Code
             /// Display error notice
             lbTypeWrongOTP.text = "Nhập sai mã xác thực"
             lbTypeWrongOTP.isHidden = false
@@ -109,7 +110,7 @@ class OTPVerifyViewController: UIViewController {
     }
     
     func startCountdown() {
-        countdownTime = 10
+        countdownTime = 60
         updateViewSendOTP(isEnable: false)
     }
     
