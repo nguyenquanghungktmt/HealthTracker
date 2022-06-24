@@ -9,9 +9,9 @@ import UIKit
 
 class OTPStackView: UIStackView {
     // MARK: UI Components
-    private(set) var digitCodes = [OTPTextField]()
+    private(set) var otpCodes = [OTPTextField]()
+    private var otpCount: Int?
     
-//    var isValidOTP: (() -> (Bool))? = nil
     var otpValueDidChanged: ((Bool) -> ())? = nil
     
     private lazy var tapGestureRecognizer: UITapGestureRecognizer = {
@@ -25,28 +25,31 @@ class OTPStackView: UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
         
+        // Clear list OTP Codes
+        otpCodes.removeAll()
+        otpCount = count
+        
         for i in 0..<count{
             let textFieldOTP = OTPTextField()
             textFieldOTP.configureTextField()
             textFieldOTP.delegate = self
             textFieldOTP.addTarget(self, action: #selector(tapOnTextField), for: .editingDidBegin)
             self.addArrangedSubview(textFieldOTP)
-            digitCodes.append(textFieldOTP)
-            i != 0 ? (textFieldOTP.previousTextField = digitCodes[i-1]) : ()
-            i != 0 ? (digitCodes[i-1].nextTextField = digitCodes[i]) : ()
+            otpCodes.append(textFieldOTP)
+            i != 0 ? (textFieldOTP.previousTextField = otpCodes[i-1]) : ()
+            i != 0 ? (otpCodes[i-1].nextTextField = otpCodes[i]) : ()
         }
     }
     
     func getOTPString() -> String {
-        return digitCodes.compactMap({ $0.text}).joined()
+        return otpCodes.compactMap({ $0.text}).joined()
     }
     
     @objc
     func tapOnTextField(otpTextField: OTPTextField){
         if otpTextField.text?.isEmpty == true {return}
-        let index = digitCodes.firstIndex(of: otpTextField) ?? 0
-        if index == 0 { digitCodes[0].text = ""}
-        for i in index+1..<digitCodes.count{ digitCodes[i].text = "" }
+        let index = otpCodes.firstIndex(of: otpTextField) ?? 0
+        for i in index+1..<otpCodes.count{ otpCodes[i].text = "" }
     }
 
     func isValidOTP(otp: String) -> Bool{
@@ -62,8 +65,19 @@ extension OTPStackView: UITextFieldDelegate{
             return false
         }
         if string.isEmpty == false {
-            otpTextField.text = string
-            otpTextField.nextTextField?.becomeFirstResponder()
+            if string.count == 1 {
+                otpTextField.text = string
+                otpTextField.nextTextField?.becomeFirstResponder()
+            }
+            else {
+                let stringArray = Array(string)
+                let index = otpCodes.firstIndex(of: otpTextField) ?? 0
+                let lastIndex = min(otpCount ?? 0, string.count)
+                for i in 0..<lastIndex{
+                    otpCodes[index+i].text = String(stringArray[i])
+                }
+                otpCodes[lastIndex == otpCount ? lastIndex-1 : lastIndex].becomeFirstResponder()
+            }
             return false
         }
         return true
@@ -86,7 +100,6 @@ class OTPTextField: UITextField{
     weak var nextTextField: UITextField?
     
     func configureTextField(){
-        self.bounds = CGRect(x: 0, y: 0, width: 42, height: 36)
         self.setColorCornerRadius(color: .white, radius: 8)
         self.setBorder(color: Constants.Color.greenExtraLight.cgColor, width: 1)
         self.textAlignment = .center

@@ -40,6 +40,8 @@
 		7368E04D285C389B00B0C3CA /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368E04A285C389B00B0C3CA /* UIColor+Extensions.swift */; };
 		737DDD48285AE5C900200AC1 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737DDD46285AE5C900200AC1 /* SlideCollectionViewCell.swift */; };
 		737DDD49285AE5C900200AC1 /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737DDD47285AE5C900200AC1 /* SlideCollectionViewCell.xib */; };
+		737FAA0E28656CEB00170501 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FAA0D28656CEB00170501 /* String+Extensions.swift */; };
+		737FAA1028656D1E00170501 /* UIButton+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */; };
 		73934A2728641F71005F972D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73934A2628641F71005F972D /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		7368E04A285C389B00B0C3CA /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		737DDD46285AE5C900200AC1 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		737DDD47285AE5C900200AC1 /* SlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCollectionViewCell.xib; sourceTree = "<group>"; };
+		737FAA0D28656CEB00170501 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extentions.swift"; sourceTree = "<group>"; };
 		73934A2628641F71005F972D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +233,8 @@
 				7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */,
 				7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */,
 				7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */,
+				737FAA0D28656CEB00170501 /* String+Extensions.swift */,
+				737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +415,8 @@
 				7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */,
 				7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */,
 				7340C80428584570008CC1B4 /* SceneDelegate.swift in Sources */,
+				737FAA1028656D1E00170501 /* UIButton+Extentions.swift in Sources */,
+				737FAA0E28656CEB00170501 /* String+Extensions.swift in Sources */,
 				7368E03B285C31E400B0C3CA /* IntroModel.swift in Sources */,
 				737DDD48285AE5C900200AC1 /* SlideCollectionViewCell.swift in Sources */,
 				7368E036285C314900B0C3CA /* Constants.swift in Sources */,
