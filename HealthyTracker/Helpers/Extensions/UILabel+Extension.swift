@@ -13,4 +13,17 @@ extension UILabel {
         self.font = UIFont(name: font, size: size)
         self.textColor = color
     }
+    
+    func addLeading(image: UIImage, text:String) {
+        let attachment = NSTextAttachment()
+        attachment.image = image
+
+        let attachmentString = NSAttributedString(attachment: attachment)
+        let mutableAttributedString = NSMutableAttributedString()
+        mutableAttributedString.append(attachmentString)
+        
+        let string = NSMutableAttributedString(string: text, attributes: [:])
+        mutableAttributedString.append(string)
+        self.attributedText = mutableAttributedString
+    }
 }
