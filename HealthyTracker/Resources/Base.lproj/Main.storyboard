@@ -346,6 +346,7 @@
                             <constraint firstItem="UVo-YT-K1k" firstAttribute="top" secondItem="tV2-hV-gJS" secondAttribute="bottom" constant="56" id="lB9-EA-GIF"/>
                             <constraint firstItem="Mbn-fn-R2B" firstAttribute="leading" secondItem="T4w-9h-0Tb" secondAttribute="leading" constant="24" id="puG-uc-G5w"/>
                             <constraint firstItem="mwK-Ks-9c2" firstAttribute="top" secondItem="T4w-9h-0Tb" secondAttribute="top" constant="16" id="rH9-uq-APM"/>
+                            <constraint firstItem="mwK-Ks-9c2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wld-uJ-6M3" secondAttribute="trailing" constant="8" symbolic="YES" id="rbQ-98-ncs"/>
                             <constraint firstItem="Mbn-fn-R2B" firstAttribute="top" secondItem="UVo-YT-K1k" secondAttribute="bottom" constant="20" id="vOt-rj-WY0"/>
                             <constraint firstItem="T4w-9h-0Tb" firstAttribute="bottom" secondItem="BmY-mX-ocx" secondAttribute="bottom" constant="24" id="wnS-ur-AL7"/>
                             <constraint firstItem="UVo-YT-K1k" firstAttribute="leading" secondItem="T4w-9h-0Tb" secondAttribute="leading" constant="24" id="zWE-cQ-XZq"/>
@@ -558,7 +559,7 @@
         <!--Home View Controller-->
         <scene sceneID="fxb-bg-kup">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NlK-cR-Viv" customClass="HomeViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="NlK-cR-Viv" customClass="HomeViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="08b-i0-MW1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -575,12 +576,19 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dot_green" translatesAutoresizingMaskIntoConstraints="NO" id="nw2-4d-LNv">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nw2-4d-LNv">
                                         <rect key="frame" x="16" y="86.5" width="8" height="8"/>
+                                        <color key="backgroundColor" red="0.066666666666666666" green="1" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="8" id="924-7t-zfM"/>
                                             <constraint firstAttribute="height" constant="8" id="W8a-lB-fH1"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c7-fj-xlR">
                                         <rect key="frame" x="30" y="82.5" width="30" height="16.5"/>
@@ -609,8 +617,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="ysZ-eo-Uy4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BOW-55-Ys6" secondAttribute="trailing" constant="8" symbolic="YES" id="0v6-Zr-Dwh"/>
                                     <constraint firstItem="fGT-XG-9Jv" firstAttribute="leading" secondItem="QDf-Sn-eYP" secondAttribute="leading" id="24B-MO-CiE"/>
                                     <constraint firstItem="BOW-55-Ys6" firstAttribute="top" secondItem="QDf-Sn-eYP" secondAttribute="top" constant="60" id="M3N-D9-kYB"/>
+                                    <constraint firstItem="ysZ-eo-Uy4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1c7-fj-xlR" secondAttribute="trailing" constant="8" symbolic="YES" id="McA-Gi-G1F"/>
                                     <constraint firstAttribute="height" constant="142" id="QcK-88-kcA"/>
                                     <constraint firstItem="nw2-4d-LNv" firstAttribute="top" secondItem="BOW-55-Ys6" secondAttribute="bottom" constant="6" id="Rtd-SL-gvx"/>
                                     <constraint firstItem="1c7-fj-xlR" firstAttribute="leading" secondItem="nw2-4d-LNv" secondAttribute="trailing" constant="6" id="UI5-TM-siY"/>
@@ -625,19 +635,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-Le-kz6" userLabel="viewContent">
-                                <rect key="frame" x="0.0" y="122" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="122" width="414" height="740"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WHL-o3-q2t">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="playback" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="43" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EBy-In-GEF">
+                                        <rect key="frame" x="0.0" y="20" width="414" height="720"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WHL-o3-q2t" secondAttribute="trailing" id="0Lc-t7-4Z9"/>
-                                    <constraint firstAttribute="bottom" secondItem="WHL-o3-q2t" secondAttribute="bottom" id="Lz3-T6-ULY"/>
-                                    <constraint firstItem="WHL-o3-q2t" firstAttribute="leading" secondItem="uYg-Le-kz6" secondAttribute="leading" id="tVJ-na-rbN"/>
-                                    <constraint firstItem="WHL-o3-q2t" firstAttribute="top" secondItem="uYg-Le-kz6" secondAttribute="top" id="ymK-pG-npT"/>
+                                    <constraint firstAttribute="trailing" secondItem="EBy-In-GEF" secondAttribute="trailing" id="6vN-jN-Q7n"/>
+                                    <constraint firstItem="EBy-In-GEF" firstAttribute="top" secondItem="uYg-Le-kz6" secondAttribute="top" constant="20" id="Kwm-mR-otu"/>
+                                    <constraint firstAttribute="bottom" secondItem="EBy-In-GEF" secondAttribute="bottom" id="ccs-Wv-ROs"/>
+                                    <constraint firstItem="EBy-In-GEF" firstAttribute="leading" secondItem="uYg-Le-kz6" secondAttribute="leading" id="slX-DF-yyr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -651,17 +661,18 @@
                         <constraints>
                             <constraint firstItem="sxY-yN-iqn" firstAttribute="trailing" secondItem="QDf-Sn-eYP" secondAttribute="trailing" id="1kv-34-Wqd"/>
                             <constraint firstAttribute="top" secondItem="QDf-Sn-eYP" secondAttribute="top" id="CJa-te-jpD"/>
-                            <constraint firstItem="uYg-Le-kz6" firstAttribute="leading" secondItem="sxY-yN-iqn" secondAttribute="leading" id="KKw-oa-YcU"/>
-                            <constraint firstAttribute="bottom" secondItem="uYg-Le-kz6" secondAttribute="bottom" id="WpN-Dx-nfp"/>
+                            <constraint firstItem="uYg-Le-kz6" firstAttribute="leading" secondItem="08b-i0-MW1" secondAttribute="leading" id="KKw-oa-YcU"/>
+                            <constraint firstItem="sxY-yN-iqn" firstAttribute="bottom" secondItem="uYg-Le-kz6" secondAttribute="bottom" id="WpN-Dx-nfp"/>
                             <constraint firstItem="QDf-Sn-eYP" firstAttribute="leading" secondItem="sxY-yN-iqn" secondAttribute="leading" id="aBW-of-sgi"/>
                             <constraint firstItem="uYg-Le-kz6" firstAttribute="top" secondItem="QDf-Sn-eYP" secondAttribute="bottom" constant="-20" id="gXh-cx-8qQ"/>
-                            <constraint firstItem="sxY-yN-iqn" firstAttribute="trailing" secondItem="uYg-Le-kz6" secondAttribute="trailing" id="i3P-XV-ddG"/>
+                            <constraint firstAttribute="trailing" secondItem="uYg-Le-kz6" secondAttribute="trailing" id="i3P-XV-ddG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lbStatus" destination="1c7-fj-xlR" id="Zs3-iV-6AI"/>
                         <outlet property="lbUsername" destination="BOW-55-Ys6" id="27H-fF-M00"/>
-                        <outlet property="tbvNews" destination="WHL-o3-q2t" id="3GD-vM-3Kg"/>
+                        <outlet property="tbvNews" destination="EBy-In-GEF" id="vnX-8R-ajh"/>
+                        <outlet property="viewContent" destination="uYg-Le-kz6" id="dpB-KC-odr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7G-tO-Ago" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -678,7 +689,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sV8-jC-BPP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="D0c-ag-YdZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EC-9v-LV7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -689,7 +700,6 @@
     <resources>
         <image name="ic_arrow_left1" width="17" height="18"/>
         <image name="ic_arrow_left2" width="24" height="24"/>
-        <image name="ic_dot_green" width="8" height="8"/>
         <image name="icon_phone" width="22" height="22"/>
         <image name="img_background_home" width="375" height="143"/>
         <image name="img_login" width="375" height="188"/>
@@ -699,9 +709,6 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

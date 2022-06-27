@@ -208,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				738C7164285D6A0300143782 /* Cells */,
-				735E8EB82866B048002820D2 /* CommonViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +224,8 @@
 		7368E034285C311D00B0C3CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7375F74A2869BD370029B170 /* Utilities */,
+				735E8EB82866B048002820D2 /* CommonViews */,
 				7368E049285C385F00B0C3CA /* Extensions */,
 				7368E035285C314900B0C3CA /* Constants.swift */,
 			);
@@ -234,7 +235,8 @@
 		7368E039285C31D700B0C3CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7368E03A285C31E400B0C3CA /* IntroModel.swift */,
+				7375F74C2869BDA00029B170 /* Remote */,
+				7375F74B2869BD910029B170 /* Local */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,6 +273,28 @@
 				737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7375F74A2869BD370029B170 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7375F74B2869BD910029B170 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				7368E03A285C31E400B0C3CA /* IntroModel.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		7375F74C2869BDA00029B170 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		737DDD3F285AC75400200AC1 /* IntroCell */ = {

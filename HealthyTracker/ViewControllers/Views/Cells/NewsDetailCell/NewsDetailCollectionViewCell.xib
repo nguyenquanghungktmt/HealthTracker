@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,68 +18,90 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NewsDetailCollectionViewCell" customModule="HealthyTracker" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="280" height="223"/>
+            <rect key="frame" x="0.0" y="0.0" width="280" height="227"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="280" height="223"/>
+                <rect key="frame" x="0.0" y="0.0" width="280" height="227"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9Z-ww-UI3">
-                        <rect key="frame" x="16" y="0.0" width="264" height="223"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmj-3X-ZYe">
+                        <rect key="frame" x="16" y="10" width="254" height="207"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login" translatesAutoresizingMaskIntoConstraints="NO" id="tsv-GN-dnb">
-                                <rect key="frame" x="0.0" y="0.0" width="264" height="134"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_news" translatesAutoresizingMaskIntoConstraints="NO" id="OEq-IS-zBc">
+                                <rect key="frame" x="0.0" y="0.0" width="254" height="134"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="134" id="fVf-MV-Hs9"/>
+                                    <constraint firstAttribute="height" constant="134" id="2Xj-0e-Rrr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jio Health khởi động chương trình Doctor Tour 2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HN0-zG-6U2">
-                                <rect key="frame" x="12" y="146" width="240" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Jio Health khởi động chương trình Doctor Tour 2021" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bU-u7-XUk" userLabel="news Title">
+                                <rect key="frame" x="12" y="146" width="230" height="35"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="15"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.094117647060000004" green="0.098039215690000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dot_gray" translatesAutoresizingMaskIntoConstraints="NO" id="dE0-Pm-mRW">
-                                <rect key="frame" x="80.5" y="198" width="4" height="4"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="4" id="Oat-hs-R2l"/>
-                                    <constraint firstAttribute="width" secondItem="dE0-Pm-mRW" secondAttribute="height" multiplier="1:1" id="oVo-B4-vfm"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28/6/2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tia-Ef-UBX" userLabel="lb date">
-                                <rect key="frame" x="90.5" y="191" width="62" height="18"/>
-                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="13"/>
-                                <color key="textColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ưu đãi hot" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAV-6I-bSk" userLabel="lb news status">
-                                <rect key="frame" x="12" y="191" width="62.5" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Ưu đãi hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m27-1J-9ld" userLabel="news status">
+                                <rect key="frame" x="12" y="185" width="62.5" height="10"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="13"/>
                                 <color key="textColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cgJ-OW-mAk" userLabel="news image">
+                                <rect key="frame" x="80.5" y="188" width="4" height="4"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="HXe-gS-U4c"/>
+                                    <constraint firstAttribute="height" constant="4" id="ee5-CR-Gga"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26/8/2021" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWb-fo-bvd" userLabel="news date">
+                                <rect key="frame" x="90.5" y="182.5" width="59.5" height="15.5"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="13"/>
+                                <color key="textColor" red="0.58823529409999997" green="0.60784313729999995" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dE0-Pm-mRW" firstAttribute="centerY" secondItem="nAV-6I-bSk" secondAttribute="centerY" id="BDY-b9-mkx"/>
-                            <constraint firstItem="Tia-Ef-UBX" firstAttribute="centerY" secondItem="nAV-6I-bSk" secondAttribute="centerY" id="TmY-mP-AGU"/>
-                            <constraint firstItem="nAV-6I-bSk" firstAttribute="leading" secondItem="g9Z-ww-UI3" secondAttribute="leading" constant="12" id="UoG-eo-46d"/>
-                            <constraint firstItem="nAV-6I-bSk" firstAttribute="top" secondItem="HN0-zG-6U2" secondAttribute="bottom" constant="4" id="ZII-F9-9dT"/>
-                            <constraint firstAttribute="trailing" secondItem="tsv-GN-dnb" secondAttribute="trailing" id="e8J-Ku-Cty"/>
-                            <constraint firstItem="Tia-Ef-UBX" firstAttribute="leading" secondItem="dE0-Pm-mRW" secondAttribute="trailing" constant="6" id="eEP-DM-YnC"/>
-                            <constraint firstItem="HN0-zG-6U2" firstAttribute="leading" secondItem="g9Z-ww-UI3" secondAttribute="leading" constant="12" id="h6D-Yc-15A"/>
-                            <constraint firstItem="tsv-GN-dnb" firstAttribute="top" secondItem="g9Z-ww-UI3" secondAttribute="top" id="llY-kw-LPy"/>
-                            <constraint firstItem="HN0-zG-6U2" firstAttribute="top" secondItem="tsv-GN-dnb" secondAttribute="bottom" constant="12" id="olX-5j-eao"/>
-                            <constraint firstItem="tsv-GN-dnb" firstAttribute="leading" secondItem="g9Z-ww-UI3" secondAttribute="leading" id="rJc-2E-F65"/>
-                            <constraint firstItem="dE0-Pm-mRW" firstAttribute="leading" secondItem="nAV-6I-bSk" secondAttribute="trailing" constant="6" id="wjW-dJ-jKi"/>
-                            <constraint firstAttribute="trailing" secondItem="HN0-zG-6U2" secondAttribute="trailing" constant="12" id="xIl-kf-TIQ"/>
+                            <constraint firstItem="OEq-IS-zBc" firstAttribute="leading" secondItem="Rmj-3X-ZYe" secondAttribute="leading" id="3Ph-iB-Kaz"/>
+                            <constraint firstItem="QWb-fo-bvd" firstAttribute="centerY" secondItem="m27-1J-9ld" secondAttribute="centerY" id="AuU-eT-9BT"/>
+                            <constraint firstAttribute="trailing" secondItem="OEq-IS-zBc" secondAttribute="trailing" id="Cd7-SN-NyT"/>
+                            <constraint firstAttribute="trailing" secondItem="5bU-u7-XUk" secondAttribute="trailing" constant="12" id="EYy-Sp-Ig6"/>
+                            <constraint firstItem="QWb-fo-bvd" firstAttribute="leading" secondItem="cgJ-OW-mAk" secondAttribute="trailing" constant="6" id="GAm-zx-4ly"/>
+                            <constraint firstItem="cgJ-OW-mAk" firstAttribute="centerY" secondItem="m27-1J-9ld" secondAttribute="centerY" id="btw-Aw-nWh"/>
+                            <constraint firstItem="m27-1J-9ld" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5bU-u7-XUk" secondAttribute="bottom" constant="4" id="fcU-K7-j7T"/>
+                            <constraint firstItem="cgJ-OW-mAk" firstAttribute="leading" secondItem="m27-1J-9ld" secondAttribute="trailing" constant="6" id="l5x-l3-ldQ"/>
+                            <constraint firstItem="5bU-u7-XUk" firstAttribute="top" secondItem="OEq-IS-zBc" secondAttribute="bottom" constant="12" id="l7Z-ov-aCb"/>
+                            <constraint firstAttribute="bottom" secondItem="m27-1J-9ld" secondAttribute="bottom" constant="12" id="nkL-j3-81B"/>
+                            <constraint firstItem="OEq-IS-zBc" firstAttribute="top" secondItem="Rmj-3X-ZYe" secondAttribute="top" id="ovk-W9-GnQ"/>
+                            <constraint firstItem="m27-1J-9ld" firstAttribute="leading" secondItem="Rmj-3X-ZYe" secondAttribute="leading" constant="12" id="rNA-ER-FZ9"/>
+                            <constraint firstItem="5bU-u7-XUk" firstAttribute="leading" secondItem="Rmj-3X-ZYe" secondAttribute="leading" constant="12" id="x9a-Na-vK0"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="16"/>
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.93333333330000001" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -88,26 +109,23 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="g9Z-ww-UI3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="Gm2-eV-Syp"/>
-                <constraint firstItem="g9Z-ww-UI3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z6D-kJ-d2l"/>
-                <constraint firstAttribute="bottom" secondItem="g9Z-ww-UI3" secondAttribute="bottom" id="fI7-5d-uVS"/>
-                <constraint firstAttribute="trailing" secondItem="g9Z-ww-UI3" secondAttribute="trailing" id="xkt-Fv-xSb"/>
+                <constraint firstItem="Rmj-3X-ZYe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="NM9-eJ-lER"/>
+                <constraint firstAttribute="bottom" secondItem="Rmj-3X-ZYe" secondAttribute="bottom" constant="10" id="hse-a5-qDS"/>
+                <constraint firstItem="Rmj-3X-ZYe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="j69-mN-1vV"/>
+                <constraint firstAttribute="trailing" secondItem="Rmj-3X-ZYe" secondAttribute="trailing" constant="10" id="v6B-Bo-XS1"/>
             </constraints>
-            <size key="customSize" width="280" height="223"/>
+            <size key="customSize" width="280" height="219"/>
             <connections>
-                <outlet property="imgNewsDetail" destination="tsv-GN-dnb" id="GXQ-21-2rC"/>
-                <outlet property="lbNewsDate" destination="Tia-Ef-UBX" id="DsO-Hc-M5o"/>
-                <outlet property="lbNewsStatus" destination="nAV-6I-bSk" id="vBR-pg-S0m"/>
-                <outlet property="lbNewsTitle" destination="HN0-zG-6U2" id="PdN-G3-9gF"/>
+                <outlet property="imgNews" destination="OEq-IS-zBc" id="qGR-Cb-csC"/>
+                <outlet property="lbNewsDate" destination="QWb-fo-bvd" id="SsN-bq-Ldd"/>
+                <outlet property="lbNewsStatus" destination="m27-1J-9ld" id="CPB-dp-gA9"/>
+                <outlet property="lbNewsTitle" destination="5bU-u7-XUk" id="IGd-JJ-K2E"/>
+                <outlet property="viewNews" destination="Rmj-3X-ZYe" id="reb-kA-lVC"/>
             </connections>
-            <point key="canvasLocation" x="298.55072463768118" y="130.24553571428572"/>
+            <point key="canvasLocation" x="298.55072463768118" y="127.56696428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic_dot_gray" width="4" height="4"/>
-        <image name="img_login" width="375" height="188"/>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="img_news" width="258" height="134"/>
     </resources>
 </document>
