@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Bold.ttf">
+            <string>NunitoSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="280" id="KGk-i7-Jjw" customClass="SuggestDoctorTableViewCell" customModule="HealthyTracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="280"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="389" height="280"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tin tức" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcf-ia-9mK">
+                        <rect key="frame" x="16" y="0.0" width="54" height="23.5"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-FK-Iyu">
+                        <rect key="frame" x="271" y="0.0" width="102" height="22"/>
+                        <state key="normal" title="Xem tất cả" image="ic_right2">
+                            <color key="titleColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-8E-W64">
+                        <rect key="frame" x="0.0" y="39.5" width="389" height="212.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LAV-Tp-fky">
+                            <size key="itemSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dcf-ia-9mK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1En-8D-Pqb"/>
+                    <constraint firstItem="seQ-8E-W64" firstAttribute="top" secondItem="dcf-ia-9mK" secondAttribute="bottom" constant="16" id="QJy-P2-Sd3"/>
+                    <constraint firstItem="dcf-ia-9mK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Rhy-Y9-Ug0"/>
+                    <constraint firstAttribute="bottom" secondItem="seQ-8E-W64" secondAttribute="bottom" constant="28" id="dUC-Pd-x59"/>
+                    <constraint firstAttribute="trailing" secondItem="seQ-8E-W64" secondAttribute="trailing" id="n5g-bJ-Kqv"/>
+                    <constraint firstItem="cTd-FK-Iyu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vZC-K0-9T2"/>
+                    <constraint firstItem="seQ-8E-W64" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="x91-m2-f1F"/>
+                    <constraint firstAttribute="trailing" secondItem="cTd-FK-Iyu" secondAttribute="trailing" constant="16" id="ybG-uy-yzq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnViewAll" destination="cTd-FK-Iyu" id="Pnn-FN-q2v"/>
+                <outlet property="clvNewsDetail" destination="seQ-8E-W64" id="rA9-gA-Dth"/>
+                <outlet property="lbTitle" destination="dcf-ia-9mK" id="CxT-Om-ttv"/>
+            </connections>
+            <point key="canvasLocation" x="181.8840579710145" y="143.97321428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_right2" width="16" height="16"/>
+    </resources>
+</document>

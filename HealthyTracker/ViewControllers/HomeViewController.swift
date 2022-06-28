@@ -22,16 +22,20 @@ class HomeViewController: UIViewController {
         fetchDataNewsFeed()
     }
     
+    override func viewDidLayoutSubviews() {
+        viewContent.roundCorners([.topLeft, .topRight], radius: 20)
+    }
+    
     func setupView(){
         lbUsername.text = "Quỳnh Ken"
         lbStatus.text = "Đang hoạt động"
-        viewContent.roundCorners([.topLeft, .topRight], radius: 20)
     }
     
     func register(){
         tbvNews.delegate = self
         tbvNews.dataSource = self
-        self.tbvNews.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsTableViewCell")
+        self.tbvNews.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
+        self.tbvNews.register(UINib(nibName: "SuggestDoctorTableViewCell", bundle: nil), forCellReuseIdentifier: "SuggestDoctorTableViewCell")
     }
     
     func fetchDataNewsFeed() {
@@ -48,14 +52,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as? NewsTableViewCell else {
-            return UITableViewCell()
+        if indexPath.item != 2 {
+            guard let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as? NewsFeedTableViewCell else {
+                return UITableViewCell()
+            }
+            return newsCell
+        }
+        else {
+            guard let doctorCell = tableView.dequeueReusableCell(withIdentifier: "SuggestDoctorTableViewCell", for: indexPath) as? SuggestDoctorTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            return doctorCell
         }
         
-        return newsCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 306
+        return indexPath.item==2 ? 270 : 306
     }
 }
