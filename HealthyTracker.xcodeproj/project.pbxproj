@@ -22,6 +22,7 @@
 		7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */; };
 		7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */; };
 		7361EC502860709F0071E6BF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */; };
+		7366365C286A98BA003D0805 /* APIUltilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366365B286A98BA003D0805 /* APIUltilities.swift */; };
 		7367AED52862B429004A6F89 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */; };
 		7367AEDC2862BCEF004A6F89 /* OTPStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367AEDB2862BCEF004A6F89 /* OTPStackView.swift */; };
 		7368E019285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */; };
@@ -47,6 +48,7 @@
 		737FAA0E28656CEB00170501 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FAA0D28656CEB00170501 /* String+Extensions.swift */; };
 		737FAA1028656D1E00170501 /* UIButton+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */; };
 		73934A2728641F71005F972D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73934A2628641F71005F972D /* HomeViewController.swift */; };
+		8C5F1323DF6D9E9431345457 /* Pods_HealthyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8885906C7A1F3EC5611B2C /* Pods_HealthyTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69387EBB3ED9D4FC16B7B2F4 /* Pods-HealthyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyTracker.release.xcconfig"; path = "Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker.release.xcconfig"; sourceTree = "<group>"; };
 		7340C7FE28584570008CC1B4 /* HealthyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7340C80128584570008CC1B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7340C80328584570008CC1B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewController.swift; sourceTree = "<group>"; };
 		7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		7366365B286A98BA003D0805 /* APIUltilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUltilities.swift; sourceTree = "<group>"; };
 		7367AED42862B429004A6F89 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		7367AEDB2862BCEF004A6F89 /* OTPStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackView.swift; sourceTree = "<group>"; };
 		7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		737FAA0D28656CEB00170501 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extentions.swift"; sourceTree = "<group>"; };
 		73934A2628641F71005F972D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EB8885906C7A1F3EC5611B2C /* Pods_HealthyTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F728C393FA9FAB3A9CB1A5F7 /* Pods-HealthyTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyTracker.debug.xcconfig"; path = "Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5F1323DF6D9E9431345457 /* Pods_HealthyTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +135,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		327301AA0FD846FEAD6AF465 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB8885906C7A1F3EC5611B2C /* Pods_HealthyTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68B213FF0A56AB26A76F9ED5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F728C393FA9FAB3A9CB1A5F7 /* Pods-HealthyTracker.debug.xcconfig */,
+				69387EBB3ED9D4FC16B7B2F4 /* Pods-HealthyTracker.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7340C7F528584570008CC1B4 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +160,8 @@
 				7340C81728584571008CC1B4 /* HealthyTrackerTests */,
 				7340C82228584571008CC1B4 /* HealthyTrackerUITests */,
 				7340C7FF28584570008CC1B4 /* Products */,
+				68B213FF0A56AB26A76F9ED5 /* Pods */,
+				327301AA0FD846FEAD6AF465 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +305,7 @@
 		7375F74A2869BD370029B170 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7366365B286A98BA003D0805 /* APIUltilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -335,9 +363,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7340C82828584571008CC1B4 /* Build configuration list for PBXNativeTarget "HealthyTracker" */;
 			buildPhases = (
+				7FD0A07AFEFC29D8AD98F6CA /* [CP] Check Pods Manifest.lock */,
 				7340C7FA28584570008CC1B4 /* Sources */,
 				7340C7FB28584570008CC1B4 /* Frameworks */,
 				7340C7FC28584570008CC1B4 /* Resources */,
+				A1E32CE66C2CDB1AF6698EB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -462,6 +492,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7FD0A07AFEFC29D8AD98F6CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HealthyTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1E32CE66C2CDB1AF6698EB7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7340C7FA28584570008CC1B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -478,6 +550,7 @@
 				7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */,
 				7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */,
 				7340C80428584570008CC1B4 /* SceneDelegate.swift in Sources */,
+				7366365C286A98BA003D0805 /* APIUltilities.swift in Sources */,
 				737FAA1028656D1E00170501 /* UIButton+Extentions.swift in Sources */,
 				737FAA0E28656CEB00170501 /* String+Extensions.swift in Sources */,
 				7368E03B285C31E400B0C3CA /* IntroModel.swift in Sources */,
@@ -665,6 +738,7 @@
 		};
 		7340C82928584571008CC1B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F728C393FA9FAB3A9CB1A5F7 /* Pods-HealthyTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -684,6 +758,7 @@
 		};
 		7340C82A28584571008CC1B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69387EBB3ED9D4FC16B7B2F4 /* Pods-HealthyTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
