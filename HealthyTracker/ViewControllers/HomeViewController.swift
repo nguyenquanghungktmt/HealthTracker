@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tbvNews: UITableView!
     
+    var newsFeed : PatientNewsFeedModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,21 @@ class HomeViewController: UIViewController {
     
     func fetchDataNewsFeed() {
         //load data here
+        APIUtilities.requestHomePatientNewsFeed { [weak self] newsFeedResult, error in
+            guard let self = self else { return}
+
+            guard let newsFeedResult = newsFeedResult, error == nil else {
+                return
+            }
+
+            print(self.newsFeed as Any)
+            self.newsFeed = newsFeedResult
+
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return}
+                self.tbvNews.reloadData()
+            }
+        }
     }
 
     @IBAction func hadleBtnViewAll(_ sender: UIButton) {
@@ -48,27 +65,36 @@ class HomeViewController: UIViewController {
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.item != 2 {
+        switch indexPath.item {
+        case 0:
             guard let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as? NewsFeedTableViewCell else {
                 return UITableViewCell()
             }
+            newsCell.configureViews(articleList: self.newsFeed?.articleList)
             return newsCell
-        }
-        else {
+        case 1:
+            guard let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as? NewsFeedTableViewCell else {
+                return UITableViewCell()
+            }
+            newsCell.configureViews(promotionList: self.newsFeed?.promotionList)
+            return newsCell
+        case 2:
             guard let doctorCell = tableView.dequeueReusableCell(withIdentifier: "SuggestDoctorTableViewCell", for: indexPath) as? SuggestDoctorTableViewCell else {
                 return UITableViewCell()
             }
-            
+            doctorCell.configureViews(listDoctor: self.newsFeed?.doctorList)
             return doctorCell
+        default:
+            return UITableViewCell()
         }
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.item==2 ? 270 : 306
+        return indexPath.item==2 ? Constants.HomeVC.tableDoctorCellHeight : Constants.HomeVC.tableNewsCellHeight
     }
 }

@@ -6,6 +6,6 @@ target 'HealthyTracker' do
   use_frameworks!
 
   # Pods for HealthyTracker
-  pod 'Alamofire', '5.6.1'
-
+  pod 'Alamofire', '~> 5.4.3'
+  pod 'SDWebImage', '~> 5.12.5'
 end

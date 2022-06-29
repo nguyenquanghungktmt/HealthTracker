@@ -19,42 +19,44 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SuggestDoctorCollectionViewCell" id="gTV-IL-0wX" customClass="DoctorDetailCollectionViewCell" customModule="HealthyTracker" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="177" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="197" height="262"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="177" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="197" height="262"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z11-PY-fuS">
-                        <rect key="frame" x="16" y="0.0" width="156" height="250"/>
+                        <rect key="frame" x="16" y="0.0" width="181" height="262"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_doctor" translatesAutoresizingMaskIntoConstraints="NO" id="Jqu-qn-EGX">
-                                <rect key="frame" x="12" y="12" width="132" height="132"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_doctor" translatesAutoresizingMaskIntoConstraints="NO" id="Jqu-qn-EGX">
+                                <rect key="frame" x="12" y="12" width="157" height="157"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jqu-qn-EGX" secondAttribute="height" multiplier="1:1" id="RbC-Xn-e3o"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Dr. Stephen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl2-2E-4xs">
-                                <rect key="frame" x="12" y="156" width="132" height="18"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Dr. Stephen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl2-2E-4xs">
+                                <rect key="frame" x="12" y="181" width="157" height="18"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="13"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pediatrics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w68-YZ-LMj">
-                                <rect key="frame" x="12" y="178" width="132" height="38"/>
-                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="11"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pediatrics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w68-YZ-LMj">
+                                <rect key="frame" x="12" y="203" width="157" height="16.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="bGN-7V-Doc">
-                                <rect key="frame" x="14" y="224" width="12" height="12"/>
+                                <rect key="frame" x="14" y="227.5" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="X7e-9I-gwA"/>
                                     <constraint firstAttribute="width" constant="12" id="iE2-Ug-RnS"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.8 (456)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQx-Lb-iUo">
-                                <rect key="frame" x="32" y="222.5" width="45.5" height="15.5"/>
+                                <rect key="frame" x="32" y="226" width="45.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="11"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -62,7 +64,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="bGN-7V-Doc" secondAttribute="bottom" constant="14" id="4uY-Qa-dLf"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bGN-7V-Doc" secondAttribute="bottom" constant="14" id="4uY-Qa-dLf"/>
                             <constraint firstItem="Jqu-qn-EGX" firstAttribute="leading" secondItem="Z11-PY-fuS" secondAttribute="leading" constant="12" id="7D8-Nu-nxT"/>
                             <constraint firstItem="bGN-7V-Doc" firstAttribute="leading" secondItem="Z11-PY-fuS" secondAttribute="leading" constant="14" id="96e-oO-Mxe"/>
                             <constraint firstItem="bGN-7V-Doc" firstAttribute="top" secondItem="w68-YZ-LMj" secondAttribute="bottom" constant="8" id="9I2-1V-wk9"/>
@@ -94,12 +96,18 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Z11-PY-fuS" secondAttribute="bottom" id="AtT-A5-7gL"/>
-                <constraint firstAttribute="trailing" secondItem="Z11-PY-fuS" secondAttribute="trailing" constant="5" id="Yb6-nQ-37A"/>
+                <constraint firstAttribute="trailing" secondItem="Z11-PY-fuS" secondAttribute="trailing" id="Yb6-nQ-37A"/>
                 <constraint firstItem="Z11-PY-fuS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="ia9-dl-8zp"/>
                 <constraint firstItem="Z11-PY-fuS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="w1A-bF-0ag"/>
             </constraints>
-            <size key="customSize" width="177" height="250"/>
-            <point key="canvasLocation" x="223.91304347826087" y="160.04464285714286"/>
+            <size key="customSize" width="197" height="262"/>
+            <connections>
+                <outlet property="imgAvatarDoctor" destination="Jqu-qn-EGX" id="dVo-uC-ZDr"/>
+                <outlet property="lbDoctorMajor" destination="w68-YZ-LMj" id="Meo-z2-d3x"/>
+                <outlet property="lbDoctorName" destination="vl2-2E-4xs" id="Naj-hX-GPE"/>
+                <outlet property="lbRating" destination="PQx-Lb-iUo" id="khK-fL-L21"/>
+            </connections>
+            <point key="canvasLocation" x="238.40579710144928" y="164.0625"/>
         </collectionViewCell>
     </objects>
     <resources>

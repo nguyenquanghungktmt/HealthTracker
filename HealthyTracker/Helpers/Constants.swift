@@ -41,4 +41,12 @@ struct Constants {
         static let semiBold = "NunitoSans-SemiBold"
         static let bold = "NunitoSans-Bold"
     }
+    
+    struct HomeVC {
+        static let tableNewsCellHeight: CGFloat = 316
+        static let tableDoctorCellHeight: CGFloat = 255
+        
+        static let cltNewsCellWidth: CGFloat = 274
+        static let cltDoctorCellWidth: CGFloat = 137
+    }
 }

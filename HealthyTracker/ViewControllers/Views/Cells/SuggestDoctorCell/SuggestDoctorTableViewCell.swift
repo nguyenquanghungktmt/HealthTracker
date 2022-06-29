@@ -11,6 +11,8 @@ class SuggestDoctorTableViewCell: UITableViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var btnViewAll: UIButton!
     @IBOutlet weak var clvNewsDetail: UICollectionView!
+    
+    var listDoctor : [DoctorModel]?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,29 +22,29 @@ class SuggestDoctorTableViewCell: UITableViewCell {
         clvNewsDetail.dataSource = self
         self.clvNewsDetail.register(UINib(nibName: "DoctorDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DoctorDetailCollectionViewCell")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configureViews(listDoctor: [DoctorModel]?){
+        self.lbTitle.text = "Giới thiệu bác sĩ"
+        self.listDoctor = listDoctor
+        self.clvNewsDetail.reloadData()
     }
     
 }
 extension SuggestDoctorTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return self.listDoctor?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoctorDetailCollectionViewCell", for: indexPath) as? DoctorDetailCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.configureCell()
+        cell.configureCell(doctor: self.listDoctor?[indexPath.item] ?? DoctorModel())
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 137, height: collectionView.bounds.height)
+        return CGSize(width: Constants.HomeVC.cltDoctorCellWidth, height: collectionView.bounds.height)
     }
 
 }
