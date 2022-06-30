@@ -11,8 +11,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var lbUsername: UILabel!
     @IBOutlet weak var lbStatus: UILabel!
-    
     @IBOutlet weak var tbvNews: UITableView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var newsFeed : PatientNewsFeedModel?
     
@@ -31,6 +31,9 @@ class HomeViewController: UIViewController {
     func setupView(){
         lbUsername.text = "Quỳnh Ken"
         lbStatus.text = "Đang hoạt động"
+        
+        
+        self.loading.hidesWhenStopped = true
     }
     
     func register(){
@@ -42,25 +45,20 @@ class HomeViewController: UIViewController {
     
     func fetchDataNewsFeed() {
         //load data here
+        self.loading.startAnimating()
         APIUtilities.requestHomePatientNewsFeed { [weak self] newsFeedResult, error in
             guard let self = self else { return}
 
-            guard let newsFeedResult = newsFeedResult, error == nil else {
-                return
-            }
-
-            print(self.newsFeed as Any)
+            
+            guard let newsFeedResult = newsFeedResult, error == nil else { return }
             self.newsFeed = newsFeedResult
 
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 guard let self = self else { return}
                 self.tbvNews.reloadData()
+                self.loading.stopAnimating()
             }
         }
-    }
-
-    @IBAction func hadleBtnViewAll(_ sender: UIButton) {
-        print("Touch BTN View All")
     }
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
@@ -75,18 +73,39 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
                 return UITableViewCell()
             }
             newsCell.configureViews(articleList: self.newsFeed?.articleList)
+            newsCell.pushNextVC = {[weak self] (result) in
+                guard let self = self else { return}
+                if result {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewsListViewController") as! NewsListViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
             return newsCell
+            
         case 1:
-            guard let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as? NewsFeedTableViewCell else {
+            guard let promotionCell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as? NewsFeedTableViewCell else {
                 return UITableViewCell()
             }
-            newsCell.configureViews(promotionList: self.newsFeed?.promotionList)
-            return newsCell
+            promotionCell.configureViews(promotionList: self.newsFeed?.promotionList)
+            promotionCell.pushNextVC = {[weak self] (result) in
+                guard let self = self else { return}
+                if result {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "PromotionListViewController") as! PromotionListViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            return promotionCell
+            
         case 2:
-            guard let doctorCell = tableView.dequeueReusableCell(withIdentifier: "SuggestDoctorTableViewCell", for: indexPath) as? SuggestDoctorTableViewCell else {
-                return UITableViewCell()
-            }
+            guard let doctorCell = tableView.dequeueReusableCell(withIdentifier: "SuggestDoctorTableViewCell", for: indexPath) as? SuggestDoctorTableViewCell else { return UITableViewCell() }
             doctorCell.configureViews(listDoctor: self.newsFeed?.doctorList)
+            doctorCell.pushNextVC = {[weak self] (result) in
+                guard let self = self else { return}
+                if result {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "DoctorListViewController") as! DoctorListViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
             return doctorCell
         default:
             return UITableViewCell()

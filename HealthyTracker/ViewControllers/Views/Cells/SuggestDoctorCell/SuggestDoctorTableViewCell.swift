@@ -13,6 +13,8 @@ class SuggestDoctorTableViewCell: UITableViewCell {
     @IBOutlet weak var clvNewsDetail: UICollectionView!
     
     var listDoctor : [DoctorModel]?
+    
+    var pushNextVC: ((Bool) -> ())? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +31,9 @@ class SuggestDoctorTableViewCell: UITableViewCell {
         self.clvNewsDetail.reloadData()
     }
     
+    @IBAction func handleBtnViewAll(_ sender: UIButton) {
+        self.pushNextVC?(true)
+    }
 }
 extension SuggestDoctorTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

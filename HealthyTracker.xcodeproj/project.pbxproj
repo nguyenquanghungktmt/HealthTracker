@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730274C7286D5FFB003961CE /* PromotionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730274C5286D5FFB003961CE /* PromotionListTableViewCell.swift */; };
+		730274C8286D5FFB003961CE /* PromotionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730274C6286D5FFB003961CE /* PromotionListTableViewCell.xib */; };
 		7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C80128584570008CC1B4 /* AppDelegate.swift */; };
 		7340C80428584570008CC1B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C80328584570008CC1B4 /* SceneDelegate.swift */; };
 		7340C80628584570008CC1B4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C80528584570008CC1B4 /* IntroViewController.swift */; };
@@ -57,6 +59,10 @@
 		737DDD49285AE5C900200AC1 /* SlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737DDD47285AE5C900200AC1 /* SlideCollectionViewCell.xib */; };
 		737FAA0E28656CEB00170501 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FAA0D28656CEB00170501 /* String+Extensions.swift */; };
 		737FAA1028656D1E00170501 /* UIButton+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */; };
+		7385D1FA286D416000391DE1 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D1F9286D416000391DE1 /* NewsListViewController.swift */; };
+		7385D1FC286D417700391DE1 /* PromotionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D1FB286D417700391DE1 /* PromotionListViewController.swift */; };
+		7385D1FE286D421A00391DE1 /* DoctorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D1FD286D421A00391DE1 /* DoctorListViewController.swift */; };
+		7385D200286D552100391DE1 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D1FF286D552100391DE1 /* UIImage+Extensions.swift */; };
 		73934A2728641F71005F972D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73934A2628641F71005F972D /* HomeViewController.swift */; };
 		8C5F1323DF6D9E9431345457 /* Pods_HealthyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8885906C7A1F3EC5611B2C /* Pods_HealthyTracker.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		69387EBB3ED9D4FC16B7B2F4 /* Pods-HealthyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyTracker.release.xcconfig"; path = "Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker.release.xcconfig"; sourceTree = "<group>"; };
+		730274C5286D5FFB003961CE /* PromotionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListTableViewCell.swift; sourceTree = "<group>"; };
+		730274C6286D5FFB003961CE /* PromotionListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionListTableViewCell.xib; sourceTree = "<group>"; };
 		7340C7FE28584570008CC1B4 /* HealthyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7340C80128584570008CC1B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7340C80328584570008CC1B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +132,10 @@
 		737DDD47285AE5C900200AC1 /* SlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideCollectionViewCell.xib; sourceTree = "<group>"; };
 		737FAA0D28656CEB00170501 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extentions.swift"; sourceTree = "<group>"; };
+		7385D1F9286D416000391DE1 /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
+		7385D1FB286D417700391DE1 /* PromotionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionListViewController.swift; sourceTree = "<group>"; };
+		7385D1FD286D421A00391DE1 /* DoctorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListViewController.swift; sourceTree = "<group>"; };
+		7385D1FF286D552100391DE1 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		73934A2628641F71005F972D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EB8885906C7A1F3EC5611B2C /* Pods_HealthyTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F728C393FA9FAB3A9CB1A5F7 /* Pods-HealthyTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyTracker.debug.xcconfig"; path = "Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +182,15 @@
 				69387EBB3ED9D4FC16B7B2F4 /* Pods-HealthyTracker.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		730274C4286D5FDA003961CE /* PromotionListCell */ = {
+			isa = PBXGroup;
+			children = (
+				730274C5286D5FFB003961CE /* PromotionListTableViewCell.swift */,
+				730274C6286D5FFB003961CE /* PromotionListTableViewCell.xib */,
+			);
+			path = PromotionListCell;
 			sourceTree = "<group>";
 		};
 		7340C7F528584570008CC1B4 = {
@@ -271,6 +292,7 @@
 		7367AED62862B76E004A6F89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				735E8EB82866B048002820D2 /* CommonViews */,
 				738C7164285D6A0300143782 /* Cells */,
 			);
 			path = Views;
@@ -289,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				7375F74A2869BD370029B170 /* Utilities */,
-				735E8EB82866B048002820D2 /* CommonViews */,
 				7368E049285C385F00B0C3CA /* Extensions */,
 				7368E035285C314900B0C3CA /* Constants.swift */,
 			);
@@ -308,11 +329,10 @@
 		7368E03E285C360600B0C3CA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7385D1F8286D413900391DE1 /* NewsPromotionDoctor */,
+				7385D1F7286D40CE00391DE1 /* Home */,
+				7385D1F6286D40AE00391DE1 /* LoginAndVerify */,
 				7367AED62862B76E004A6F89 /* Views */,
-				7340C80528584570008CC1B4 /* IntroViewController.swift */,
-				7368E045285C36B900B0C3CA /* LoginViewController.swift */,
-				7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */,
-				73934A2628641F71005F972D /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -336,6 +356,7 @@
 				737FAA0D28656CEB00170501 /* String+Extensions.swift */,
 				737FAA0F28656D1E00170501 /* UIButton+Extentions.swift */,
 				736075C2286C113300F4AD17 /* NSMutableAttributedString+Extensions.swift.swift */,
+				7385D1FF286D552100391DE1 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -377,12 +398,41 @@
 			path = IntroCell;
 			sourceTree = "<group>";
 		};
+		7385D1F6286D40AE00391DE1 /* LoginAndVerify */ = {
+			isa = PBXGroup;
+			children = (
+				7340C80528584570008CC1B4 /* IntroViewController.swift */,
+				7368E045285C36B900B0C3CA /* LoginViewController.swift */,
+				7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */,
+			);
+			path = LoginAndVerify;
+			sourceTree = "<group>";
+		};
+		7385D1F7286D40CE00391DE1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				73934A2628641F71005F972D /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7385D1F8286D413900391DE1 /* NewsPromotionDoctor */ = {
+			isa = PBXGroup;
+			children = (
+				7385D1F9286D416000391DE1 /* NewsListViewController.swift */,
+				7385D1FB286D417700391DE1 /* PromotionListViewController.swift */,
+				7385D1FD286D421A00391DE1 /* DoctorListViewController.swift */,
+			);
+			path = NewsPromotionDoctor;
+			sourceTree = "<group>";
+		};
 		738C7164285D6A0300143782 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				730274C4286D5FDA003961CE /* PromotionListCell */,
 				73663662286AACA5003D0805 /* DoctorDetailCell */,
-				73663667286AC0F3003D0805 /* SuggestDoctorCell */,
 				735E8EBE2866BD95002820D2 /* NewsDetailCell */,
+				73663667286AC0F3003D0805 /* SuggestDoctorCell */,
 				735E8EB92866B064002820D2 /* NewsFeedCell */,
 				737DDD3F285AC75400200AC1 /* IntroCell */,
 			);
@@ -513,6 +563,7 @@
 				735E8EBD2866B08C002820D2 /* NewsFeedTableViewCell.xib in Resources */,
 				7366366B286AC119003D0805 /* SuggestDoctorTableViewCell.xib in Resources */,
 				7340C80B28584571008CC1B4 /* Assets.xcassets in Resources */,
+				730274C8286D5FFB003961CE /* PromotionListTableViewCell.xib in Resources */,
 				7368E019285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */,
 				73663666286AACC7003D0805 /* DoctorDetailCollectionViewCell.xib in Resources */,
 				7340C80928584570008CC1B4 /* Main.storyboard in Resources */,
@@ -587,8 +638,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				736075BD286BF42B00F4AD17 /* DoctorModel.swift in Sources */,
+				7385D1FC286D417700391DE1 /* PromotionListViewController.swift in Sources */,
+				730274C7286D5FFB003961CE /* PromotionListTableViewCell.swift in Sources */,
 				7366366A286AC119003D0805 /* SuggestDoctorTableViewCell.swift in Sources */,
 				7361EC502860709F0071E6BF /* UILabel+Extension.swift in Sources */,
+				7385D1FA286D416000391DE1 /* NewsListViewController.swift in Sources */,
 				7368E046285C36B900B0C3CA /* LoginViewController.swift in Sources */,
 				736075C1286C0AE000F4AD17 /* Utilities.swift in Sources */,
 				7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */,
@@ -608,7 +662,9 @@
 				737DDD48285AE5C900200AC1 /* SlideCollectionViewCell.swift in Sources */,
 				736075BF286BF45E00F4AD17 /* PatientNewsFeedModel.swift in Sources */,
 				73663665286AACC7003D0805 /* DoctorDetailCollectionViewCell.swift in Sources */,
+				7385D200286D552100391DE1 /* UIImage+Extensions.swift in Sources */,
 				735E8EBC2866B08C002820D2 /* NewsFeedTableViewCell.swift in Sources */,
+				7385D1FE286D421A00391DE1 /* DoctorListViewController.swift in Sources */,
 				736075BB286BF41500F4AD17 /* PromotionModel.swift in Sources */,
 				7368E036285C314900B0C3CA /* Constants.swift in Sources */,
 				7368E04B285C389B00B0C3CA /* UIColor+Extensions.swift in Sources */,

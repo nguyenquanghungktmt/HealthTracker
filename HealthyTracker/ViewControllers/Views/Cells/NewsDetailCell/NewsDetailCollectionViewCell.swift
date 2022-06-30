@@ -29,17 +29,17 @@ class NewsDetailCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
     }
     
-    func configureCell(news: ArticleModel) {
-        Utilities.loadImage(self.imgNews, strURL: news.picture ?? "", placeHolder: UIImage(named: "img_news"))
-        self.lbNewsTitle.text = news.title
-        self.lbNewsCategory.text = news.category_name
-        self.lbNewsDate.text = news.created_at
+    func configureCell(news: ArticleModel?) {
+        Utilities.loadImage(self.imgNews, strURL: news?.picture ?? "", placeHolder: UIImage.imageWithColor(color: .lightGray))
+        self.lbNewsTitle.text = news?.title
+        self.lbNewsCategory.text = news?.category_name
+        self.lbNewsDate.text = news?.created_at
     }
     
-    func configureCell(news: PromotionModel) {
-        Utilities.loadImage(self.imgNews, strURL: news.picture ?? "", placeHolder: UIImage(named: "img_news"))
-        self.lbNewsTitle.text = news.name
-        self.lbNewsCategory.text = news.category_name
-        self.lbNewsDate.text = news.created_at
+    func configureCell(promotion: PromotionModel?) {
+        Utilities.loadImage(self.imgNews, strURL: promotion?.picture ?? "", placeHolder: UIImage.imageWithColor(color: .lightGray))
+        self.lbNewsTitle.text = promotion?.name
+        self.lbNewsCategory.text = promotion?.category_name
+        self.lbNewsDate.text = promotion?.created_at
     }
 }

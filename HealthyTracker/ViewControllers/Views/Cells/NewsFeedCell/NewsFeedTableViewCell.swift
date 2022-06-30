@@ -15,6 +15,8 @@ class NewsFeedTableViewCell: UITableViewCell {
     var articleList     : [ArticleModel]?
     var promotionList     : [PromotionModel]?
     
+    var pushNextVC: ((Bool) -> ())? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,6 +40,9 @@ class NewsFeedTableViewCell: UITableViewCell {
         self.clvNewsDetail.reloadData()
     }
     
+    @IBAction func handleBtnViewAll(_ sender: UIButton) {
+        self.pushNextVC?(true)
+    }
 }
 extension NewsFeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -62,7 +67,7 @@ extension NewsFeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         }
         
         let promotion = self.promotionList?[indexPath.item]
-        cell.configureCell(news: promotion ?? PromotionModel())
+        cell.configureCell(promotion: promotion ?? PromotionModel())
         
         return cell
     }

@@ -32,6 +32,9 @@
                         <state key="normal" title="Xem tất cả" image="ic_right2">
                             <color key="titleColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="handleBtnViewAll:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HHO-Wb-bV4"/>
+                        </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JrO-nb-QFg">
                         <rect key="frame" x="0.0" y="39.5" width="420" height="234.5"/>
