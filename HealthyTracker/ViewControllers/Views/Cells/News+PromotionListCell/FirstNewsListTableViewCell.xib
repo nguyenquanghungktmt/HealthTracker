@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NunitoSans-Bold.ttf">
+            <string>NunitoSans-Bold</string>
+        </array>
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="304" id="KGk-i7-Jjw" customClass="FirstNewsListTableViewCell" customModule="HealthyTracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="442" height="304"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="442" height="304"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zCi-CV-S8V">
+                        <rect key="frame" x="0.0" y="0.0" width="442" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="u2F-4T-gnc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Jio Health khởi động chương trình Doctor Tour 2021" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb7-7J-YF5" userLabel="title news">
+                        <rect key="frame" x="16" y="212" width="410" height="55"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 tháng 6, 2021" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oO5-MH-6te">
+                        <rect key="frame" x="16" y="271" width="410" height="21"/>
+                        <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="12"/>
+                        <color key="textColor" red="0.49019607843137253" green="0.51764705882352935" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdv-B9-0em" userLabel="line">
+                        <rect key="frame" x="0.0" y="303.5" width="442" height="0.5"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="8Jd-bR-PHD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oO5-MH-6te" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7tI-LS-yZf"/>
+                    <constraint firstItem="zCi-CV-S8V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9je-ok-hpO"/>
+                    <constraint firstAttribute="trailing" secondItem="oO5-MH-6te" secondAttribute="trailing" constant="16" id="FOD-9x-Ztl"/>
+                    <constraint firstItem="Xdv-B9-0em" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kaw-qc-oJI"/>
+                    <constraint firstItem="oO5-MH-6te" firstAttribute="top" secondItem="cb7-7J-YF5" secondAttribute="bottom" constant="4" id="WGM-qg-bc3"/>
+                    <constraint firstAttribute="trailing" secondItem="zCi-CV-S8V" secondAttribute="trailing" id="aa3-fL-eCW"/>
+                    <constraint firstItem="zCi-CV-S8V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cFc-6Y-aio"/>
+                    <constraint firstAttribute="trailing" secondItem="Xdv-B9-0em" secondAttribute="trailing" id="cpp-Rc-BMQ"/>
+                    <constraint firstAttribute="bottom" secondItem="Xdv-B9-0em" secondAttribute="bottom" id="dRd-ms-lv5"/>
+                    <constraint firstItem="cb7-7J-YF5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="h4I-R6-euM"/>
+                    <constraint firstItem="cb7-7J-YF5" firstAttribute="top" secondItem="zCi-CV-S8V" secondAttribute="bottom" constant="12" id="q6c-6D-2U8"/>
+                    <constraint firstAttribute="trailing" secondItem="cb7-7J-YF5" secondAttribute="trailing" constant="16" id="yel-sg-R3y"/>
+                    <constraint firstAttribute="bottom" secondItem="oO5-MH-6te" secondAttribute="bottom" constant="12" id="z1g-TY-MlX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgNews" destination="zCi-CV-S8V" id="IMg-Kx-Ap5"/>
+                <outlet property="lbDate" destination="oO5-MH-6te" id="iLe-5a-Pwe"/>
+                <outlet property="lbTitle" destination="cb7-7J-YF5" id="Kiu-Vr-xLo"/>
+            </connections>
+            <point key="canvasLocation" x="200.00000000000003" y="141.96428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -31,9 +31,6 @@ class HomeViewController: UIViewController {
     func setupView(){
         lbUsername.text = "Quỳnh Ken"
         lbStatus.text = "Đang hoạt động"
-        
-        
-        self.loading.hidesWhenStopped = true
     }
     
     func register(){
@@ -45,6 +42,7 @@ class HomeViewController: UIViewController {
     
     func fetchDataNewsFeed() {
         //load data here
+        self.loading.hidesWhenStopped = true
         self.loading.startAnimating()
         APIUtilities.requestHomePatientNewsFeed { [weak self] newsFeedResult, error in
             guard let self = self else { return}

@@ -33,6 +33,11 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jqu-qn-EGX" secondAttribute="height" multiplier="1:1" id="RbC-Xn-e3o"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Dr. Stephen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl2-2E-4xs">
                                 <rect key="frame" x="12" y="181" width="157" height="18"/>

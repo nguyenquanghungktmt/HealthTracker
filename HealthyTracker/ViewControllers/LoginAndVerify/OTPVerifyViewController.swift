@@ -61,7 +61,7 @@ class OTPVerifyViewController: UIViewController {
         stackOTPCode.otpValueDidChanged = {[weak self] (result) in
             self?.updateBtnNext(isEnable: result)
         }
-        stackOTPCode.becomeFirstResponder()
+        stackOTPCode.otpCodes[0].becomeFirstResponder()
         
     }
 

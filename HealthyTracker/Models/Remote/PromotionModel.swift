@@ -17,13 +17,13 @@ class PromotionModel {
     var content     : String?
     var created_at     : String?
     var from_date     : String?
+    var to_date     : String?
     var is_bookmark     : Bool?
     var kind     : Int?
     var link     : String?
     var name     : String?
     var picture     : String?
     var slug     : String?
-    var to_date     : String?
     var type     : Int?
 
     convenience init(amount: Int?,

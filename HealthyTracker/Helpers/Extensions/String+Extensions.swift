@@ -12,4 +12,9 @@ extension String {
             return String(self[start..<end])
         }
     }
+    
+    static func dateConvert(date:String = "dd/mm/yyyy") -> String {
+        let stringArray = date.split(separator: "/")
+        return "\(stringArray[0]) tháng \(stringArray[1]), \(stringArray[2])"
+    }
 }
