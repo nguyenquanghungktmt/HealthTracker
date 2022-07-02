@@ -17,7 +17,7 @@ class NewsListViewController: UIViewController {
         super.viewDidLoad()
 
         register()
-        fetchDataPromotionList()
+        fetchDataNewsList()
     }
     
     func register(){
@@ -26,7 +26,7 @@ class NewsListViewController: UIViewController {
         self.tbvNews.register(UINib(nibName: "NewsListTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsListTableViewCell")
         self.tbvNews.register(UINib(nibName: "FirstNewsListTableViewCell", bundle: nil), forCellReuseIdentifier: "FirstNewsListTableViewCell")
     }
-    func fetchDataPromotionList() {
+    func fetchDataNewsList() {
         //load data here
         self.loading.startAnimating()
         self.loading.hidesWhenStopped = true
@@ -60,16 +60,14 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "FirstNewsListTableViewCell", for: indexPath) as? FirstNewsListTableViewCell else {
                 return UITableViewCell()
             }
-            let index = indexPath.item
-            cell.configureCell(news: newsList?[index])
+            cell.configureCell(news: newsList?[indexPath.item])
+            cell.selectionStyle = .none
             return cell
         }
-        
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListTableViewCell", for: indexPath) as? NewsListTableViewCell else {
             return UITableViewCell()
         }
-        
         let index = indexPath.item
         cell.configureCell(news: newsList?[index])
         cell.viewLine.isHidden = (index == (self.newsList?.count ?? 0) - 1)
@@ -81,10 +79,20 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
                 self.showToast(message: "Copied url to clipboard")
             }
         }
+        cell.selectionStyle = .none
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let news = self.newsList?[indexPath.item] else { return }
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        if let link = news.link {
+            detailsVC.url = URL(string: link)
+        }
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.item == 0 ? 300 : Constants.NewsListVC.tableNewsCellHeight
+        return indexPath.item == 0 ? 300 : Constants.NewsListVC.newsTableCellHeight
     }
 }

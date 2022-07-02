@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -44,8 +43,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdv-B9-0em" userLabel="line">
-                        <rect key="frame" x="0.0" y="303.5" width="442" height="0.5"/>
-                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <rect key="frame" x="16" y="303.5" width="410" height="0.5"/>
+                        <color key="backgroundColor" red="0.49019607843137253" green="0.51764705882352935" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="8Jd-bR-PHD"/>
                         </constraints>
@@ -55,11 +54,11 @@
                     <constraint firstItem="oO5-MH-6te" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7tI-LS-yZf"/>
                     <constraint firstItem="zCi-CV-S8V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9je-ok-hpO"/>
                     <constraint firstAttribute="trailing" secondItem="oO5-MH-6te" secondAttribute="trailing" constant="16" id="FOD-9x-Ztl"/>
-                    <constraint firstItem="Xdv-B9-0em" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kaw-qc-oJI"/>
+                    <constraint firstItem="Xdv-B9-0em" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Kaw-qc-oJI"/>
                     <constraint firstItem="oO5-MH-6te" firstAttribute="top" secondItem="cb7-7J-YF5" secondAttribute="bottom" constant="4" id="WGM-qg-bc3"/>
                     <constraint firstAttribute="trailing" secondItem="zCi-CV-S8V" secondAttribute="trailing" id="aa3-fL-eCW"/>
                     <constraint firstItem="zCi-CV-S8V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cFc-6Y-aio"/>
-                    <constraint firstAttribute="trailing" secondItem="Xdv-B9-0em" secondAttribute="trailing" id="cpp-Rc-BMQ"/>
+                    <constraint firstAttribute="trailing" secondItem="Xdv-B9-0em" secondAttribute="trailing" constant="16" id="cpp-Rc-BMQ"/>
                     <constraint firstAttribute="bottom" secondItem="Xdv-B9-0em" secondAttribute="bottom" id="dRd-ms-lv5"/>
                     <constraint firstItem="cb7-7J-YF5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="h4I-R6-euM"/>
                     <constraint firstItem="cb7-7J-YF5" firstAttribute="top" secondItem="zCi-CV-S8V" secondAttribute="bottom" constant="12" id="q6c-6D-2U8"/>
@@ -76,9 +75,4 @@
             <point key="canvasLocation" x="200.00000000000003" y="141.96428571428569"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

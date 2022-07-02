@@ -69,10 +69,20 @@ extension PromotionListViewController: UITableViewDelegate, UITableViewDataSourc
                 self.showToast(message: "Copied url to clipboard")
             }
         }
+        cell.selectionStyle = .none
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let promotion = self.promotionList?[indexPath.item] else { return }
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        if let link = promotion.link {
+            detailsVC.url = URL(string: link)
+        }
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.NewsListVC.tableNewsCellHeight
+        return Constants.NewsListVC.newsTableCellHeight
     }
 }

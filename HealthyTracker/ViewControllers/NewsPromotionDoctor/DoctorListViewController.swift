@@ -8,11 +8,62 @@
 import UIKit
 
 class DoctorListViewController: UIViewController {
-
+    @IBOutlet weak var tbvDoctor: UITableView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
+    var doctorList: [DoctorModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        register()
+        fetchDataDoctorList()
+    }
+    
+    func register(){
+        tbvDoctor.delegate = self
+        tbvDoctor.dataSource = self
+        self.tbvDoctor.register(UINib(nibName: "DoctorListTableViewCell", bundle: nil), forCellReuseIdentifier: "DoctorListTableViewCell")
+    }
+    
+    func fetchDataDoctorList() {
+        //load data here
+        self.loading.startAnimating()
+        self.loading.hidesWhenStopped = true
+        APIUtilities.requestDoctorList { [weak self] result, error in
+            guard let self = self else { return}
 
-        // Do any additional setup after loading the view.
-        print("Doctor list")
+            
+            guard let result = result, error == nil else { return }
+            self.doctorList = result.doctorList
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                guard let self = self else { return}
+                self.tbvDoctor.reloadData()
+                self.loading.stopAnimating()
+            }
+        }
+    }
+    
+    @IBAction func handleBtnBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+extension DoctorListViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.doctorList?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorListTableViewCell", for: indexPath) as? DoctorListTableViewCell else {
+            return UITableViewCell()
+        }
+        let index = indexPath.item
+        cell.configureCell(doctor: doctorList?[index])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.DoctorListVC.doctorTableCellHeight
     }
 }

@@ -70,6 +70,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             guard let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as? NewsFeedTableViewCell else {
                 return UITableViewCell()
             }
+            newsCell.selectionStyle = .none
             newsCell.configureViews(articleList: self.newsFeed?.articleList)
             newsCell.pushNextVC = {[weak self] (result) in
                 guard let self = self else { return}
@@ -84,6 +85,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             guard let promotionCell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as? NewsFeedTableViewCell else {
                 return UITableViewCell()
             }
+            promotionCell.selectionStyle = .none
             promotionCell.configureViews(promotionList: self.newsFeed?.promotionList)
             promotionCell.pushNextVC = {[weak self] (result) in
                 guard let self = self else { return}
@@ -96,6 +98,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             
         case 2:
             guard let doctorCell = tableView.dequeueReusableCell(withIdentifier: "SuggestDoctorTableViewCell", for: indexPath) as? SuggestDoctorTableViewCell else { return UITableViewCell() }
+            doctorCell.selectionStyle = .none
             doctorCell.configureViews(listDoctor: self.newsFeed?.doctorList)
             doctorCell.pushNextVC = {[weak self] (result) in
                 guard let self = self else { return}
