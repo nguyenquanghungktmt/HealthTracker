@@ -25,7 +25,8 @@ class SuggestDoctorTableViewCell: UITableViewCell {
         self.clvNewsDetail.register(UINib(nibName: "DoctorDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DoctorDetailCollectionViewCell")
     }
     
-    func configureViews(listDoctor: [DoctorModel]?){
+    func configureViews(listDoctor: [DoctorModel]?, pushNextVC: ((Bool) -> ())?){
+        self.pushNextVC = pushNextVC
         self.lbTitle.text = "Giới thiệu bác sĩ"
         self.listDoctor = listDoctor
         self.clvNewsDetail.reloadData()

@@ -16,8 +16,14 @@ class DoctorListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
         register()
         fetchDataDoctorList()
+    }
+    
+    func setupView(){
+        tbvDoctor.rowHeight = UITableView.automaticDimension
+        tbvDoctor.estimatedRowHeight = Constants.DoctorListVC.doctorTableCellHeight * 1.5
     }
     
     func register(){
@@ -29,12 +35,14 @@ class DoctorListViewController: UIViewController {
     func fetchDataDoctorList() {
         //load data here
         self.loading.startAnimating()
-        self.loading.hidesWhenStopped = true
         APIUtilities.requestDoctorList { [weak self] result, error in
             guard let self = self else { return}
-
             
-            guard let result = result, error == nil else { return }
+            guard let result = result, error == nil else {
+                self.loading.stopAnimating()
+                self.showToast(message: "Couldn't load data")
+                return
+            }
             self.doctorList = result.doctorList
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
@@ -63,7 +71,7 @@ extension DoctorListViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.DoctorListVC.doctorTableCellHeight
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
 }

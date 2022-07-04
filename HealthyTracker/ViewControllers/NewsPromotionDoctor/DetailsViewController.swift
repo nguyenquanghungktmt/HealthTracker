@@ -8,36 +8,31 @@
 import UIKit
 import WebKit
 
-class DetailsViewController: UIViewController, WKNavigationDelegate {
-    @IBOutlet weak var viewContent: UIView!
+class DetailsViewController: UIViewController {
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var lbTitle: UILabel!
     
-    var webView : WKWebView!
     var url : URL?
-    
-    override func loadView() {
-//        webView = WKWebView(frame: viewContent.bounds, configuration: WKWebViewConfiguration())
-//        webView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        self.viewContent.addSubview(webView!)
-//
-//        webView?.navigationDelegate = self
-        
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
-    }
+    var titles: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        webView = WKWebView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - 30))
-//        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        webView.navigationDelegate = self
+        loadWebView()
+    }
+    
+    func loadWebView(){
+        if let titles = titles{
+            lbTitle.text = titles
+        }
         
         if let url = self.url{
-            webView?.load(URLRequest(url: url))
-//            self.viewContent.addSubview(webView)
+            self.webView.load(URLRequest(url: url))
         }
+        self.webView.navigationDelegate = self
     }
+
     
     @IBAction func onTapBtnBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -48,5 +43,19 @@ class DetailsViewController: UIViewController, WKNavigationDelegate {
         /// copy news url to clipboard
         UIPasteboard.general.string = self.url?.description
         self.showToast(message: "Copied url to clipboard")
+    }
+}
+extension DetailsViewController: WKNavigationDelegate{
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        webView.isHidden = true
+        loading.startAnimating()
+        loading.isHidden = false
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.isHidden = false
+        loading.isHidden = true
+        loading.stopAnimating()
     }
 }

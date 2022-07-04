@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum NewFeedTableViewCellType {
+    case news
+    case promotion
+}
+
 class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var btnViewAll: UIButton!
@@ -14,26 +19,35 @@ class NewsFeedTableViewCell: UITableViewCell {
     
     var articleList     : [ArticleModel]?
     var promotionList     : [PromotionModel]?
+    var typeCell : NewFeedTableViewCellType?
     
     var pushNextVC: ((Bool) -> ())? = nil
+    var tapOnNewsFeedCell: ((Int) -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
+        self.typeCell = .news
         clvNewsDetail.delegate = self
         clvNewsDetail.dataSource = self
-        self.clvNewsDetail.register(UINib(nibName: "NewsDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
+        clvNewsDetail.register(UINib(nibName: "NewsDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
     }
 
-    func configureViews(articleList: [ArticleModel]?){
+    func configureViews(articleList: [ArticleModel]?, pushNextVC: ((Bool) -> ())?, tapOnNewsFeedCell: ((Int) -> ())?){
+        self.typeCell = .news
+        self.pushNextVC = pushNextVC
+        self.tapOnNewsFeedCell = tapOnNewsFeedCell
         self.lbTitle.text = "Tin tức"
         self.articleList = articleList		
         self.promotionList = nil
         self.clvNewsDetail.reloadData()
     }
     
-    func configureViews(promotionList: [PromotionModel]?){
+    func configureViews(promotionList: [PromotionModel]?, pushNextVC: ((Bool) -> ())?, tapOnNewsFeedCell: ((Int) -> ())?){
+        self.typeCell = .promotion
+        self.pushNextVC = pushNextVC
+        self.tapOnNewsFeedCell = tapOnNewsFeedCell
         self.lbTitle.text = "Khuyến mãi"
         self.articleList = nil
         self.promotionList = promotionList
@@ -46,30 +60,41 @@ class NewsFeedTableViewCell: UITableViewCell {
 }
 extension NewsFeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let articleList = self.articleList {
-            return articleList.count
+        switch self.typeCell {
+        case .news:
+            return articleList?.count ?? 0
+            
+        case .promotion:
+            return promotionList?.count ?? 0
+            
+        default:
+            return 0
         }
-        
-        return self.promotionList?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsDetailCollectionViewCell", for: indexPath) as? NewsDetailCollectionViewCell else {
             return UICollectionViewCell()
         }
-
-        if let articleList = self.articleList {
-            
-            let news = articleList[indexPath.item]
+        
+        switch self.typeCell {
+        case .news:
+            let news = articleList?[indexPath.item]
             cell.configureCell(news: news)
+            return cell
             
+        case .promotion:
+            let promotion = self.promotionList?[indexPath.item]
+            cell.configureCell(promotion: promotion)
+            return cell
+            
+        default:
             return cell
         }
-        
-        let promotion = self.promotionList?[indexPath.item]
-        cell.configureCell(promotion: promotion ?? PromotionModel())
-        
-        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.tapOnNewsFeedCell?(indexPath.item)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

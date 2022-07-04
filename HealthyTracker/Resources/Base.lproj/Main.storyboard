@@ -654,7 +654,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-n5-aqv">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-n5-aqv">
                                 <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="FxG-SN-Ur3"/>
@@ -686,7 +686,7 @@
                         <outlet property="lbStatus" destination="1c7-fj-xlR" id="Zs3-iV-6AI"/>
                         <outlet property="lbUsername" destination="BOW-55-Ys6" id="27H-fF-M00"/>
                         <outlet property="loading" destination="DnO-n5-aqv" id="9P6-ez-dE4"/>
-                        <outlet property="tbvNews" destination="EBy-In-GEF" id="vnX-8R-ajh"/>
+                        <outlet property="tbvNewsFeed" destination="EBy-In-GEF" id="eKR-DD-9aL"/>
                         <outlet property="viewContent" destination="uYg-Le-kz6" id="dpB-KC-odr"/>
                     </connections>
                 </viewController>
@@ -874,7 +874,7 @@
                                     <constraint firstAttribute="trailing" secondItem="vuT-yu-wYg" secondAttribute="trailing" id="unq-C9-HnN"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="v7H-PU-MRR">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="v7H-PU-MRR">
                                 <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="WC5-vo-qdl"/>
@@ -981,7 +981,7 @@
                                     <constraint firstItem="8px-2I-MU0" firstAttribute="leading" secondItem="L88-fd-hS9" secondAttribute="leading" id="nbO-ND-CXO"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="GhX-my-bzf">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="GhX-my-bzf">
                                 <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="AqK-pF-gxN"/>
@@ -1085,7 +1085,7 @@
                                     <constraint firstItem="cug-zS-tpO" firstAttribute="centerY" secondItem="1DC-C5-Nag" secondAttribute="centerY" id="twB-bv-QVq"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Var-m3-N6Z">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Var-m3-N6Z">
                                 <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Vby-xC-Q7O"/>
@@ -1130,11 +1130,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zu7-zb-hsU" userLabel="view content">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fA-CW-VLb">
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Di1-B1-XEZ" userLabel="navigation bar">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Di1-B1-XEZ" userLabel="navigation bar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H86-EE-IjD" userLabel="Button left">
@@ -1216,21 +1220,32 @@
                                     <constraint firstItem="ob5-nS-6zR" firstAttribute="centerY" secondItem="H86-EE-IjD" secondAttribute="centerY" id="wRm-xj-fzc"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="GkY-av-D6C">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Ywg-XT-aeQ"/>
+                                    <constraint firstAttribute="height" constant="100" id="pex-hY-Hgz"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Jn-VK-AeW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Jn-VK-AeW" firstAttribute="bottom" secondItem="zu7-zb-hsU" secondAttribute="bottom" id="Hve-fz-3jc"/>
-                            <constraint firstItem="zu7-zb-hsU" firstAttribute="leading" secondItem="6Jn-VK-AeW" secondAttribute="leading" id="P8d-iz-jmu"/>
-                            <constraint firstItem="6Jn-VK-AeW" firstAttribute="trailing" secondItem="zu7-zb-hsU" secondAttribute="trailing" id="bpG-ff-M8E"/>
+                            <constraint firstItem="6Jn-VK-AeW" firstAttribute="trailing" secondItem="2fA-CW-VLb" secondAttribute="trailing" id="0jC-An-aZL"/>
+                            <constraint firstItem="2fA-CW-VLb" firstAttribute="leading" secondItem="6Jn-VK-AeW" secondAttribute="leading" id="8gc-A8-qjS"/>
+                            <constraint firstItem="2fA-CW-VLb" firstAttribute="top" secondItem="Di1-B1-XEZ" secondAttribute="bottom" id="X2N-bg-It0"/>
+                            <constraint firstItem="GkY-av-D6C" firstAttribute="centerX" secondItem="8yx-5B-0YC" secondAttribute="centerX" id="cf0-ZO-6Be"/>
                             <constraint firstItem="Di1-B1-XEZ" firstAttribute="top" secondItem="6Jn-VK-AeW" secondAttribute="top" id="dSd-Cy-AVG"/>
+                            <constraint firstItem="6Jn-VK-AeW" firstAttribute="bottom" secondItem="2fA-CW-VLb" secondAttribute="bottom" id="eNC-9v-vdY"/>
                             <constraint firstItem="Di1-B1-XEZ" firstAttribute="leading" secondItem="6Jn-VK-AeW" secondAttribute="leading" id="krL-Jw-ZHi"/>
+                            <constraint firstItem="GkY-av-D6C" firstAttribute="centerY" secondItem="8yx-5B-0YC" secondAttribute="centerY" id="nBW-5J-fo8"/>
                             <constraint firstAttribute="trailing" secondItem="Di1-B1-XEZ" secondAttribute="trailing" id="pFG-WG-PFI"/>
-                            <constraint firstItem="zu7-zb-hsU" firstAttribute="top" secondItem="Di1-B1-XEZ" secondAttribute="bottom" id="t8P-sc-fFp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="viewContent" destination="zu7-zb-hsU" id="yD8-lj-kez"/>
+                        <outlet property="lbTitle" destination="ob5-nS-6zR" id="0OA-k5-3i0"/>
+                        <outlet property="loading" destination="GkY-av-D6C" id="VdM-KW-sKc"/>
+                        <outlet property="webView" destination="2fA-CW-VLb" id="pTb-k4-GWa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4Z-mf-BUI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -29,7 +29,7 @@
                         <rect key="frame" x="16" y="12" width="276" height="124"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_doctor" translatesAutoresizingMaskIntoConstraints="NO" id="oPA-1K-OYr">
-                                <rect key="frame" x="12" y="12" width="80" height="80"/>
+                                <rect key="frame" x="12" y="16" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oPA-1K-OYr" secondAttribute="height" multiplier="1:1" id="3EV-Ta-mYm"/>
                                     <constraint firstAttribute="height" constant="80" id="ZLT-Er-dBj"/>
@@ -40,14 +40,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Dr. Stephen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1c-CE-OG3" userLabel="fullname">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Dr. Stephen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1c-CE-OG3" userLabel="fullname">
                                 <rect key="frame" x="108" y="16" width="156" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="13"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pediatrics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-dT-n0K" userLabel="major">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pediatrics" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-dT-n0K" userLabel="major">
                                 <rect key="frame" x="108" y="40" width="156" height="16.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="12"/>
@@ -74,12 +74,14 @@
                             <constraint firstItem="oPA-1K-OYr" firstAttribute="leading" secondItem="QGT-rH-qE9" secondAttribute="leading" constant="12" id="1aS-IX-iiQ"/>
                             <constraint firstItem="cBl-YF-JdT" firstAttribute="top" secondItem="cFv-dT-n0K" secondAttribute="bottom" constant="11" id="4Vi-kf-hpk"/>
                             <constraint firstItem="cBl-YF-JdT" firstAttribute="leading" secondItem="oPA-1K-OYr" secondAttribute="trailing" constant="18" id="Kb3-1u-abi"/>
+                            <constraint firstItem="oPA-1K-OYr" firstAttribute="top" secondItem="I1c-CE-OG3" secondAttribute="top" id="Lrf-12-b26"/>
                             <constraint firstItem="cFv-dT-n0K" firstAttribute="leading" secondItem="oPA-1K-OYr" secondAttribute="trailing" constant="16" id="ROU-zE-mWH"/>
                             <constraint firstAttribute="trailing" secondItem="I1c-CE-OG3" secondAttribute="trailing" constant="12" id="YAM-04-8Rt"/>
                             <constraint firstItem="cFv-dT-n0K" firstAttribute="top" secondItem="I1c-CE-OG3" secondAttribute="bottom" constant="6" id="YJc-4A-AzB"/>
                             <constraint firstAttribute="trailing" secondItem="cFv-dT-n0K" secondAttribute="trailing" constant="12" id="akN-xi-rm2"/>
                             <constraint firstItem="gqu-Lm-B3k" firstAttribute="centerY" secondItem="cBl-YF-JdT" secondAttribute="centerY" id="d0h-OD-3TN"/>
-                            <constraint firstItem="oPA-1K-OYr" firstAttribute="top" secondItem="QGT-rH-qE9" secondAttribute="top" constant="12" id="eGP-7Z-gZl"/>
+                            <constraint firstItem="oPA-1K-OYr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QGT-rH-qE9" secondAttribute="top" constant="12" id="eGP-7Z-gZl"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cBl-YF-JdT" secondAttribute="bottom" constant="12" id="fsW-6e-NyF"/>
                             <constraint firstItem="gqu-Lm-B3k" firstAttribute="leading" secondItem="cBl-YF-JdT" secondAttribute="trailing" constant="5" id="rAe-Ri-ude"/>
                             <constraint firstItem="I1c-CE-OG3" firstAttribute="leading" secondItem="oPA-1K-OYr" secondAttribute="trailing" constant="16" id="sXX-4k-CQb"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gqu-Lm-B3k" secondAttribute="trailing" constant="12" id="zUx-Nu-VBa"/>

@@ -27,12 +27,14 @@ class PromotionListViewController: UIViewController {
     func fetchDataPromotionList() {
         //load data here
         self.loading.startAnimating()
-        self.loading.hidesWhenStopped = true
         APIUtilities.requestPromotionList { [weak self] result, error in
             guard let self = self else { return}
-
             
-            guard let result = result, error == nil else { return }
+            guard let result = result, error == nil else {
+                self.loading.stopAnimating()
+                self.showToast(message: "Couldn't load data")
+                return
+            }
             self.promotionList = result.promotionList
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
@@ -76,6 +78,7 @@ extension PromotionListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let promotion = self.promotionList?[indexPath.item] else { return }
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        detailsVC.titles = "Chi tiết khuyến mại"
         if let link = promotion.link {
             detailsVC.url = URL(string: link)
         }

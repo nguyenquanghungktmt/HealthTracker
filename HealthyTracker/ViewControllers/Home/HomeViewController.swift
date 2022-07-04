@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var lbUsername: UILabel!
     @IBOutlet weak var lbStatus: UILabel!
-    @IBOutlet weak var tbvNews: UITableView!
+    @IBOutlet weak var tbvNewsFeed: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var newsFeed : PatientNewsFeedModel?
@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         viewContent.roundCorners([.topLeft, .topRight], radius: 20)
     }
     
@@ -34,26 +35,28 @@ class HomeViewController: UIViewController {
     }
     
     func register(){
-        tbvNews.delegate = self
-        tbvNews.dataSource = self
-        self.tbvNews.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
-        self.tbvNews.register(UINib(nibName: "SuggestDoctorTableViewCell", bundle: nil), forCellReuseIdentifier: "SuggestDoctorTableViewCell")
+        tbvNewsFeed.delegate = self
+        tbvNewsFeed.dataSource = self
+        self.tbvNewsFeed.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
+        self.tbvNewsFeed.register(UINib(nibName: "SuggestDoctorTableViewCell", bundle: nil), forCellReuseIdentifier: "SuggestDoctorTableViewCell")
     }
     
     func fetchDataNewsFeed() {
         //load data here
-        self.loading.hidesWhenStopped = true
         self.loading.startAnimating()
         APIUtilities.requestHomePatientNewsFeed { [weak self] newsFeedResult, error in
             guard let self = self else { return}
-
             
-            guard let newsFeedResult = newsFeedResult, error == nil else { return }
+            guard let newsFeedResult = newsFeedResult, error == nil else {
+                self.loading.stopAnimating()
+                self.showToast(message: "Couldn't load data")
+                return
+            }
             self.newsFeed = newsFeedResult
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 guard let self = self else { return}
-                self.tbvNews.reloadData()
+                self.tbvNewsFeed.reloadData()
                 self.loading.stopAnimating()
             }
         }
@@ -71,14 +74,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
                 return UITableViewCell()
             }
             newsCell.selectionStyle = .none
-            newsCell.configureViews(articleList: self.newsFeed?.articleList)
-            newsCell.pushNextVC = {[weak self] (result) in
-                guard let self = self else { return}
-                if result {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewsListViewController") as! NewsListViewController
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-            }
+            newsCell.configureViews(articleList: self.newsFeed?.articleList,
+                                    pushNextVC: {[weak self] (result) in
+                                                guard let self = self else { return}
+                                                if result {
+                                                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewsListViewController") as! NewsListViewController
+                                                    self.navigationController?.pushViewController(vc, animated: true)
+                                                }
+                                    },
+                                    tapOnNewsFeedCell: {[weak self] (result) in
+                                                        guard let self = self else { return}
+                    
+                                                        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                                                        detailsVC.titles = "Chi tiết tin tức"
+                                                        if let link = self.newsFeed?.articleList?[result].link {
+                                                            detailsVC.url = URL(string: link)
+                                                        }
+                                                        self.navigationController?.pushViewController(detailsVC, animated: true)
+                                        
+                                    })
             return newsCell
             
         case 1:
@@ -86,27 +100,38 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
                 return UITableViewCell()
             }
             promotionCell.selectionStyle = .none
-            promotionCell.configureViews(promotionList: self.newsFeed?.promotionList)
-            promotionCell.pushNextVC = {[weak self] (result) in
-                guard let self = self else { return}
-                if result {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "PromotionListViewController") as! PromotionListViewController
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-            }
+            promotionCell.configureViews(promotionList: self.newsFeed?.promotionList,
+                                         pushNextVC: {[weak self] (result) in
+                                            guard let self = self else { return}
+                                            if result {
+                                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "PromotionListViewController") as! PromotionListViewController
+                                                self.navigationController?.pushViewController(vc, animated: true)
+                                            }
+                                            
+                                         },
+                                         tapOnNewsFeedCell: {[weak self] (result) in
+                                            guard let self = self else { return}
+
+                                            let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                                            detailsVC.titles = "Chi tiết khuyến mại"
+                                            if let link = self.newsFeed?.promotionList?[result].link {
+                                                detailsVC.url = URL(string: link)
+                                            }
+                                            self.navigationController?.pushViewController(detailsVC, animated: true)
+            
+                                        })
             return promotionCell
             
         case 2:
             guard let doctorCell = tableView.dequeueReusableCell(withIdentifier: "SuggestDoctorTableViewCell", for: indexPath) as? SuggestDoctorTableViewCell else { return UITableViewCell() }
             doctorCell.selectionStyle = .none
-            doctorCell.configureViews(listDoctor: self.newsFeed?.doctorList)
-            doctorCell.pushNextVC = {[weak self] (result) in
+            doctorCell.configureViews(listDoctor: self.newsFeed?.doctorList, pushNextVC: {[weak self] (result) in
                 guard let self = self else { return}
                 if result {
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "DoctorListViewController") as! DoctorListViewController
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
-            }
+            })
             return doctorCell
         default:
             return UITableViewCell()
@@ -116,5 +141,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.item==2 ? Constants.HomeVC.tableDoctorCellHeight : Constants.HomeVC.tableNewsCellHeight
+    }
+}
+extension HomeViewController {
+    func moveDetailsNews(news: NewsModel?){
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        detailsVC.titles = "Chi tiết tin tức"
+        if let link = news?.link {
+            detailsVC.url = URL(string: link)
+        }
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

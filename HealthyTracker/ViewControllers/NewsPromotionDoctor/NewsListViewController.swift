@@ -29,12 +29,14 @@ class NewsListViewController: UIViewController {
     func fetchDataNewsList() {
         //load data here
         self.loading.startAnimating()
-        self.loading.hidesWhenStopped = true
         APIUtilities.requestNewsList { [weak self] result, error in
             guard let self = self else { return}
-
             
-            guard let result = result, error == nil else { return }
+            guard let result = result, error == nil else {
+                self.loading.stopAnimating()
+                self.showToast(message: "Couldn't load data")
+                return
+            }
             self.newsList = result.newsList
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
@@ -86,6 +88,7 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let news = self.newsList?[indexPath.item] else { return }
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        detailsVC.titles = "Chi tiết tin tức"
         if let link = news.link {
             detailsVC.url = URL(string: link)
         }
