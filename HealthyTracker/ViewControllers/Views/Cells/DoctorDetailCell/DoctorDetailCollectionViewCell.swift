@@ -20,8 +20,8 @@ class DoctorDetailCollectionViewCell: UICollectionViewCell {
     
     func configureCell(doctor: DoctorModel?) {
         Utilities.loadImage(imgAvatarDoctor, strURL: doctor?.avatar ?? "", placeHolder: UIImage(named: "img_doctor_placehold"))
-        self.lbDoctorName.text = doctor?.name
-        self.lbDoctorMajor.text = doctor?.majors_name
+        self.lbDoctorName.text = doctor?.name ?? " "
+        self.lbDoctorMajor.text = doctor?.majors_name ?? " "
         self.lbRating.attributedText = NSMutableAttributedString()
             .attrStr(text: "\(doctor?.ratio_star ?? 0) ")
             .attrStr(text: "(\(doctor?.number_of_reviews ?? 0))", textColor: UIColor.lightGray )

@@ -21,7 +21,7 @@ class FirstNewsListTableViewCell: UITableViewCell {
     
     func configureCell(news: NewsModel?) {
         Utilities.loadImage(self.imgNews, strURL: news?.picture ?? "", placeHolder: UIImage.imageWithColor(color: .lightGray))
-        self.lbTitle.text = news?.title
+        self.lbTitle.text = news?.title ?? " "
         self.lbDate.text = String.dateConvert(date: news?.created_at ?? "00/00/0000")
     }
 }

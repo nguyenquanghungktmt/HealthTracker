@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lbStatus: UILabel!
     @IBOutlet weak var tbvNewsFeed: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var imgUserAvatar: UIImageView!
     
     var newsFeed : PatientNewsFeedModel?
     
@@ -32,6 +33,10 @@ class HomeViewController: UIViewController {
     func setupView(){
         lbUsername.text = "Quỳnh Ken"
         lbStatus.text = "Đang hoạt động"
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageAvatarTapped(tapGestureRecognizer:)))
+        imgUserAvatar.isUserInteractionEnabled = true
+        imgUserAvatar.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func register(){
@@ -60,6 +65,13 @@ class HomeViewController: UIViewController {
                 self.loading.stopAnimating()
             }
         }
+    }
+    
+    @objc
+    func imageAvatarTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        /// handle tapped on image avatar event
+        print("Tapped on avatar")
+//        let tappedImage = tapGestureRecognizer.view as! UIImageView
     }
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{

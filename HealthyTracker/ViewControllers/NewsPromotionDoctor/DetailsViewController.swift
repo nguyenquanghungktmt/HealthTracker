@@ -2,7 +2,7 @@
 //  DetailsViewController.swift
 //  HealthyTracker
 //
-//  Created by pc_1359 on 02/07/2022.
+//  Created Nguyen Quang Hung on 02/07/2022.
 //
 
 import UIKit
@@ -19,10 +19,10 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadWebView()
+        setupView()
     }
     
-    func loadWebView(){
+    func setupView(){
         if let titles = titles{
             lbTitle.text = titles
         }
@@ -32,7 +32,6 @@ class DetailsViewController: UIViewController {
         }
         self.webView.navigationDelegate = self
     }
-
     
     @IBAction func onTapBtnBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -46,7 +45,6 @@ class DetailsViewController: UIViewController {
     }
 }
 extension DetailsViewController: WKNavigationDelegate{
-    
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         webView.isHidden = true
         loading.startAnimating()

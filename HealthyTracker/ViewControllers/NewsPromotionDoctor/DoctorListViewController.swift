@@ -23,7 +23,7 @@ class DoctorListViewController: UIViewController {
     
     func setupView(){
         tbvDoctor.rowHeight = UITableView.automaticDimension
-        tbvDoctor.estimatedRowHeight = Constants.DoctorListVC.doctorTableCellHeight * 1.5
+        tbvDoctor.estimatedRowHeight = Constants.DoctorListVC.estimateDoctorTableCellHeight
     }
     
     func register(){
@@ -45,7 +45,7 @@ class DoctorListViewController: UIViewController {
             }
             self.doctorList = result.doctorList
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}
                 self.tbvDoctor.reloadData()
                 self.loading.stopAnimating()
@@ -70,8 +70,5 @@ extension DoctorListViewController: UITableViewDelegate, UITableViewDataSource{
         cell.configureCell(doctor: doctorList?[index])
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
+
 }

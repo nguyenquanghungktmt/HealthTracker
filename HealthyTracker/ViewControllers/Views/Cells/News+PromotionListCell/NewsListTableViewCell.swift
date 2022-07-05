@@ -24,22 +24,24 @@ class NewsListTableViewCell: UITableViewCell {
         imgBookmark.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    func configureCell(news: NewsModel?) {
+    func configureCell(news: NewsModel?, tapOnBtnShare: ((Bool) -> ())?) {
+        self.tapOnBtnShare = tapOnBtnShare
         self.imgBookmark.image = UIImage(named: "ic_share_unselected")
         Utilities.loadImage(self.imgNews, strURL: news?.picture ?? "", placeHolder: UIImage.imageWithColor(color: .lightGray))
-        self.lbTitle.text = news?.title
+        self.lbTitle.text = news?.title ?? " "
         self.lbDate.text = String.dateConvert(date: news?.created_at ?? "00/00/0000")
     }
     
-    func configureCell(promotion: PromotionModel?) {
+    func configureCell(promotion: PromotionModel?, tapOnBtnShare: ((Bool) -> ())?) {
+        self.tapOnBtnShare = tapOnBtnShare
         self.imgBookmark.image = UIImage(named: "ic_share_unselected")
         Utilities.loadImage(self.imgNews, strURL: promotion?.picture ?? "", placeHolder: UIImage.imageWithColor(color: .lightGray))
-        self.lbTitle.text = promotion?.name
+        self.lbTitle.text = promotion?.name ?? " "
         self.lbDate.text = String.dateConvert(date: promotion?.created_at ?? "00/00/0000")
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        print("tap on share")
+        /// handle event tapped on btn share
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         
         let imgSelectedShare = UIImage(named: "ic_share_selected")

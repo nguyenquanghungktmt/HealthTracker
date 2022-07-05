@@ -52,9 +52,10 @@ struct Constants {
     
     struct NewsListVC {
         static let newsTableCellHeight: CGFloat = 102
+        static let firstNewsTableCellHeight: CGFloat = 296
     }
     
     struct DoctorListVC {
-        static let doctorTableCellHeight: CGFloat = 120
+        static let estimateDoctorTableCellHeight: CGFloat = 180
     }
 }

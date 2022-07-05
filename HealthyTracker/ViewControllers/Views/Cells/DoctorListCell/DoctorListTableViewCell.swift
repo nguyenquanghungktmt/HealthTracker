@@ -20,7 +20,7 @@ class DoctorListTableViewCell: UITableViewCell {
     
     func configureCell(doctor: DoctorModel?) {
         Utilities.loadImage(imgAvatar, strURL: doctor?.avatar ?? "", placeHolder: UIImage(named: "img_doctor_placehold"))
-        self.lbFullname.text = doctor?.full_name
+        self.lbFullname.text = doctor?.full_name ?? " "
         self.lbMajor.text = "Chuyên ngành: \(doctor?.majors_name ?? "")"
         self.lbRating.attributedText = NSMutableAttributedString()
             .attrStr(text: "\(doctor?.ratio_star ?? 0) ")

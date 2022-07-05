@@ -39,7 +39,7 @@ class NewsListViewController: UIViewController {
             }
             self.newsList = result.newsList
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}
                 self.tbvNews.reloadData()
                 self.loading.stopAnimating()
@@ -71,17 +71,17 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         let index = indexPath.item
-        cell.configureCell(news: newsList?[index])
-        cell.viewLine.isHidden = (index == (self.newsList?.count ?? 0) - 1)
-        cell.tapOnBtnShare = {[weak self] (isShare) in
-            guard let self = self else { return}
-            if isShare {
-                /// copy news url to clipboard
-                UIPasteboard.general.string = self.newsList?[index].link
-                self.showToast(message: "Copied url to clipboard")
-            }
-        }
         cell.selectionStyle = .none
+        cell.viewLine.isHidden = (index == (self.newsList?.count ?? 0) - 1)
+        cell.configureCell(news: newsList?[index],
+                           tapOnBtnShare: {[weak self] (isShare) in
+                            guard let self = self else { return}
+                            if isShare {
+                                /// copy news url to clipboard
+                                UIPasteboard.general.string = self.newsList?[index].link
+                                self.showToast(message: "Copied url to clipboard")
+                            }
+                        })
         return cell
     }
     
@@ -96,6 +96,6 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.item == 0 ? 300 : Constants.NewsListVC.newsTableCellHeight
+        return indexPath.item == 0 ? Constants.NewsListVC.firstNewsTableCellHeight : Constants.NewsListVC.newsTableCellHeight
     }
 }

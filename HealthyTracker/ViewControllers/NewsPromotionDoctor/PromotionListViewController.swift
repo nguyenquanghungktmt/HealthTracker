@@ -37,7 +37,7 @@ class PromotionListViewController: UIViewController {
             }
             self.promotionList = result.promotionList
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}
                 self.tbvPromotion.reloadData()
                 self.loading.stopAnimating()
@@ -61,17 +61,17 @@ extension PromotionListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         let index = indexPath.item
-        cell.configureCell(promotion: promotionList?[index])
-        cell.viewLine.isHidden = (index == (self.promotionList?.count ?? 0) - 1)
-        cell.tapOnBtnShare = {[weak self] (isShare) in
-            guard let self = self else { return}
-            if isShare {
-                /// copy news url to clipboard
-                UIPasteboard.general.string = self.promotionList?[index].link
-                self.showToast(message: "Copied url to clipboard")
-            }
-        }
         cell.selectionStyle = .none
+        cell.viewLine.isHidden = (index == (self.promotionList?.count ?? 0) - 1)
+        cell.configureCell(promotion: promotionList?[index],
+                           tapOnBtnShare: {[weak self] (isShare) in
+                            guard let self = self else { return}
+                            if isShare {
+                                /// copy news url to clipboard
+                                UIPasteboard.general.string = self.promotionList?[index].link
+                                self.showToast(message: "Copied url to clipboard")
+                            }
+                        })
         return cell
     }
     

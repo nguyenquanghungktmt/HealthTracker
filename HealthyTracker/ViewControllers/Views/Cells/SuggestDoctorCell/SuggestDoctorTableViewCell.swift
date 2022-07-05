@@ -45,7 +45,7 @@ extension SuggestDoctorTableViewCell: UICollectionViewDelegate, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoctorDetailCollectionViewCell", for: indexPath) as? DoctorDetailCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.configureCell(doctor: self.listDoctor?[indexPath.item] ?? DoctorModel())
+        cell.configureCell(doctor: self.listDoctor?[indexPath.item])
         return cell
     }
     
