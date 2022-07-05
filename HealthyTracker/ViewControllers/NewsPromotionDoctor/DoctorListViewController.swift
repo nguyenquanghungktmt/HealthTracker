@@ -11,6 +11,8 @@ class DoctorListViewController: UIViewController {
     @IBOutlet weak var tbvDoctor: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
+    lazy var refreshControl: UIRefreshControl =  UIRefreshControl()
+    
     var doctorList: [DoctorModel]?
     
     override func viewDidLoad() {
@@ -24,6 +26,9 @@ class DoctorListViewController: UIViewController {
     func setupView(){
         tbvDoctor.rowHeight = UITableView.automaticDimension
         tbvDoctor.estimatedRowHeight = Constants.DoctorListVC.estimateDoctorTableCellHeight
+        
+        self.refreshControl.addTarget(self, action: #selector(fetchDataDoctorList), for: .valueChanged)
+        tbvDoctor.refreshControl = refreshControl
     }
     
     func register(){
@@ -32,6 +37,7 @@ class DoctorListViewController: UIViewController {
         self.tbvDoctor.register(UINib(nibName: "DoctorListTableViewCell", bundle: nil), forCellReuseIdentifier: "DoctorListTableViewCell")
     }
     
+    @objc
     func fetchDataDoctorList() {
         //load data here
         self.loading.startAnimating()
@@ -40,6 +46,7 @@ class DoctorListViewController: UIViewController {
             
             guard let result = result, error == nil else {
                 self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
                 self.showToast(message: "Couldn't load data")
                 return
             }
@@ -49,6 +56,7 @@ class DoctorListViewController: UIViewController {
                 guard let self = self else { return}
                 self.tbvDoctor.reloadData()
                 self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
             }
         }
     }

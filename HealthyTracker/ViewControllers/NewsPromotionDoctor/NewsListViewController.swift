@@ -11,13 +11,21 @@ class NewsListViewController: UIViewController {
     @IBOutlet weak var tbvNews: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
+    lazy var refreshControl: UIRefreshControl = UIRefreshControl()
+    
     var newsList: [NewsModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
         register()
         fetchDataNewsList()
+    }
+    
+    func setupView() {
+        self.refreshControl.addTarget(self, action: #selector(fetchDataNewsList), for: .valueChanged)
+        tbvNews.refreshControl = refreshControl
     }
     
     func register(){
@@ -26,6 +34,8 @@ class NewsListViewController: UIViewController {
         self.tbvNews.register(UINib(nibName: "NewsListTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsListTableViewCell")
         self.tbvNews.register(UINib(nibName: "FirstNewsListTableViewCell", bundle: nil), forCellReuseIdentifier: "FirstNewsListTableViewCell")
     }
+    
+    @objc
     func fetchDataNewsList() {
         //load data here
         self.loading.startAnimating()
@@ -34,6 +44,7 @@ class NewsListViewController: UIViewController {
             
             guard let result = result, error == nil else {
                 self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
                 self.showToast(message: "Couldn't load data")
                 return
             }
@@ -42,6 +53,7 @@ class NewsListViewController: UIViewController {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}
                 self.tbvNews.reloadData()
+                self.refreshControl.endRefreshing()
                 self.loading.stopAnimating()
             }
         }

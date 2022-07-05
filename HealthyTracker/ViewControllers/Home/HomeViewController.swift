@@ -15,6 +15,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var imgUserAvatar: UIImageView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let rfc = UIRefreshControl()
+        return rfc
+    }()
+    
     var newsFeed : PatientNewsFeedModel?
     
     override func viewDidLoad() {
@@ -37,6 +42,9 @@ class HomeViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageAvatarTapped(tapGestureRecognizer:)))
         imgUserAvatar.isUserInteractionEnabled = true
         imgUserAvatar.addGestureRecognizer(tapGestureRecognizer)
+        
+        self.refreshControl.addTarget(self, action: #selector(fetchDataNewsFeed), for: .valueChanged)
+        tbvNewsFeed.refreshControl = refreshControl
     }
     
     func register(){
@@ -46,6 +54,7 @@ class HomeViewController: UIViewController {
         self.tbvNewsFeed.register(UINib(nibName: "SuggestDoctorTableViewCell", bundle: nil), forCellReuseIdentifier: "SuggestDoctorTableViewCell")
     }
     
+    @objc
     func fetchDataNewsFeed() {
         //load data here
         self.loading.startAnimating()
@@ -54,6 +63,7 @@ class HomeViewController: UIViewController {
             
             guard let newsFeedResult = newsFeedResult, error == nil else {
                 self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
                 self.showToast(message: "Couldn't load data")
                 return
             }
@@ -63,6 +73,7 @@ class HomeViewController: UIViewController {
                 guard let self = self else { return}
                 self.tbvNewsFeed.reloadData()
                 self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -153,15 +164,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.item==2 ? Constants.HomeVC.tableDoctorCellHeight : Constants.HomeVC.tableNewsCellHeight
-    }
-}
-extension HomeViewController {
-    func moveDetailsNews(news: NewsModel?){
-        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        detailsVC.titles = "Chi tiết tin tức"
-        if let link = news?.link {
-            detailsVC.url = URL(string: link)
-        }
-        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

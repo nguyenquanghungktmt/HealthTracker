@@ -11,19 +11,30 @@ class PromotionListViewController: UIViewController {
     @IBOutlet weak var tbvPromotion: UITableView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
+    lazy var refreshControl: UIRefreshControl = UIRefreshControl()
+    
     var promotionList: [PromotionModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
         register()
         fetchDataPromotionList()
     }
+    
+    func setupView() {
+        self.refreshControl.addTarget(self, action: #selector(fetchDataPromotionList), for: .valueChanged)
+        tbvPromotion.refreshControl = refreshControl
+    }
+    
     func register(){
         tbvPromotion.delegate = self
         tbvPromotion.dataSource = self
         self.tbvPromotion.register(UINib(nibName: "NewsListTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsListTableViewCell")
     }
+    
+    @objc
     func fetchDataPromotionList() {
         //load data here
         self.loading.startAnimating()
@@ -32,6 +43,7 @@ class PromotionListViewController: UIViewController {
             
             guard let result = result, error == nil else {
                 self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
                 self.showToast(message: "Couldn't load data")
                 return
             }
@@ -41,6 +53,7 @@ class PromotionListViewController: UIViewController {
                 guard let self = self else { return}
                 self.tbvPromotion.reloadData()
                 self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
             }
         }
     }
