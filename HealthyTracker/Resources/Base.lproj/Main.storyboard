@@ -695,6 +695,84 @@
             </objects>
             <point key="canvasLocation" x="937.68115942028987" y="818.97321428571422"/>
         </scene>
+        <!--User Info View Controller-->
+        <scene sceneID="SMz-zD-AAG">
+            <objects>
+                <viewController storyboardIdentifier="UserInfoViewController" id="pp5-Th-Nig" customClass="UserInfoViewController" customModule="HealthyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zSt-ZE-ZTp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9Z-TY-bEh" userLabel="navigation bar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rxr-vu-GEU">
+                                        <rect key="frame" x="16" y="16" width="32" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="iiM-f5-N1w"/>
+                                            <constraint firstAttribute="height" constant="32" id="t0j-O5-Cbn"/>
+                                        </constraints>
+                                        <state key="normal" image="ic_arrow_left2">
+                                            <color key="titleColor" red="0.14117647059999999" green="0.1647058824" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.93333333330000001" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handleBtnBack:" destination="pp5-Th-Nig" eventType="touchUpInside" id="gjd-E7-l6C"/>
+                                            <action selector="handleBtnBack:" destination="5B3-cG-jwu" eventType="touchUpInside" id="t8R-01-g22"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin cá nhân" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsI-HL-YUN">
+                                        <rect key="frame" x="132" y="19.5" width="150" height="25"/>
+                                        <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="18"/>
+                                        <color key="textColor" red="0.14117647059999999" green="0.1647058824" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98X-Ug-qv2">
+                                        <rect key="frame" x="0.0" y="53" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="vHl-bf-NS4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="2Kh-na-Hbg"/>
+                                    <constraint firstItem="Rxr-vu-GEU" firstAttribute="top" secondItem="X9Z-TY-bEh" secondAttribute="top" constant="16" id="Cqb-NL-J2W"/>
+                                    <constraint firstItem="98X-Ug-qv2" firstAttribute="leading" secondItem="X9Z-TY-bEh" secondAttribute="leading" id="ONd-RL-3HN"/>
+                                    <constraint firstItem="BsI-HL-YUN" firstAttribute="centerY" secondItem="Rxr-vu-GEU" secondAttribute="centerY" id="ahF-JU-o4J"/>
+                                    <constraint firstAttribute="trailing" secondItem="98X-Ug-qv2" secondAttribute="trailing" id="bIi-HF-NLy"/>
+                                    <constraint firstItem="Rxr-vu-GEU" firstAttribute="leading" secondItem="X9Z-TY-bEh" secondAttribute="leading" constant="16" id="eqN-r7-Ofh"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rxr-vu-GEU" secondAttribute="bottom" constant="6" id="nmk-Sm-d5W"/>
+                                    <constraint firstItem="BsI-HL-YUN" firstAttribute="centerX" secondItem="X9Z-TY-bEh" secondAttribute="centerX" id="oo9-SW-Rgr"/>
+                                    <constraint firstAttribute="bottom" secondItem="98X-Ug-qv2" secondAttribute="bottom" id="yjD-n9-qyG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ud5-wq-3wN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X9Z-TY-bEh" firstAttribute="top" secondItem="ud5-wq-3wN" secondAttribute="top" id="Jga-QH-EtP"/>
+                            <constraint firstAttribute="trailing" secondItem="X9Z-TY-bEh" secondAttribute="trailing" id="NZ5-dZ-9i3"/>
+                            <constraint firstItem="X9Z-TY-bEh" firstAttribute="leading" secondItem="ud5-wq-3wN" secondAttribute="leading" id="PKr-iw-LDg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uip-n3-JKb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="1523"/>
+        </scene>
         <!--Promotion List View Controller-->
         <scene sceneID="hTd-gX-blw">
             <objects>

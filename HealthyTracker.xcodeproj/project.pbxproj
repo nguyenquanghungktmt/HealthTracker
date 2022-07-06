@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		730274C7286D5FFB003961CE /* NewsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730274C5286D5FFB003961CE /* NewsListTableViewCell.swift */; };
 		730274C8286D5FFB003961CE /* NewsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730274C6286D5FFB003961CE /* NewsListTableViewCell.xib */; };
+		73052BD02875284A002A912F /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73052BCF2875284A002A912F /* UserInfoViewController.swift */; };
+		73052BD228752928002A912F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73052BD128752928002A912F /* UserModel.swift */; };
+		73052BD428753936002A912F /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73052BD328753936002A912F /* LocationModel.swift */; };
 		7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C80128584570008CC1B4 /* AppDelegate.swift */; };
 		7340C80428584570008CC1B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C80328584570008CC1B4 /* SceneDelegate.swift */; };
 		7340C80628584570008CC1B4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C80528584570008CC1B4 /* IntroViewController.swift */; };
@@ -97,6 +100,9 @@
 		69387EBB3ED9D4FC16B7B2F4 /* Pods-HealthyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyTracker.release.xcconfig"; path = "Target Support Files/Pods-HealthyTracker/Pods-HealthyTracker.release.xcconfig"; sourceTree = "<group>"; };
 		730274C5286D5FFB003961CE /* NewsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListTableViewCell.swift; sourceTree = "<group>"; };
 		730274C6286D5FFB003961CE /* NewsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsListTableViewCell.xib; sourceTree = "<group>"; };
+		73052BCF2875284A002A912F /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		73052BD128752928002A912F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		73052BD328753936002A912F /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		7340C7FE28584570008CC1B4 /* HealthyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7340C80128584570008CC1B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7340C80328584570008CC1B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +217,14 @@
 				737ED2A3286EAE4D0047CFDD /* FirstNewsListTableViewCell.xib */,
 			);
 			path = "News+PromotionListCell";
+			sourceTree = "<group>";
+		};
+		73052BCE28752823002A912F /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				73052BCF2875284A002A912F /* UserInfoViewController.swift */,
+			);
+			path = UserInfo;
 			sourceTree = "<group>";
 		};
 		7340C7F528584570008CC1B4 = {
@@ -358,6 +372,7 @@
 		7368E03E285C360600B0C3CA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				73052BCE28752823002A912F /* UserInfo */,
 				7385D1F8286D413900391DE1 /* NewsPromotionDoctor */,
 				7385D1F7286D40CE00391DE1 /* Home */,
 				7385D1F6286D40AE00391DE1 /* LoginAndVerify */,
@@ -418,6 +433,8 @@
 				737ED2A0286E93B40047CFDD /* PromotionListModel.swift */,
 				735D2EB4286EB53600D200DE /* NewsListModel.swift */,
 				7366E21E286FE7A400C07CBC /* DoctorListModel.swift */,
+				73052BD128752928002A912F /* UserModel.swift */,
+				73052BD328753936002A912F /* LocationModel.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -681,6 +698,7 @@
 				7361EC502860709F0071E6BF /* UILabel+Extension.swift in Sources */,
 				7385D1FA286D416000391DE1 /* NewsListViewController.swift in Sources */,
 				7368E046285C36B900B0C3CA /* LoginViewController.swift in Sources */,
+				73052BD228752928002A912F /* UserModel.swift in Sources */,
 				736075C1286C0AE000F4AD17 /* Utilities.swift in Sources */,
 				7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */,
 				7340C80628584570008CC1B4 /* IntroViewController.swift in Sources */,
@@ -691,6 +709,7 @@
 				7367AEDC2862BCEF004A6F89 /* OTPStackView.swift in Sources */,
 				735D2EB3286EB34500D200DE /* NewsModel.swift in Sources */,
 				7366E21C286FE16500C07CBC /* DoctorListTableViewCell.swift in Sources */,
+				73052BD02875284A002A912F /* UserInfoViewController.swift in Sources */,
 				7340C80228584570008CC1B4 /* AppDelegate.swift in Sources */,
 				7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */,
 				737ED2A4286EAE4D0047CFDD /* FirstNewsListTableViewCell.swift in Sources */,
@@ -712,6 +731,7 @@
 				736075BB286BF41500F4AD17 /* PromotionModel.swift in Sources */,
 				7368E036285C314900B0C3CA /* Constants.swift in Sources */,
 				7368E04B285C389B00B0C3CA /* UIColor+Extensions.swift in Sources */,
+				73052BD428753936002A912F /* LocationModel.swift in Sources */,
 				736075C3286C113300F4AD17 /* NSMutableAttributedString+Extensions.swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

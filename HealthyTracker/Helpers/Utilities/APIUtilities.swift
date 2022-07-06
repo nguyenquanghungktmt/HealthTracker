@@ -47,6 +47,22 @@ final class APIUtilities {
         jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
     }
     
+    static func requestUserInfo(completionHandler: ((UserModel?, APIError?) -> Void)?) {
+        
+        let tailStrURL = "/hdhuy179/7883b8f11ea4b25cf6d3822c67049606/raw/Training_Intern_BasicApp_UserInfo"
+        
+        jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
+    static func requestLocation(province_code: String,
+                                district_code: String,
+                                ward_code: String,
+                                completionHandler: ((LocationModel?, APIError?) -> Void)?) {
+    
+        let tailStrURL = "/hdhuy179/7883b8f11ea4b25cf6d3822c67049606/raw/province_code=\(province_code)&district_code=\(district_code)&ward_code=\(ward_code)"
+        jsonResponseObject(tailStrURL: tailStrURL, method: .get, headers: [:], completionHandler: completionHandler)
+    }
+    
     static private func jsonResponseObject<T: JsonInitObject>(tailStrURL: String, method: HTTPMethod, headers: HTTPHeaders, completionHandler: ((T?, APIError?) -> Void)?) {
         
         jsonResponse(tailStrURL: tailStrURL, isPublicAPI: false, method: method, headers: headers) { response, serverCode, serverMessage in

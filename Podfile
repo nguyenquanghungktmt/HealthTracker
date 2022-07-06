@@ -8,4 +8,5 @@ target 'HealthyTracker' do
   # Pods for HealthyTracker
   pod 'Alamofire', '~> 5.4.3'
   pod 'SDWebImage', '~> 5.12.5'
+  pod 'IQKeyboardManagerSwift', '~> 6.5.0'
 end

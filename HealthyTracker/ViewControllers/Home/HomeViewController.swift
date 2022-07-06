@@ -82,7 +82,8 @@ class HomeViewController: UIViewController {
     func imageAvatarTapped(tapGestureRecognizer: UITapGestureRecognizer){
         /// handle tapped on image avatar event
         print("Tapped on avatar")
-//        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let userInfoVC = self.storyboard?.instantiateViewController(withIdentifier: "UserInfoViewController") as! UserInfoViewController
+        self.navigationController?.pushViewController(userInfoVC, animated: true)
     }
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
