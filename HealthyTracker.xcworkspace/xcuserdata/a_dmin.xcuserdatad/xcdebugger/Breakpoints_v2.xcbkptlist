@@ -7,15 +7,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2C8A63AC-DB3E-48CC-A3D6-9B1C0CBBDFD9"
+            uuid = "4BF7BF06-AACD-4D77-A432-02113E9219D3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HealthyTracker/ViewControllers/UserInfo/UserInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "fetchDataUserInfo()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4BF7BF06-AACD-4D77-A432-02113E9219D3 - 91d1bf7aa93d4153"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HealthyTracker.UserInfoViewController.fetchDataUserInfo() -&gt; ()"
+                  moduleName = "HealthyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a_dmin/Desktop/Hung-Intern/HealthyTracker/HealthyTracker/ViewControllers/UserInfo/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  uuid = "4BF7BF06-AACD-4D77-A432-02113E9219D3 - 9404d4f7cae444dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;HealthyTracker.UserModel&gt;, Swift.Optional&lt;HealthyTracker.APIUtilities.APIError&gt;) -&gt; () in HealthyTracker.UserInfoViewController.fetchDataUserInfo() -&gt; ()"
+                  moduleName = "HealthyTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a_dmin/Desktop/Hung-Intern/HealthyTracker/HealthyTracker/ViewControllers/UserInfo/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "275">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2886802-C58F-47A1-88AA-E401CAB33F25"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HealthyTracker/ViewControllers/UserInfo/UserInfoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "fetchDataUserLocation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,15 +71,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "913A62DB-E334-4896-BAE4-AFF24E22A047"
+            uuid = "31F469AE-B195-4119-958F-9B6797611F11"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HealthyTracker/ViewControllers/UserInfo/UserInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "fetchDataUserInfo()"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,15 +87,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5C783973-85E1-47AC-BC24-0BF5C1B5CC8A"
+            uuid = "7C11E489-3E07-4982-9D3A-0978FA98837C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HealthyTracker/ViewControllers/UserInfo/UserInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "fetchDataUserLocation()"
             landmarkType = "7">
          </BreakpointContent>

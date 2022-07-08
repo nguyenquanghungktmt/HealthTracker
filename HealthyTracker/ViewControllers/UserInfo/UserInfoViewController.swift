@@ -8,6 +8,19 @@
 import UIKit
 
 class UserInfoViewController: UIViewController {
+    @IBOutlet weak var titleNews: UILabel!
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtLastName: UITextField!
+    @IBOutlet weak var txtBirthDate: UITextField!
+    @IBOutlet weak var txtPhoneNumber: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtProvince: UITextField!
+    @IBOutlet weak var txtDistrict: UITextField!
+    @IBOutlet weak var txtWard: UITextField!
+    @IBOutlet weak var txtAddress: UITextField!
+    @IBOutlet weak var txtBloodType: UITextField!
+    
+    @IBOutlet weak var btnNext: UIButton!
     
     var userInfo : UserModel?
     var userLocation : LocationModel?
@@ -16,16 +29,24 @@ class UserInfoViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        txtName.delegate = self
+        txtLastName.delegate = self
+        txtBirthDate.delegate = self
+        txtPhoneNumber.delegate = self
+        txtEmail.delegate = self
         loadDataUser()
     }
     
     func loadDataUser(){
-        let queue = DispatchQueue(label: "queue")
-        queue.async {
+        DispatchQueue.main.async {[weak self] in
+            guard let self = self else { return}
             self.fetchDataUserInfo()
         }
-        queue.async {
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {[weak self] in
+            guard let self = self else { return}
             self.fetchDataUserLocation()
+            
         }
     }
     
@@ -39,7 +60,18 @@ class UserInfoViewController: UIViewController {
                 return
             }
             self.userInfo = result
-            print(result as Any)
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return}
+                // update ui
+                self.txtName.text = self.userInfo?.name
+                self.txtLastName.text = self.userInfo?.last_name
+                self.txtBirthDate.text = self.userInfo?.birth_date
+                self.txtEmail.text = self.userInfo?.contact_email
+                self.txtPhoneNumber.text = self.userInfo?.phone
+                self.txtAddress.text = self.userInfo?.full_address
+                self.txtBloodType.text = self.userInfo?.blood_name
+            }
         }
     }
     
@@ -52,20 +84,39 @@ class UserInfoViewController: UIViewController {
                 guard let self = self else { return}
                 
                 guard let result = result, error == nil else {
-//                    self.loading.stopAnimating()
-                    self.showToast(message: "Couldn't load user location")
                     return
                 }
                 self.userLocation = result
-                print(result as Any)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return}
+                    // update ui
+                    self.txtProvince.text = self.userLocation?.province_name
+                    self.txtDistrict.text = self.userLocation?.district_name
+                    self.txtWard.text = self.userLocation?.ward_name
+                }
             })
         }
-        else {
-            self.showToast(message: "Couldn't load user location (have nill parameter)")
-        }
+
     }
 
     @IBAction func handleBtnBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+extension UserInfoViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let listView = textField.superview?.subviews else { return }
+        for view in listView {
+            (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.greenBold
+            view.viewWithTag(3)?.backgroundColor = Constants.Color.greenBold
+        }
+        
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let listView = textField.superview?.subviews else { return }
+        for view in listView {
+            (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.grayBold
+            view.viewWithTag(3)?.backgroundColor = Constants.Color.grayBold
+        }
     }
 }

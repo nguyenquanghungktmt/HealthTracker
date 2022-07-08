@@ -35,6 +35,7 @@
 		7361EC4C2860515A0071E6BF /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */; };
 		7361EC4E286061060071E6BF /* OTPVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */; };
 		7361EC502860709F0071E6BF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */; };
+		7364788A2877D04A00623014 /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 736478892877D04A00623014 /* NunitoSans-SemiBold.ttf */; };
 		7366365C286A98BA003D0805 /* APIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366365B286A98BA003D0805 /* APIUtilities.swift */; };
 		73663665286AACC7003D0805 /* DoctorDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73663663286AACC7003D0805 /* DoctorDetailCollectionViewCell.swift */; };
 		73663666286AACC7003D0805 /* DoctorDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73663664286AACC7003D0805 /* DoctorDetailCollectionViewCell.xib */; };
@@ -132,6 +133,7 @@
 		7361EC4B2860515A0071E6BF /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7361EC4D286061060071E6BF /* OTPVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewController.swift; sourceTree = "<group>"; };
 		7361EC4F2860709F0071E6BF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		736478892877D04A00623014 /* NunitoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		7366365B286A98BA003D0805 /* APIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtilities.swift; sourceTree = "<group>"; };
 		73663663286AACC7003D0805 /* DoctorDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		73663664286AACC7003D0805 /* DoctorDetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorDetailCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 			children = (
 				7368DFFE285C264400B0C3CA /* NunitoSans-Regular.ttf */,
 				7368E002285C264400B0C3CA /* NunitoSans-Bold.ttf */,
+				736478892877D04A00623014 /* NunitoSans-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				7368E019285C264400B0C3CA /* NunitoSans-Regular.ttf in Resources */,
 				73663666286AACC7003D0805 /* DoctorDetailCollectionViewCell.xib in Resources */,
 				7340C80928584570008CC1B4 /* Main.storyboard in Resources */,
+				7364788A2877D04A00623014 /* NunitoSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,10 +43,10 @@ class DoctorListViewController: UIViewController {
         self.loading.startAnimating()
         APIUtilities.requestDoctorList { [weak self] result, error in
             guard let self = self else { return}
+            self.loading.stopAnimating()
+            self.refreshControl.endRefreshing()
             
             guard let result = result, error == nil else {
-                self.loading.stopAnimating()
-                self.refreshControl.endRefreshing()
                 self.showToast(message: "Couldn't load data")
                 return
             }
@@ -55,8 +55,6 @@ class DoctorListViewController: UIViewController {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}
                 self.tbvDoctor.reloadData()
-                self.loading.stopAnimating()
-                self.refreshControl.endRefreshing()
             }
         }
     }
