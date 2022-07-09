@@ -22,6 +22,8 @@
 		7340C82428584571008CC1B4 /* HealthyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7340C82328584571008CC1B4 /* HealthyTrackerUITests.swift */; };
 		735D2EB3286EB34500D200DE /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D2EB2286EB34500D200DE /* NewsModel.swift */; };
 		735D2EB5286EB53600D200DE /* NewsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D2EB4286EB53600D200DE /* NewsListModel.swift */; };
+		735E5893287926160086300C /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735E5891287926160086300C /* DatePickerViewController.swift */; };
+		735E5894287926160086300C /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735E5892287926160086300C /* DatePickerViewController.xib */; };
 		735E8EBC2866B08C002820D2 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735E8EBA2866B08C002820D2 /* NewsFeedTableViewCell.swift */; };
 		735E8EBD2866B08C002820D2 /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735E8EBB2866B08C002820D2 /* NewsFeedTableViewCell.xib */; };
 		735E8EC32866BDE2002820D2 /* NewsDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735E8EC12866BDE2002820D2 /* NewsDetailCollectionViewCell.swift */; };
@@ -120,6 +122,8 @@
 		7340C82528584571008CC1B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		735D2EB2286EB34500D200DE /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		735D2EB4286EB53600D200DE /* NewsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListModel.swift; sourceTree = "<group>"; };
+		735E5891287926160086300C /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		735E5892287926160086300C /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		735E8EBA2866B08C002820D2 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		735E8EBB2866B08C002820D2 /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		735E8EC12866BDE2002820D2 /* NewsDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -281,10 +285,20 @@
 			path = HealthyTrackerUITests;
 			sourceTree = "<group>";
 		};
+		735E5890287925F30086300C /* DatePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				735E5891287926160086300C /* DatePickerViewController.swift */,
+				735E5892287926160086300C /* DatePickerViewController.xib */,
+			);
+			path = DatePickerViewController;
+			sourceTree = "<group>";
+		};
 		735E8EB82866B048002820D2 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
 				7367AEDB2862BCEF004A6F89 /* OTPStackView.swift */,
+				735E5890287925F30086300C /* DatePickerViewController */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -617,6 +631,7 @@
 				7340C80E28584571008CC1B4 /* LaunchScreen.storyboard in Resources */,
 				7366E21D286FE16500C07CBC /* DoctorListTableViewCell.xib in Resources */,
 				735E8EBD2866B08C002820D2 /* NewsFeedTableViewCell.xib in Resources */,
+				735E5894287926160086300C /* DatePickerViewController.xib in Resources */,
 				7366366B286AC119003D0805 /* SuggestDoctorTableViewCell.xib in Resources */,
 				7340C80B28584571008CC1B4 /* Assets.xcassets in Resources */,
 				737ED2A5286EAE4D0047CFDD /* FirstNewsListTableViewCell.xib in Resources */,
@@ -722,6 +737,7 @@
 				7366365C286A98BA003D0805 /* APIUtilities.swift in Sources */,
 				737ED2A1286E93B40047CFDD /* PromotionListModel.swift in Sources */,
 				737FAA1028656D1E00170501 /* UIButton+Extentions.swift in Sources */,
+				735E5893287926160086300C /* DatePickerViewController.swift in Sources */,
 				737FAA0E28656CEB00170501 /* String+Extensions.swift in Sources */,
 				735D2EB5286EB53600D200DE /* NewsListModel.swift in Sources */,
 				7368E03B285C31E400B0C3CA /* IntroModel.swift in Sources */,

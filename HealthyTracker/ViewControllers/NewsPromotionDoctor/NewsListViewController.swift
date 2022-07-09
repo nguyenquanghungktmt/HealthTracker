@@ -82,25 +82,25 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource{
         }
         let index = indexPath.item
         cell.selectionStyle = .none
-        cell.viewLine.isHidden = (index == (self.newsList?.count ?? 0) - 1)
         cell.configureCell(news: newsList?[index],
                            tapOnBtnShare: {[weak self] (isShare) in
-                            guard let self = self else { return}
-                            if isShare {
-                                /// copy news url to clipboard
-                                UIPasteboard.general.string = self.newsList?[index].link
-                                self.showToast(message: "Copied url to clipboard")
-                            }
-                        })
+                                guard let self = self else { return}
+                                if isShare {
+                                    /// copy news url to clipboard
+                                    UIPasteboard.general.string = self.newsList?[index].link
+                                    self.showToast(message: "Copied url to clipboard")
+                                }
+                           },
+                           isLastItem: (index == (self.newsList?.count ?? 0) - 1) )
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let news = self.newsList?[indexPath.item] else { return }
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        detailsVC.titles = "Chi tiết tin tức"
+        
         if let link = news.link {
-            detailsVC.url = URL(string: link)
+            detailsVC.configVC(title: "Chi tiết tin tức", url: URL(string: link))
         }
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }

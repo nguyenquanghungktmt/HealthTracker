@@ -73,7 +73,6 @@ extension PromotionListViewController: UITableViewDelegate, UITableViewDataSourc
         
         let index = indexPath.item
         cell.selectionStyle = .none
-        cell.viewLine.isHidden = (index == (self.promotionList?.count ?? 0) - 1)
         cell.configureCell(promotion: promotionList?[index],
                            tapOnBtnShare: {[weak self] (isShare) in
                             guard let self = self else { return}
@@ -82,16 +81,16 @@ extension PromotionListViewController: UITableViewDelegate, UITableViewDataSourc
                                 UIPasteboard.general.string = self.promotionList?[index].link
                                 self.showToast(message: "Copied url to clipboard")
                             }
-                        })
+                           },
+                           isLastItem: (index == (self.promotionList?.count ?? 0) - 1))
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let promotion = self.promotionList?[indexPath.item] else { return }
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        detailsVC.titles = "Chi tiết khuyến mại"
         if let link = promotion.link {
-            detailsVC.url = URL(string: link)
+            detailsVC.configVC(title: "Chi tiết khuyến mại", url: URL(string: link))
         }
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }

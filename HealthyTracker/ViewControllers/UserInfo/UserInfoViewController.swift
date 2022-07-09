@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class UserInfoViewController: UIViewController {
+    @IBOutlet weak var scrollViewUser: UIScrollView!
     @IBOutlet weak var titleNews: UILabel!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtLastName: UITextField!
@@ -19,59 +21,74 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var txtWard: UITextField!
     @IBOutlet weak var txtAddress: UITextField!
     @IBOutlet weak var txtBloodType: UITextField!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
+    
+    @IBOutlet weak var lbMale: UILabel!
+    @IBOutlet weak var lbFemale: UILabel!
+    @IBOutlet weak var imgFemale: UIImageView!
+    @IBOutlet weak var imgMale: UIImageView!
+    
+    @IBOutlet weak var scGender: UISegmentedControl!
     
     @IBOutlet weak var btnNext: UIButton!
     
     var userInfo : UserModel?
     var userLocation : LocationModel?
+    
+    lazy var refreshControl: UIRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        register()
+        setupView()
+        loadDataUser()
+    }
+    
+    func register() {
+        /// set delegate for text fields
         txtName.delegate = self
         txtLastName.delegate = self
         txtBirthDate.delegate = self
         txtPhoneNumber.delegate = self
         txtEmail.delegate = self
-        loadDataUser()
     }
     
+    func setupView(){
+        self.refreshControl.addTarget(self, action: #selector(loadDataUser), for: .valueChanged)
+        self.scrollViewUser.refreshControl = refreshControl
+        
+        self.setFocusSegmentControl(isSelected: true, label: self.lbMale, image: self.imgMale)
+        self.setFocusSegmentControl(isSelected: false, label: self.lbFemale, image: self.imgFemale)
+        
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
+    }
+    
+    @objc
     func loadDataUser(){
+        self.loading.startAnimating()
         DispatchQueue.main.async {[weak self] in
             guard let self = self else { return}
             self.fetchDataUserInfo()
         }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {[weak self] in
-            guard let self = self else { return}
-            self.fetchDataUserLocation()
-            
-        }
     }
     
     func fetchDataUserInfo() {
+        /// Load data user Information
         APIUtilities.requestUserInfo { [weak self] result, error in
             guard let self = self else { return}
             
             guard let result = result, error == nil else {
-//                self.loading.stopAnimating()
+                self.loading.stopAnimating()
+                self.refreshControl.endRefreshing()
                 self.showToast(message: "Couldn't load user information")
                 return
             }
             self.userInfo = result
             
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return}
-                // update ui
-                self.txtName.text = self.userInfo?.name
-                self.txtLastName.text = self.userInfo?.last_name
-                self.txtBirthDate.text = self.userInfo?.birth_date
-                self.txtEmail.text = self.userInfo?.contact_email
-                self.txtPhoneNumber.text = self.userInfo?.phone
-                self.txtAddress.text = self.userInfo?.full_address
-                self.txtBloodType.text = self.userInfo?.blood_name
-            }
+            /// Continue to load data user location
+            self.fetchDataUserLocation()
         }
     }
     
@@ -84,26 +101,83 @@ class UserInfoViewController: UIViewController {
                 guard let self = self else { return}
                 
                 guard let result = result, error == nil else {
+                    self.loading.stopAnimating()
+                    self.refreshControl.endRefreshing()
+                    self.showToast(message: "Couldn't load user location")
                     return
                 }
                 self.userLocation = result
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return}
-                    // update ui
-                    self.txtProvince.text = self.userLocation?.province_name
-                    self.txtDistrict.text = self.userLocation?.district_name
-                    self.txtWard.text = self.userLocation?.ward_name
-                }
+                
+                /// Update data to UI
+                self.updateUIData()
             })
         }
 
     }
+    
+    func updateUIData() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return}
+            self.loading.stopAnimating()
+            self.refreshControl.endRefreshing()
+            
+            // update ui
+            self.txtName.text = self.userInfo?.name
+            self.txtLastName.text = self.userInfo?.last_name
+            self.txtBirthDate.text = self.userInfo?.birth_date
+            self.txtEmail.text = self.userInfo?.contact_email
+            self.txtPhoneNumber.text = self.userInfo?.phone
+            self.txtAddress.text = self.userInfo?.address
+            self.txtBloodType.text = self.userInfo?.blood_name
+            
+            if let gender = self.userInfo?.sex {
+                self.scGender.selectedSegmentIndex = (gender == 1 ? 0 : 1)
+                self.setFocusGender(isMale: gender == 1)
+            }
+            
+            // update ui for user location
+            self.txtProvince.text = self.userLocation?.province_name
+            self.txtDistrict.text = self.userLocation?.district_name
+            self.txtWard.text = self.userLocation?.ward_name
+            
+
+        }
+    }
+    
+    @IBAction func genderDidChange(_ sender: UISegmentedControl) {
+        self.setFocusGender(isMale: sender.selectedSegmentIndex == 0)
+    }
+    
 
     @IBAction func handleBtnBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func handleBtnNext(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 extension UserInfoViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // date picker for Date textfield
+        if textField.tag == 4{
+            
+            self.view.endEditing(true)
+            let datePicker = DatePickerViewController()
+            datePicker.modalPresentationStyle = .overFullScreen
+            self.present(datePicker, animated: true, completion: nil)
+            datePicker.selectDateCallBack = { date in
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/YYYY"
+                // set date to text field
+                textField.text = dateFormatter.string(from: date)
+            }
+            return false
+        }
+        
+        return true
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let listView = textField.superview?.subviews else { return }
         for view in listView {
@@ -118,5 +192,18 @@ extension UserInfoViewController: UITextFieldDelegate {
             (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.grayBold
             view.viewWithTag(3)?.backgroundColor = Constants.Color.grayBold
         }
+    }
+}
+extension UserInfoViewController {
+    func setFocusSegmentControl(isSelected: Bool?, label: UILabel?, image: UIImageView?){
+        if let isSelected = isSelected {
+            label?.textColor = isSelected ? Constants.Color.greenBold : .black
+            image?.tintColor = isSelected ? Constants.Color.greenBold : .black
+        }
+    }
+    
+    func setFocusGender(isMale: Bool) {
+        self.setFocusSegmentControl(isSelected: isMale, label: self.lbMale, image: self.imgMale)
+        self.setFocusSegmentControl(isSelected: !isMale, label: self.lbFemale, image: self.imgFemale)
     }
 }

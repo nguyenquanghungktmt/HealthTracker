@@ -22,6 +22,11 @@ class DetailsViewController: UIViewController {
         setupView()
     }
     
+    func configVC(title: String?, url: URL?) {
+        self.title = title
+        self.url = url
+    }
+    
     func setupView(){
         if let titles = titles{
             lbTitle.text = titles
@@ -31,6 +36,13 @@ class DetailsViewController: UIViewController {
             self.webView.load(URLRequest(url: url))
         }
         self.webView.navigationDelegate = self
+        
+        /// if webview didn't finish loading data in 3s, display webview
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.loading.isHidden = true
+            self.webView.isHidden = false
+        }
+
     }
     
     @IBAction func onTapBtnBack(_ sender: UIButton) {
@@ -46,9 +58,9 @@ class DetailsViewController: UIViewController {
 }
 extension DetailsViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        webView.isHidden = true
         loading.startAnimating()
         loading.isHidden = false
+        self.webView.isHidden = true
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

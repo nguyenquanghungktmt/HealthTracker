@@ -60,6 +60,16 @@ class OTPStackView: UIStackView {
 }
 
 extension OTPStackView: UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let shoudEdit = otpCodes.first(where: { $0.text?.isEmpty == true}) ?? textField
+        
+        if shoudEdit == textField {
+            return true
+        }
+        
+        shoudEdit.becomeFirstResponder()
+        return false
+    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let otpTextField = textField as? OTPTextField else {
             return false
@@ -110,7 +120,11 @@ class OTPTextField: UITextField{
     }
     
     override func deleteBackward() {
+        if text?.isEmpty == true {
+            previousTextField?.text = ""
+        }
         self.text = ""
-        self.previousTextField?.becomeFirstResponder()
+        previousTextField?.becomeFirstResponder()
+
     }
 }

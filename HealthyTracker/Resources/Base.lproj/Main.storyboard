@@ -726,7 +726,7 @@
                                                         <color key="tintColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.094117647060000004" green="0.098039215690000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="yes" smartInsertDeleteType="yes" smartQuotesType="yes"/>
                                                     </textField>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xl7-Dq-HUh" userLabel="line">
                                                         <rect key="frame" x="24" y="79" width="366" height="1"/>
@@ -764,7 +764,7 @@
                                                         <color key="tintColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.094117647060000004" green="0.098039215690000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXS-Y9-1lJ" userLabel="line">
                                                         <rect key="frame" x="24" y="75" width="366" height="1"/>
@@ -797,12 +797,12 @@
                                                         <color key="textColor" red="0.58823529409999997" green="0.60784313729999995" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DD/MM/YY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9CY-bD-VJZ">
+                                                    <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DD/MM/YY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9CY-bD-VJZ">
                                                         <rect key="frame" x="24" y="44" width="366" height="22"/>
                                                         <color key="tintColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.094117647060000004" green="0.098039215690000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7av-9J-TgK" userLabel="line">
                                                         <rect key="frame" x="24" y="75" width="366" height="1"/>
@@ -835,7 +835,7 @@
                                                         <color key="textColor" red="0.58823529409999997" green="0.60784313729999995" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fme-8f-dV4">
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fme-8f-dV4">
                                                         <rect key="frame" x="24" y="50" width="366" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="KJC-CQ-DaQ"/>
@@ -853,12 +853,15 @@
                                                                 <color key="value" red="0.93333333333333335" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                                <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="genderDidChange:" destination="pp5-Th-Nig" eventType="valueChanged" id="gcf-LY-lws"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeJ-r1-7zd" userLabel="view male">
                                                         <rect key="frame" x="76.5" y="50" width="54.5" height="44"/>
@@ -946,7 +949,7 @@
                                                         <color key="tintColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.094117647060000004" green="0.098039215690000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" textContentType="tel"/>
                                                     </textField>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOz-cr-9qj" userLabel="line">
                                                         <rect key="frame" x="24" y="75" width="366" height="1"/>
@@ -984,7 +987,7 @@
                                                         <color key="tintColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.094117647060000004" green="0.098039215690000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="NunitoSans-SemiBold" family="Nunito Sans" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-lr-mhs" userLabel="line">
                                                         <rect key="frame" x="24" y="75" width="366" height="1"/>
@@ -1261,6 +1264,9 @@
                                                                 <real key="value" value="24"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handleBtnNext:" destination="pp5-Th-Nig" eventType="touchUpInside" id="62P-5n-iQO"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1343,6 +1349,19 @@
                                     <constraint firstAttribute="bottom" secondItem="98X-Ug-qv2" secondAttribute="bottom" id="yjD-n9-qyG"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Rsr-gh-xNv">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="WyV-nN-UqI"/>
+                                    <constraint firstAttribute="width" constant="100" id="bzo-uU-4eM"/>
+                                </constraints>
+                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ud5-wq-3wN"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1352,12 +1371,21 @@
                             <constraint firstAttribute="trailing" secondItem="X9Z-TY-bEh" secondAttribute="trailing" id="NZ5-dZ-9i3"/>
                             <constraint firstItem="X9Z-TY-bEh" firstAttribute="leading" secondItem="ud5-wq-3wN" secondAttribute="leading" id="PKr-iw-LDg"/>
                             <constraint firstItem="ud5-wq-3wN" firstAttribute="bottom" secondItem="TYj-Na-Pi1" secondAttribute="bottom" id="RFu-JI-40e"/>
+                            <constraint firstItem="Rsr-gh-xNv" firstAttribute="centerX" secondItem="zSt-ZE-ZTp" secondAttribute="centerX" id="gW7-60-9t8"/>
                             <constraint firstItem="ud5-wq-3wN" firstAttribute="trailing" secondItem="TYj-Na-Pi1" secondAttribute="trailing" id="tMe-Nm-8rf"/>
+                            <constraint firstItem="Rsr-gh-xNv" firstAttribute="centerY" secondItem="zSt-ZE-ZTp" secondAttribute="centerY" id="tgC-aJ-YZl"/>
                             <constraint firstItem="TYj-Na-Pi1" firstAttribute="top" secondItem="X9Z-TY-bEh" secondAttribute="bottom" id="zCT-98-Vre"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnNext" destination="spA-ML-aSK" id="bCE-VH-a58"/>
+                        <outlet property="imgFemale" destination="Jys-vf-9dQ" id="Ejc-PZ-LAN"/>
+                        <outlet property="imgMale" destination="3bo-DZ-Lg2" id="57c-cB-mzx"/>
+                        <outlet property="lbFemale" destination="k8r-Bz-ACz" id="axU-gJ-Ghh"/>
+                        <outlet property="lbMale" destination="QK4-3e-TdY" id="jM9-mq-jdA"/>
+                        <outlet property="loading" destination="Rsr-gh-xNv" id="XVy-bi-QLy"/>
+                        <outlet property="scGender" destination="fme-8f-dV4" id="XJE-2h-CG0"/>
+                        <outlet property="scrollViewUser" destination="TYj-Na-Pi1" id="qDb-Yv-J2M"/>
                         <outlet property="titleNews" destination="BsI-HL-YUN" id="HX9-Nu-21O"/>
                         <outlet property="txtAddress" destination="RW9-wG-dmB" id="sEh-xQ-apW"/>
                         <outlet property="txtBirthDate" destination="9CY-bD-VJZ" id="QIx-RQ-cvg"/>
