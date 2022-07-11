@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PromotionModel {
+class PromotionModel: NSObject, JsonInitObject {
     var id     : Int?
     var category_id     : Int?
     var code     : String?
@@ -65,7 +65,7 @@ class PromotionModel {
     }
 
 
-    convenience init(json: [String: Any]) {
+    required convenience init(json: [String: Any]) {
         self.init()
         
         if let wrapValue = json["amount"] as? Int {

@@ -39,7 +39,7 @@ class NewsListViewController: UIViewController {
     func fetchDataNewsList() {
         //load data here
         self.loading.startAnimating()
-        APIUtilities.requestNewsList { [weak self] result, error in
+        APIUtilities.requestNewsList2 { [weak self] result, error in
             guard let self = self else { return}
             self.loading.stopAnimating()
             self.refreshControl.endRefreshing()
@@ -48,7 +48,7 @@ class NewsListViewController: UIViewController {
                 self.showToast(message: "Couldn't load data")
                 return
             }
-            self.newsList = result.newsList
+            self.newsList = result
 
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}

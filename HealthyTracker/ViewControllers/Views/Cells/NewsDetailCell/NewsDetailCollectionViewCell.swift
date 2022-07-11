@@ -29,7 +29,7 @@ class NewsDetailCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
     }
     
-    func configureCell(news: ArticleModel?) {
+    func configureCell(news: NewsModel?) {
         Utilities.loadImage(self.imgNews, strURL: news?.picture ?? "", placeHolder: UIImage.imageWithColor(color: .lightGray))
         self.lbNewsTitle.text = news?.title ?? " "
         self.lbNewsCategory.text = news?.category_name ?? " "

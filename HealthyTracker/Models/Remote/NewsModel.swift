@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NewsModel{
+class NewsModel: NSObject, JsonInitObject{
     var id: Int?
     var category_id: Int?
     var title : String?
@@ -47,7 +47,7 @@ class NewsModel{
         self.summary = summary
     }
     
-    convenience init(json: [String: Any]) {
+    required convenience init(json: [String: Any]) {
         self.init()
         
         if let wrapValue = json["category_id"] as? Int {

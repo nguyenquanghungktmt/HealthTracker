@@ -38,7 +38,7 @@ class PromotionListViewController: UIViewController {
     func fetchDataPromotionList() {
         //load data here
         self.loading.startAnimating()
-        APIUtilities.requestPromotionList { [weak self] result, error in
+        APIUtilities.requestPromotionList2 { [weak self] result, error in
             guard let self = self else { return}
             self.loading.stopAnimating()
             self.refreshControl.endRefreshing()
@@ -47,7 +47,7 @@ class PromotionListViewController: UIViewController {
                 self.showToast(message: "Couldn't load data")
                 return
             }
-            self.promotionList = result.promotionList
+            self.promotionList = result
 
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return}

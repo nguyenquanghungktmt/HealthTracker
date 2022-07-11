@@ -98,7 +98,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
                 return UITableViewCell()
             }
             newsCell.selectionStyle = .none
-            newsCell.configureViews(articleList: self.newsFeed?.articleList,
+            newsCell.configureViews(newsList: self.newsFeed?.newsList,
                                     pushNextVC: {[weak self] (result) in
                                                 guard let self = self else { return}
                                                 if result {
@@ -111,7 +111,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
                     
                                                         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
                                                         detailsVC.titles = "Chi tiết tin tức"
-                                                        if let link = self.newsFeed?.articleList?[result].link {
+                                                        if let link = self.newsFeed?.newsList?[result].link {
                                                             detailsVC.url = URL(string: link)
                                                         }
                                                         self.navigationController?.pushViewController(detailsVC, animated: true)

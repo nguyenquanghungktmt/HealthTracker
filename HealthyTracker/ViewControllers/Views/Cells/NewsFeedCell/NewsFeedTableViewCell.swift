@@ -17,7 +17,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var btnViewAll: UIButton!
     @IBOutlet weak var clvNewsDetail: UICollectionView!
     
-    var articleList     : [ArticleModel]?
+    var newsList     : [NewsModel]?
     var promotionList     : [PromotionModel]?
     var typeCell : NewFeedTableViewCellType?
     
@@ -34,12 +34,12 @@ class NewsFeedTableViewCell: UITableViewCell {
         clvNewsDetail.register(UINib(nibName: "NewsDetailCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsDetailCollectionViewCell")
     }
 
-    func configureViews(articleList: [ArticleModel]?, pushNextVC: ((Bool) -> ())?, tapOnNewsFeedCell: ((Int) -> ())?){
+    func configureViews(newsList: [NewsModel]?, pushNextVC: ((Bool) -> ())?, tapOnNewsFeedCell: ((Int) -> ())?){
         self.typeCell = .news
         self.pushNextVC = pushNextVC
         self.tapOnNewsFeedCell = tapOnNewsFeedCell
         self.lbTitle.text = "Tin tức"
-        self.articleList = articleList		
+        self.newsList = newsList
         self.promotionList = nil
         self.clvNewsDetail.reloadData()
     }
@@ -49,7 +49,7 @@ class NewsFeedTableViewCell: UITableViewCell {
         self.pushNextVC = pushNextVC
         self.tapOnNewsFeedCell = tapOnNewsFeedCell
         self.lbTitle.text = "Khuyến mãi"
-        self.articleList = nil
+        self.newsList = nil
         self.promotionList = promotionList
         self.clvNewsDetail.reloadData()
     }
@@ -62,7 +62,7 @@ extension NewsFeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch self.typeCell {
         case .news:
-            return articleList?.count ?? 0
+            return newsList?.count ?? 0
             
         case .promotion:
             return promotionList?.count ?? 0
@@ -79,7 +79,7 @@ extension NewsFeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         
         switch self.typeCell {
         case .news:
-            let news = articleList?[indexPath.item]
+            let news = newsList?[indexPath.item]
             cell.configureCell(news: news)
             return cell
             
