@@ -140,7 +140,8 @@ class UserInfoViewController: UIViewController {
             self.txtDistrict.text = self.userLocation?.district_name
             self.txtWard.text = self.userLocation?.ward_name
             
-
+            // update BtnNext
+            self.updateBtnNext(isEnable: self.isFullField())
         }
     }
     
@@ -159,6 +160,13 @@ class UserInfoViewController: UIViewController {
 }
 extension UserInfoViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // highlight title and line
+        guard let listView = textField.superview?.subviews else { return false}
+        for view in listView {
+            (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.greenBold
+            view.viewWithTag(3)?.backgroundColor = Constants.Color.greenBold
+        }
+        
         // date picker for Date textfield
         if textField.tag == 4{
             
@@ -178,20 +186,21 @@ extension UserInfoViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let listView = textField.superview?.subviews else { return }
-        for view in listView {
-            (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.greenBold
-            view.viewWithTag(3)?.backgroundColor = Constants.Color.greenBold
-        }
-        
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        guard let listView = textField.superview?.subviews else { return }
+//        for view in listView {
+//            (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.greenBold
+//            view.viewWithTag(3)?.backgroundColor = Constants.Color.greenBold
+//        }
+//
+//    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let listView = textField.superview?.subviews else { return }
         for view in listView {
             (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.grayBold
             view.viewWithTag(3)?.backgroundColor = Constants.Color.grayBold
         }
+        updateBtnNext(isEnable: self.isFullField())
     }
 }
 extension UserInfoViewController {
@@ -205,5 +214,14 @@ extension UserInfoViewController {
     func setFocusGender(isMale: Bool) {
         self.setFocusSegmentControl(isSelected: isMale, label: self.lbMale, image: self.imgMale)
         self.setFocusSegmentControl(isSelected: !isMale, label: self.lbFemale, image: self.imgFemale)
+    }
+    
+    func isFullField() -> Bool{
+        return !(self.txtName.text == "" || self.txtLastName.text == "" || self.txtBirthDate.text == "")
+    }
+    
+    func updateBtnNext(isEnable: Bool) {
+        self.btnNext.isEnabled = isEnable
+        self.btnNext.backgroundColor = isEnable ? Constants.Color.greenBold : Constants.Color.greenLight
     }
 }

@@ -710,7 +710,7 @@
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-NB-H6k">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="942"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="958"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpj-VM-jOa" userLabel="ten">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -1247,11 +1247,11 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbF-14-xWR">
-                                                <rect key="frame" x="0.0" y="858" width="414" height="84"/>
+                                                <rect key="frame" x="0.0" y="858" width="414" height="100"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spA-ML-aSK">
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spA-ML-aSK">
                                                         <rect key="frame" x="24" y="36" width="366" height="48"/>
-                                                        <color key="backgroundColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.17254901959999999" green="0.52549019610000003" blue="0.4039215686" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="bOY-Id-Dh5"/>
                                                         </constraints>
@@ -1274,7 +1274,7 @@
                                                     <constraint firstItem="spA-ML-aSK" firstAttribute="top" secondItem="rbF-14-xWR" secondAttribute="top" constant="36" id="YLp-Ye-dQt"/>
                                                     <constraint firstAttribute="trailing" secondItem="spA-ML-aSK" secondAttribute="trailing" constant="24" id="li5-53-J7G"/>
                                                     <constraint firstItem="spA-ML-aSK" firstAttribute="leading" secondItem="rbF-14-xWR" secondAttribute="leading" constant="24" id="qy5-ho-IjY"/>
-                                                    <constraint firstAttribute="bottom" secondItem="spA-ML-aSK" secondAttribute="bottom" id="wf8-jH-EM3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="spA-ML-aSK" secondAttribute="bottom" constant="16" id="wf8-jH-EM3"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
