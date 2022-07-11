@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 
 class OTPVerifyViewController: UIViewController {
     @IBOutlet weak var btnBack: UIButton!
@@ -43,8 +42,6 @@ class OTPVerifyViewController: UIViewController {
     }
     
     func setupView(){
-        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
-        
         btnNext.setTitle("Tiếp Tục", for: .normal)
         updateBtnNext(isEnable: false)
         

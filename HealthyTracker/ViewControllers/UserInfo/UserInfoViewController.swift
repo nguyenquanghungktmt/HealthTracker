@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 
 class UserInfoViewController: UIViewController {
     @IBOutlet weak var scrollViewUser: UIScrollView!
@@ -61,8 +60,6 @@ class UserInfoViewController: UIViewController {
         
         self.setFocusSegmentControl(isSelected: true, label: self.lbMale, image: self.imgMale)
         self.setFocusSegmentControl(isSelected: false, label: self.lbFemale, image: self.imgFemale)
-        
-        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
     }
     
     @objc

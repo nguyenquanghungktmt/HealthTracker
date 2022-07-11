@@ -47,13 +47,14 @@ class LoginViewController: UIViewController {
 
     /// Check valid phone number using regex
     func isValidPhoneNumber(phone: String) -> Bool {
-        let phoneRegex = "^(0?)[1-9]{1}+[0-9]{8}$"
+        let phoneRegex = "^(0|\\+84)?[1-9]{1}+[0-9]{8}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         return phoneTest.evaluate(with: phone)
     }
         
     @objc func textFieldEditChanged(_ textField: UITextField) {
-        let phoneNumber = txtEnterPhoneNumber.text ?? ""
+        var phoneNumber = txtEnterPhoneNumber.text ?? ""
+        phoneNumber = phoneNumber.trimmingCharacters(in: .whitespacesAndNewlines)
         updateBtnNext(isEnable: isValidPhoneNumber(phone: phoneNumber))
     }
     

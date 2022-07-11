@@ -49,7 +49,7 @@ class OTPStackView: UIStackView {
     func tapOnTextField(otpTextField: OTPTextField){
         if otpTextField.text?.isEmpty == true {return}
         let index = otpCodes.firstIndex(of: otpTextField) ?? 0
-        for i in index+1..<otpCodes.count{ otpCodes[i].text = "" }
+        for i in index..<otpCodes.count{ otpCodes[i].text = "" }
     }
 
     func isValidOTP(otp: String) -> Bool{
