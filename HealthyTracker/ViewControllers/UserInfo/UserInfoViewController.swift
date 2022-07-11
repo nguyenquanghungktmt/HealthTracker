@@ -141,7 +141,7 @@ class UserInfoViewController: UIViewController {
             self.txtWard.text = self.userLocation?.ward_name
             
             // update BtnNext
-            self.updateBtnNext(isEnable: self.isFullField())
+            self.updateBtnNext(isEnable: self.isFullFields())
         }
     }
     
@@ -200,7 +200,7 @@ extension UserInfoViewController: UITextFieldDelegate {
             (view.viewWithTag(1) as? UILabel)?.textColor = Constants.Color.grayBold
             view.viewWithTag(3)?.backgroundColor = Constants.Color.grayBold
         }
-        updateBtnNext(isEnable: self.isFullField())
+        updateBtnNext(isEnable: self.isFullFields())
     }
 }
 extension UserInfoViewController {
@@ -216,7 +216,7 @@ extension UserInfoViewController {
         self.setFocusSegmentControl(isSelected: !isMale, label: self.lbFemale, image: self.imgFemale)
     }
     
-    func isFullField() -> Bool{
+    func isFullFields() -> Bool{
         return !(self.txtName.text == "" || self.txtLastName.text == "" || self.txtBirthDate.text == "")
     }
     
