@@ -83,7 +83,7 @@ extension OTPStackView: UITextFieldDelegate{
                 let stringArray = Array(string)
                 let index = otpCodes.firstIndex(of: otpTextField) ?? 0
                 let lastIndex = min(otpCount ?? 0, string.count)
-                for i in 0..<lastIndex{
+                for i in 0..<lastIndex-index{
                     otpCodes[index+i].text = String(stringArray[i])
                 }
                 otpCodes[lastIndex == otpCount ? lastIndex-1 : lastIndex].becomeFirstResponder()
